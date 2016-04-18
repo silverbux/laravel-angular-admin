@@ -1,0 +1,28 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+.idea/
+/bower_components
+npm-debug.log
+public/storage
+public/views
+public/js
+public/fonts
+public/css
+public/build

@@ -1,0 +1,29 @@
+<form name="userForm" ng-submit="vm.register(userForm.$valid)" novalidate>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.name.$invalid && ( vm.formSubmitted || userForm.name.$touched) }">
+        <input type="text" class="form-control" placeholder="Full name" ng-model="vm.name" name="name" ng-maxlength="30" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+        <p ng-show="userForm.name.$error.required && ( vm.formSubmitted || userForm.name.$touched)" class="help-block">Username is required.</p>
+  		<p ng-show="userForm.name.$error.maxlength" class="help-block">Username is too long.</p>
+    </div>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.email.$invalid && ( vm.formSubmitted || userForm.email.$touched) }">
+        <input type="email" class="form-control" placeholder="Email" ng-model="vm.email" name="email" ng-maxlength="30" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+        <span ng-show="userForm.email.$error.required && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">Email is required.</span>
+        <span ng-show="userForm.email.$error.email && userForm.email.$touched" class="help-block">This is not a valid email.</span>
+    </div>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.password.$invalid && ( vm.formSubmitted || userForm.password.$touched) }">
+        <input type="password" class="form-control" placeholder="Password" ng-model="vm.password" name="password" ng-minlength="8" ng-maxlength="50" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+        <p ng-show="userForm.password.$error.required && ( vm.formSubmitted || userForm.password.$touched)" class="help-block">Password is required.</p>
+  		<p ng-show="userForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+  		<p ng-show="userForm.email.$invalid && userForm.password.$error.minlength && userForm.password.$touched" class="help-block">Password is too short, Please enter more than 4 characters.</p>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+        </div>
+    </div>
+</form>
