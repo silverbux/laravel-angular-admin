@@ -22,5 +22,8 @@
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.3",
     "angular-chart.js": "^0.10.0"
+  },
+  "resolutions": {
+    "angular": "~1.5.x"
   }
 }
