@@ -4,7 +4,6 @@ Plus with social media and JWT authentication on the side.
 
 ![alt tag](https://codeship.com/projects/52207ac0-e822-0133-8dcd-46bb3aa6b241/status?branch=heroku)
 
-
 ## Screenshots
 ![Dashboard Screenshot](https://cloud.githubusercontent.com/assets/1888261/14597104/53b404b6-057d-11e6-876d-c83630686590.png)
 
