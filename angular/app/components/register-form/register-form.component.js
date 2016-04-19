@@ -1,14 +1,16 @@
 class RegisterFormController {
-    constructor($auth, $state) {
+    constructor($auth, $state, $scope) {
         'ngInject';
 
         this.$auth = $auth;
         this.$state = $state;
+        this.$scope = $scope;
 
         this.name = '';
         this.email = '';
         this.password = '';
         this.formSubmitted = false;
+        this.errors = [];
     }
 
     register(isValid) {
@@ -30,12 +32,13 @@ class RegisterFormController {
     }
 
     failedRegistration(response) {
+
         if (response.status === 422) {
             for (var error in response.data.errors) {
-                // return this.ToastService.error(response.data.errors[error][0]);
+                this.errors[error] = response.data.errors[error][0];
+                this.$scope.userForm[error].$invalid = true;
             }
         }
-        // this.ToastService.error(response.statusText);
     }
 }
 
