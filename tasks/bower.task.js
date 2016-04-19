@@ -66,6 +66,9 @@ Elixir.extend('bower', function(jsOutputFile, jsOutputFolder, cssOutputFile, css
 	                    main: [
 	                        './dist/css/*.min.*'
 	                    ]
+	                },
+	                'angular-chart.js': {
+	                    "ignore": true
 	                }
 	            }
 	        }))
