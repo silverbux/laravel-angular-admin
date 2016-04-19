@@ -52,5 +52,8 @@
   },
   "engines": {
     "npm": ">=3"
+  },
+  "scripts": {
+    "postinstall": "bower install && gulp"
   }
 }
