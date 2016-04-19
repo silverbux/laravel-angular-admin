@@ -54,10 +54,6 @@
         ],
         "post-update-cmd": [
             "php artisan optimize"
-        ],
-        "compile": [
-            "bower install",
-            "gulp"
         ]
     },
     "config": {
