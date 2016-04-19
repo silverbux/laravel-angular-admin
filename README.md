@@ -13,10 +13,7 @@ Plus with social media and JWT authentication on the side.
 
 ## Installation
 ```
-$ composer install
-$ npm install -g gulp bower
-$ npm install && bower install
-$ gulp
+$ composer install && npm install
 ```
 
 Copy ```.env.example``` to ```.env``` and enter necessary config for DB and Oauth Providers Settings.

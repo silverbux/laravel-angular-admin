@@ -11,7 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5",
+    "angular": "~1.5.x",
     "angular-ui-router": "~0.2.15",
     "ngstorage": "~0.3.3",
     "restangular": "~1.5.2",
@@ -22,5 +22,8 @@
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.3",
     "angular-chart.js": "^0.10.0"
+  },
+  "resolutions": {
+    "angular": "~1.5.x"
   }
 }
