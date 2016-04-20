@@ -11,6 +11,10 @@ Plus with social media and JWT authentication on the side.
 ## Demo
 [Click here for a live demo](http://laravel-admin.herokuapp.com)
 
+---
+
+![laradmin](https://cloud.githubusercontent.com/assets/1888261/14665607/dbadf93c-0706-11e6-8223-5ea3f88aa44b.png)
+
 ## Installation
 ```
 $ composer install && npm install
@@ -75,7 +79,7 @@ Please read [code_of_conduct.md](code_of_conduct.md) for details on our code of 
 This project wont be possible without the following, We acknowledge and are grateful to these developers for their contributions to open source. **All necessary credits are given**.
 
 * [Laravel-Angular (Material)] (https://laravel-angular.readme.io)
-* [AdminLTE] (https://laravel-angular.readme.io)
+* [AdminLTE] (https://github.com/almasaeed2010/AdminLTE)
 
 ## License
 
