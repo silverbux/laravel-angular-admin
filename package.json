@@ -56,6 +56,6 @@
     "npm": ">=3"
   },
   "scripts": {
-    "postinstall": "bower install && gulp"
+    "postinstall": "bower install && gulp --production"
   }
 }

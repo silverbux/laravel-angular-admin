@@ -12,6 +12,5 @@
     "fonts": {
         "outputFolder": "public/fonts"
     },
-    "buildPath": "public/build",
-    "production" : false
+    "buildPath": "public/build"
 }
