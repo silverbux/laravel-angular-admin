@@ -11,7 +11,8 @@
         "barryvdh/laravel-cors": "0.7.x",
         "laravelangular/generators": "2.3.x",
         "dingo/api": "1.0.x@dev",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "bican/roles": "2.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

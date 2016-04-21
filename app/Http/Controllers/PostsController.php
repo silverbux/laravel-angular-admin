@@ -22,4 +22,8 @@ class PostsController extends Controller
 
         return response()->success(compact('post'));
     }
+
+    public function samplAadminRoute() {
+        return response()->success('success');
+    }
 }

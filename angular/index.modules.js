@@ -16,6 +16,6 @@ angular.module('app.config', []);
 angular.module('app.components', [
 	'ui.router', 'angular-loading-bar',
 	'restangular', 'ngStorage', 'satellizer',
-    'ui.bootstrap', 'chart.js'
+    'ui.bootstrap', 'chart.js', 'mm.acl'
 ]);
 
