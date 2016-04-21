@@ -1,8 +1,10 @@
-class NavSidebarController{
-    constructor(){
+class NavSidebarController {
+    constructor() {
         'ngInject';
+    }
 
-        //
+    $onInit() {
+
     }
 }
 
@@ -12,5 +14,3 @@ export const NavSidebarComponent = {
     controllerAs: 'vm',
     bindings: {}
 }
-
-
