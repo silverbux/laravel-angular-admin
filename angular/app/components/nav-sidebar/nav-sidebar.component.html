@@ -35,7 +35,7 @@
           <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a ui-sref='app.userlist'><i class="fa fa-circle-o"></i> <span>User List</span></a></li>
+          <li ng-show="vm.can('view_content')" class="active"><a ui-sref='app.userlist'><i class="fa fa-circle-o"></i> <span>User List</span></a></li>
           <li class="active"><a ui-sref='app.userroles'><i class="fa fa-circle-o"></i> <span>User Roles</span></a></li>
         </ul>
       </li>

@@ -21,16 +21,9 @@ class LoginFormController {
 
 		this.$auth.login(user)
 			.then((response) => {
-				let userRole = 'admin';
-		        this.AclService.attachRole(userRole);
-
-		        let abilities = {
-		            guest: ['login'],
-		            user: ['logout', 'view_content'],
-		            admin: ['logout', 'view_content', 'manage_content']
-		        }
-
-		        this.AclService.setAbilities(abilities);
+				let data = response.data.data;
+		        this.AclService.attachRole(data.userRole);
+		        this.AclService.setAbilities(data.abilities);
 				this.$auth.setToken(response.data);
 				this.$state.go('app.landing')
 			})

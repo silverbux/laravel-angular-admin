@@ -86,7 +86,15 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        return response()->success(compact('user', 'token'));
+        $abilities = array(
+            'guest' => array('login'),
+            'user' => array('logout', 'view_content'),
+            'admin' => array('logout', 'manage_content', 'view_content'),
+        );
+
+        $userRole = 'admin';
+
+        return response()->success(compact('user', 'token', 'abilities', 'userRole'));
     }
 
     public function postRegister(Request $request)

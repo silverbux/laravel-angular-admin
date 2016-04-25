@@ -120,9 +120,10 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
             url: '/logout',
             views: {
                 'main@app': {
-                    controller: function($scope, $auth, $state) {
+                    controller: function($scope, $auth, $state, AclService) {
                         $auth.logout().then(function(oldUser) {
-                           $state.go('login');
+                            AclService.flushRoles();
+                            $state.go('login');
                         });
                     }
                 }

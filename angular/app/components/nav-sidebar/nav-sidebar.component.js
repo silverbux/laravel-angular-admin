@@ -1,6 +1,7 @@
 class NavSidebarController {
-    constructor() {
+    constructor(AclService) {
         'ngInject';
+        this.can = AclService.can;
     }
 
     $onInit() {
