@@ -17,7 +17,6 @@ require('laravel-elixir-karma');
  */
 
 elixir(function(mix) {
-    console.log(buildPath);
     var jsOutputFolder    = config.js.outputFolder;
     var cssOutputFolder   = config.css.outputFolder;
     var fontsOutputFolder = config.fonts.outputFolder;
