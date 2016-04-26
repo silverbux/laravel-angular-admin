@@ -11,14 +11,16 @@
         "barryvdh/laravel-cors": "0.7.x",
         "laravelangular/generators": "2.3.x",
         "dingo/api": "1.0.x@dev",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "bican/roles": "2.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "classmap": [

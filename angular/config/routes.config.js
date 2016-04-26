@@ -41,10 +41,32 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('app.login', {
+        .state('app.userlist', {
+            url: '/user-lists',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userLists></userLists>'
+                }
+            }
+        })
+        .state('app.userroles', {
+            url: '/user-roles',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userRoles></userRoles>'
+                }
+            }
+        })
+        .state('login', {
 			url: '/login',
 			views: {
-				'main@app': {
+				'layout': {
 					templateUrl: getView('login')
 				},
                 'header@app': {},
@@ -57,7 +79,7 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 registerSuccess:null
             }
 		})
-        .state('app.loginloader', {
+        .state('loginloader', {
             url: '/login-loader',
             views: {
                 'main@app': {
@@ -70,10 +92,10 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 bodyClass : 'hold-transition login-page'
             },
         })
-        .state('app.register', {
+        .state('register', {
             url: '/register',
             views: {
-                'main@app': {
+                'layout': {
                     templateUrl: getView('register')
                 },
                 'header@app': {},
@@ -98,9 +120,10 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
             url: '/logout',
             views: {
                 'main@app': {
-                    controller: function($scope, $auth, $state) {
+                    controller: function($scope, $auth, $state, AclService) {
                         $auth.logout().then(function(oldUser) {
-                           $state.go('app.login');
+                            AclService.flushRoles();
+                            $state.go('login');
                         });
                     }
                 }

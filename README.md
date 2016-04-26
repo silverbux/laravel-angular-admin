@@ -61,6 +61,9 @@ $ artisan ng:config name     #New config inside angular/config/
 * [Dingo/API] (https://github.com/dingo/api)
 * [Restangular] (https://github.com/mgonto/restangular)
 * [UI-Router] (https://github.com/angular-ui/ui-router/)
+* Access Control List
+    * [Romanbican/Roles] (https://github.com/romanbican/roles)
+    * [Angular ACL] (https://github.com/mikemclin/angular-acl)
 
 ## Built With
 * [Laravel] (http://laravel.com)

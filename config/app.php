@@ -163,6 +163,7 @@ return [
         LaravelAngular\Generators\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Bican\Roles\RolesServiceProvider::class,
 
     ],
 

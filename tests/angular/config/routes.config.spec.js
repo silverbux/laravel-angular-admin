@@ -8,35 +8,35 @@ ngDescribe({
             deps.$rootScope.$digest();
         }
         describe('path', function () {
-            
+
             describe('when empty', function () {
                 it('should go to the app.landing state', function () {
                     goTo('');
                     expect(deps.$state.$current.name).toEqual('app.landing');
                 });
             });
-            
+
             describe('when /landing', function () {
                 it('should go to the app.landing state', function () {
                     goTo('/landing');
                     expect(deps.$state.$current.name).toEqual('app.landing');
                 });
             });
-            
+
             describe('when /login', function () {
                 it('should go to the app.landing state', function () {
                     goTo('/login');
-                    expect(deps.$state.$current.name).toEqual('app.login');
+                    expect(deps.$state.$current.name).toEqual('login');
                 });
             });
-            
+
             describe('when /register', function () {
                 it('should go to the app.landing state', function () {
                     goTo('/register');
                     expect(deps.$state.$current.name).toEqual('app.register');
                 });
             });
-            
+
         });
     }
 });
