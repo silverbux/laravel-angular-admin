@@ -2,6 +2,7 @@ var elixir = require('laravel-elixir');
 require('./tasks/angular.task.js');
 require('./tasks/bower.task.js');
 require('./tasks/ngHtml2Js.task.js');
+require('./tasks/phpcs.task.js');
 require('laravel-elixir-livereload');
 require('laravel-elixir-karma');
 

@@ -11,7 +11,8 @@ use Socialite;
 
 class AuthController extends Controller
 {
-    public function getAuthenticatedUser() {
+    public function getAuthenticatedUser()
+    {
         if (Auth::check()) {
             $user = Auth::user();
             $token = JWTAuth::fromUser($user);
