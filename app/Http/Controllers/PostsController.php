@@ -6,10 +6,10 @@ use App\Post;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-
 class PostsController extends Controller
 {
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $this->validate($request, [
             'name'  => 'required|string',
             'topic' => 'required|string',
@@ -21,5 +21,10 @@ class PostsController extends Controller
         $post->save();
 
         return response()->success(compact('post'));
+    }
+
+    public function samplAadminRoute()
+    {
+        return response()->success('success');
     }
 }

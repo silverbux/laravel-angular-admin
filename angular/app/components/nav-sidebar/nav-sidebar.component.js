@@ -1,8 +1,11 @@
-class NavSidebarController{
-    constructor(){
+class NavSidebarController {
+    constructor(AclService) {
         'ngInject';
+        this.can = AclService.can;
+    }
 
-        //
+    $onInit() {
+
     }
 }
 
@@ -12,5 +15,3 @@ export const NavSidebarComponent = {
     controllerAs: 'vm',
     bindings: {}
 }
-
-

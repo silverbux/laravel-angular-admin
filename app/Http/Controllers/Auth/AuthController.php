@@ -11,7 +11,8 @@ use Socialite;
 
 class AuthController extends Controller
 {
-    public function getAuthenticatedUser() {
+    public function getAuthenticatedUser()
+    {
         if (Auth::check()) {
             $user = Auth::user();
             $token = JWTAuth::fromUser($user);
@@ -86,7 +87,15 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        return response()->success(compact('user', 'token'));
+        $abilities = array(
+            'guest' => array('login'),
+            'user' => array('logout', 'view_content'),
+            'admin' => array('logout', 'manage_content', 'view_content'),
+        );
+
+        $userRole = 'admin';
+
+        return response()->success(compact('user', 'token', 'abilities', 'userRole'));
     }
 
     public function postRegister(Request $request)
