@@ -1,25 +1,33 @@
 class UserRolesController{
-    constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder){
+    constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder, API){
         'ngInject';
 
-        this.dtOptions = DTOptionsBuilder
-        .fromSource('http://l-lin.github.io/angular-datatables/data.json')
-        .withOption('createdRow', createdRow)
-        .withBootstrap();
+        API.all('roles').getList()
+        .then((response) => {
+            let dataSet = response.plain()
 
-        this.dtColumns = [
-            DTColumnBuilder.newColumn('id').withTitle('ID'),
-            DTColumnBuilder.newColumn('firstName').withTitle('First name'),
-            DTColumnBuilder.newColumn('lastName').withTitle('Last name'),
-            DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
-            .renderWith(actionsHtml)
-        ];
+            this.dtOptions = DTOptionsBuilder.newOptions()
+            .withOption('data', dataSet)
+            .withOption('createdRow', createdRow)
+            .withOption('responsive', true)
+            .withBootstrap()
 
-        function createdRow(row, data, dataIndex) {
+            this.dtColumns = [
+                DTColumnBuilder.newColumn('id').withTitle('ID'),
+                DTColumnBuilder.newColumn('name').withTitle('Name'),
+                DTColumnBuilder.newColumn('slug').withTitle('Slug'),
+                DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
+                .renderWith(actionsHtml)
+            ];
+
+            this.displayTable = true;
+        });
+
+        let createdRow = (row, data, dataIndex) => {
             $compile(angular.element(row).contents())($scope);
         }
 
-        function actionsHtml(data, type, full, meta) {
+        let actionsHtml = (data, type, full, meta) => {
             return `
                 <button class="btn btn-xs btn-warning" ng-click="vm.edit(${data.id})">
                     <i class="fa fa-edit"></i>
@@ -39,7 +47,7 @@ class UserRolesController{
         console.log(data);
     }
 
-    $onInit(){
+    $onInit() {
     }
 }
 
@@ -49,5 +57,3 @@ export const UserRolesComponent = {
     controllerAs: 'vm',
     bindings: {}
 }
-
-

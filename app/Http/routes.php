@@ -30,8 +30,9 @@ $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
 
 // ADMIN ROUTES
 $api->group(['middleware' => ['api', 'api.auth', 'role:admin']], function ($api) {
-    $api->post('sampleadminroute', [
-        'as' => 'sampleadminroute',
-        'uses' => 'PostsController@sampleadminroute',
+    $api->get('roles', [
+        'as' => 'role-list',
+        'uses' => 'UserController@getRoles',
     ]);
 });
+
