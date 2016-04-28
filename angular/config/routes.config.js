@@ -63,6 +63,17 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.userrolesadd', {
+            url: '/user-roles-add',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userRolesAdd></userRolesAdd>'
+                }
+            }
+        })
         .state('login', {
 			url: '/login',
 			views: {

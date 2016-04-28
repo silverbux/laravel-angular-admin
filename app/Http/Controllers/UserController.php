@@ -12,21 +12,51 @@ use Bican\Roles\Models\Role;
 
 class UserController extends Controller
 {
-    public function getRoles(Request $request)
+    /**
+     * Responds to requests to GET /users
+     */
+    public function getIndex()
     {
-        // $this->validate($request, [
-        //     'name'  => 'required|string',
-        //     'topic' => 'required|string',
-        // ]);
+        //
+    }
 
-        // $post = new Post;
-        // $post->name = $request->input('name');
-        // $post->topic = $request->input('topic');
-        // $post->save();
+    /**
+     * Responds to requests to GET /users/show/1
+     */
+    public function getShow($id)
+    {
+        //
+    }
 
+    /**
+     * Responds to requests to GET /users/admin-profile
+     */
+    public function getAdminProfile()
+    {
+        //
+    }
+
+    /**
+     * Responds to requests to POST /users/profile
+     */
+    public function postProfile()
+    {
+        //
+    }
+
+    public function getRoles()
+    {
         $roles = Role::all();
-        // return '[{"id":1,"name":"Admin","slug":"admin","description":"","level":"1","created_at":"2016-04-21 03:13:14","updated_at":"2016-04-21 03:13:14"}]';
-        // return $roles;
         return response()->success(compact('roles'));
+    }
+
+    public function postRoles(Request $request) {
+        $role = array(
+            'role' => $request->input('role'),
+            'slug' => $request->input('slug'),
+            'description' => $request->input('description')
+        );
+
+        return response()->success(compact('role'));
     }
 }

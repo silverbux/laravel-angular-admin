@@ -1,8 +1,9 @@
 class UserRolesController{
     constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder, API){
         'ngInject';
+        let Roles = API.service('roles', API.all('users'));
 
-        API.all('roles').getList()
+        Roles.getList()
         .then((response) => {
             let dataSet = response.plain()
 
@@ -21,6 +22,8 @@ class UserRolesController{
             ];
 
             this.displayTable = true;
+        }, (response) => {
+            console.log(response);
         });
 
         let createdRow = (row, data, dataIndex) => {
