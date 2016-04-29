@@ -12,7 +12,6 @@ export class APIService {
 				.setBaseUrl('/api/')
 				.setDefaultHeaders(headers)
 				.setErrorInterceptor(function(response) {
-					console.log(response);
 					if (response.status === 422) {
 						for (var error in response.data.errors) {
 							// return ToastService.error(response.data.errors[error][0]);
@@ -24,7 +23,16 @@ export class APIService {
 					if (token) {
 						headers.Authorization = 'Bearer ' + token;
 					}
-				});
+				})
+				.addResponseInterceptor(function (response, operation, what) {
+	                 if (operation === 'getList') {
+	                     var newResponse = response.data[what];
+	                     newResponse.error = response.error;
+	                     return newResponse;
+	                 }
+
+                     return response;
+                })
 		});
 	}
 }

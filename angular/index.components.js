@@ -1,3 +1,4 @@
+import {UserRolesAddComponent} from './app/components/user-roles-add/user-roles-add.component';
 import {UserRolesComponent} from './app/components/user-roles/user-roles.component';
 import {UserListsComponent} from './app/components/user-lists/user-lists.component';
 import {DashboardComponent} from './app/components/dashboard/dashboard.component';
@@ -9,6 +10,7 @@ import {RegisterFormComponent} from './app/components/register-form/register-for
 import {CreatePostFormComponent} from './app/components/create_post_form/create_post_form.component';
 
 angular.module('app.components')
+	.component('userrolesadd', UserRolesAddComponent)
 	.component('userroles', UserRolesComponent)
 	.component('userlists', UserListsComponent)
 	.component('dashboard', DashboardComponent)
