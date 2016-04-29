@@ -51,12 +51,16 @@ class UserController extends Controller
     }
 
     public function postRoles(Request $request) {
-        $role = array(
-            'role' => $request->input('role'),
+        // $comment = new App\Comment(['message' => 'A new comment.']);
+        // $post = App\Post::find(1);
+        // $post->comments()->save($comment);
+
+        $adminRole = Role::create([
+            'name' => $request->input('role'),
             'slug' => $request->input('slug'),
             'description' => $request->input('description')
-        );
+        ]);
 
-        return response()->success(compact('role'));
+        return response()->success(compact('adminRole'));
     }
 }

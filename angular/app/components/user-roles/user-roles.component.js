@@ -1,30 +1,30 @@
-class UserRolesController{
-    constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder, API){
+class UserRolesController {
+    constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder, API) {
         'ngInject';
         let Roles = API.service('roles', API.all('users'));
 
         Roles.getList()
-        .then((response) => {
-            let dataSet = response.plain()
+            .then((response) => {
+                let dataSet = response.plain()
 
-            this.dtOptions = DTOptionsBuilder.newOptions()
-            .withOption('data', dataSet)
-            .withOption('createdRow', createdRow)
-            .withOption('responsive', true)
-            .withBootstrap()
+                this.dtOptions = DTOptionsBuilder.newOptions()
+                    .withOption('data', dataSet)
+                    .withOption('createdRow', createdRow)
+                    .withOption('responsive', true)
+                    .withBootstrap()
 
-            this.dtColumns = [
-                DTColumnBuilder.newColumn('id').withTitle('ID'),
-                DTColumnBuilder.newColumn('name').withTitle('Name'),
-                DTColumnBuilder.newColumn('slug').withTitle('Slug'),
-                DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
-                .renderWith(actionsHtml)
-            ];
+                this.dtColumns = [
+                    DTColumnBuilder.newColumn('id').withTitle('ID'),
+                    DTColumnBuilder.newColumn('name').withTitle('Name'),
+                    DTColumnBuilder.newColumn('slug').withTitle('Slug'),
+                    DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
+                    .renderWith(actionsHtml)
+                ];
 
-            this.displayTable = true;
-        }, (response) => {
-            console.log(response);
-        });
+                this.displayTable = true;
+            }, (response) => {
+                console.log(response);
+            });
 
         let createdRow = (row, data, dataIndex) => {
             $compile(angular.element(row).contents())($scope);
@@ -50,8 +50,7 @@ class UserRolesController{
         console.log(data);
     }
 
-    $onInit() {
-    }
+    $onInit() {}
 }
 
 export const UserRolesComponent = {

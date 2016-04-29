@@ -72,6 +72,9 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 'main@app': {
                     template: '<userRolesAdd></userRolesAdd>'
                 }
+            },
+            params: {
+                alerts:null
             }
         })
         .state('login', {

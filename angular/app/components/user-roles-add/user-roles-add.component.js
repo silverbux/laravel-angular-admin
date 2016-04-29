@@ -1,23 +1,33 @@
-class UserRolesAddController{
-    constructor(API){
+class UserRolesAddController {
+    constructor(API, $state, $stateParams) {
         'ngInject';
 
+        this.$state = $state;
         this.formSubmitted = false;
         this.API = API;
+        this.alerts = [];
+
+        if ($stateParams.alerts) {
+            this.alerts.push($stateParams.alerts);
+        }
     }
 
-    save(isValid) {
+    save(isValid, roleForm) {
+        this.$state.go(this.$state.current, {}, { alerts: 'test' });
         if (isValid) {
             let Roles = this.API.service('roles', this.API.all('users'));
+            let $state = this.$state;
 
             Roles.post({
                 'role': this.role,
-                'slug': this.slug
+                'slug': this.slug,
+                'description': this.description
             }).then(function(response) {
-                console.log(response.plain());
+                let alert = { type: 'success', 'title': 'Success!', msg: 'Role has been added.' };
+                $state.go($state.current, { alerts: alert});
             }, function(response) {
-                console.log('error occured');
-                console.log(response);
+                let alert = { type: 'error', 'title': 'Error!', msg: response.data.message };
+                $state.go($state.current, { alerts: alert});
             });
 
         } else {
@@ -25,7 +35,7 @@ class UserRolesAddController{
         }
     }
 
-    $onInit(){
+    $onInit() {
 
     }
 }
@@ -36,5 +46,3 @@ export const UserRolesAddComponent = {
     controllerAs: 'vm',
     bindings: {}
 }
-
-
