@@ -1,4 +1,4 @@
-import {RoutesRun} from './run/routes.run';
+import { RoutesRun } from './run/routes.run'
 
 angular.module('app.run')
-    .run(RoutesRun);
+  .run(RoutesRun)
