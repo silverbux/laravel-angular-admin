@@ -1,10 +1,10 @@
-export function AclConfig(AclServiceProvider){
-    'ngInject';
+export function AclConfig (AclServiceProvider) {
+  'ngInject'
 
-    var myConfig = {
-        storage: 'localStorage',
-        storageKey: 'AppAcl'
-    };
+  var myConfig = {
+    storage: 'localStorage',
+    storageKey: 'AppAcl'
+  }
 
-    AclServiceProvider.config(myConfig);
+  AclServiceProvider.config(myConfig)
 }

@@ -1,20 +1,20 @@
-//Modules
-import './index.modules';
+// Modules
+import './index.modules'
 
-//Run
-import './index.run';
+// Run
+import './index.run'
 
-//Config
-import './index.config';
+// Config
+import './index.config'
 
-//Filters
-import './index.filters';
+// Filters
+import './index.filters'
 
-//Components
-import './index.components';
+// Components
+import './index.components'
 
-//Directives
-import './index.directives';
+// Directives
+import './index.directives'
 
-//Services
-import './index.services';
+// Services
+import './index.services'
