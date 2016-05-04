@@ -1,7 +1,10 @@
 class UserRolesController {
-    constructor($scope, $compile, DTOptionsBuilder, DTColumnBuilder, API) {
+    constructor($scope, $state, $compile, DTOptionsBuilder, DTColumnBuilder, API) {
         'ngInject';
-        let Roles = API.service('roles', API.all('users'));
+        this.API = API;
+        this.$state = $state;
+
+        let Roles = this.API.service('roles', this.API.all('users'));
 
         Roles.getList()
             .then((response) => {
@@ -46,8 +49,34 @@ class UserRolesController {
         console.log(data);
     }
 
-    delete(data) {
-        console.log(data);
+    delete(roleId) {
+        let API = this.API;
+        let $state = this.$state;
+
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this data!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+            html: false
+        }, function() {
+            API.one("users").one("roles", roleId).remove()
+            .then((response) => {
+                swal({
+                    title: "Deleted!",
+                    text: "User Role has been deleted.",
+                    type: "success",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: true
+                }, function() {
+                    $state.reload();
+                });
+            });
+        });
     }
 
     $onInit() {}

@@ -76,4 +76,9 @@ class UserController extends Controller
 
         return response()->success(compact('adminRole'));
     }
+
+    public function deleteRoles($id) {
+        Role::destroy($id);
+        return response()->success('success');
+    }
 }
