@@ -77,6 +77,21 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 alerts:null
             }
         })
+        .state('app.userrolesedit', {
+            url: '/user-roles-edit/:roleId',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userRolesEdit></userRolesEdit>'
+                }
+            },
+            params: {
+                alerts:null,
+                roleId:null
+            }
+        })
         .state('login', {
 			url: '/login',
 			views: {

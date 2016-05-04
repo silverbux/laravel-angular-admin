@@ -32,9 +32,9 @@ class UserRolesController {
 
         let actionsHtml = (data, type, full, meta) => {
             return `
-                <button class="btn btn-xs btn-warning" ng-click="vm.edit(${data.id})">
+                <a class="btn btn-xs btn-warning" ui-sref="app.userrolesedit({roleId: ${data.id}})">
                     <i class="fa fa-edit"></i>
-                </button>
+                </a>
                 &nbsp;
                 <button class="btn btn-xs btn-danger" ng-click="vm.delete(${data.id})">
                     <i class="fa fa-trash-o"></i>

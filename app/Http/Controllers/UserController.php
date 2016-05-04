@@ -10,6 +10,8 @@ use App\User;
 
 use Bican\Roles\Models\Role;
 
+use Input;
+
 class UserController extends Controller
 {
     /**
@@ -50,11 +52,22 @@ class UserController extends Controller
         return response()->success(compact('roles'));
     }
 
-    public function postRoles(Request $request) {
-        // $comment = new App\Comment(['message' => 'A new comment.']);
-        // $post = App\Post::find(1);
-        // $post->comments()->save($comment);
+    public function getRolesShow($id)
+    {
+        $role = Role::find($id);
 
+        return response()->success($role);
+    }
+
+    public function putRolesShow()
+    {
+        $roleForm = Input::get('data');
+        $affectedRows = Role::where('id', '=', intval($roleForm['id']))->update($roleForm);
+
+        return response()->success($roleForm);
+    }
+
+    public function postRoles(Request $request) {
         $adminRole = Role::create([
             'name' => $request->input('role'),
             'slug' => $request->input('slug'),
