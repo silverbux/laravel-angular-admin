@@ -1,12 +1,12 @@
-class UserRolesController {
+class UserPermissionsController{
     constructor($scope, $state, $compile, DTOptionsBuilder, DTColumnBuilder, API) {
         'ngInject';
         this.API = API;
         this.$state = $state;
 
-        let Roles = this.API.service('roles', this.API.all('users'));
+        let Permissions = this.API.service('permissions', this.API.all('users'));
 
-        Roles.getList()
+        Permissions.getList()
             .then((response) => {
                 let dataSet = response.plain()
 
@@ -35,17 +35,17 @@ class UserRolesController {
 
         let actionsHtml = (data, type, full, meta) => {
             return `
-                <a class="btn btn-xs btn-warning" ui-sref="app.userrolesedit({roleId: ${data.id}})">
+                <a class="btn btn-xs btn-warning" ui-sref="app.userpermissionsedit({permissionId: ${data.id}})">
                     <i class="fa fa-edit"></i>
                 </a>
                 &nbsp;
                 <button class="btn btn-xs btn-danger" ng-click="vm.delete(${data.id})">
                     <i class="fa fa-trash-o"></i>
-                </button>`
+                </button>`;
         }
     }
 
-    delete(roleId) {
+    delete(permissionId) {
         let API = this.API;
         let $state = this.$state;
 
@@ -60,11 +60,11 @@ class UserRolesController {
             showLoaderOnConfirm: true,
             html: false
         }, function() {
-            API.one("users").one("roles", roleId).remove()
+            API.one("users").one("permissions", permissionId).remove()
             .then((response) => {
                 swal({
                     title: "Deleted!",
-                    text: "User Role has been deleted.",
+                    text: "User Permission has been deleted.",
                     type: "success",
                     confirmButtonText: "OK",
                     closeOnConfirm: true
@@ -75,12 +75,15 @@ class UserRolesController {
         });
     }
 
-    $onInit () {}
+    $onInit(){
+    }
 }
 
-export const UserRolesComponent = {
-  templateUrl: './views/app/components/user-roles/user-roles.component.html',
-  controller: UserRolesController,
-  controllerAs: 'vm',
-  bindings: {}
+export const UserPermissionsComponent = {
+    templateUrl: './views/app/components/user-permissions/user-permissions.component.html',
+    controller: UserPermissionsController,
+    controllerAs: 'vm',
+    bindings: {}
 }
+
+

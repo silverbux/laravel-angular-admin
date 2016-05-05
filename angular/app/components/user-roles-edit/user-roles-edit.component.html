@@ -1,0 +1,52 @@
+<section class="content-header">
+    <h1>Blank page <small>it all starts here</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12 col-md-7">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Add New User Role</h3>
+        </div>
+        <form class="form-horizontal" name="roleForm" ng-submit="vm.save(roleForm.$valid)" novalidate>
+          <div class="box-body">
+            <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+              <h4>{{alert.title}}</h4>
+              <p ng-bind-html="alert.msg | trustHtml"></p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': roleForm.role.$invalid && ( vm.formSubmitted || roleForm.role.$touched) }">
+              <label for="inputEmail3" class="col-sm-2 control-label">Role</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.role.data.name" name="role" placeholder="Role" required>
+                <p ng-show="roleForm.role.$error.required && ( vm.formSubmitted || roleForm.role.$touched)" class="help-block">Role is required.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': roleForm.slug.$invalid && ( vm.formSubmitted || roleForm.slug.$touched) }">
+              <label for="inputPassword3" class="col-sm-2 control-label">Slug</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.role.data.slug" name="slug" placeholder="Slug" required>
+                <p ng-show="roleForm.slug.$error.required && ( vm.formSubmitted || roleForm.slug.$touched)" class="help-block">Slug is required.</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" ng-model="vm.role.data.description" name="description" placeholder="Description"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <a ui-sref="app.userroles" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary pull-right">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

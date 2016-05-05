@@ -1,6 +1,6 @@
 # Laravel Angular Admin
 Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate.
-Plus with social media and JWT authentication on the side.
+Plus Oauth and JWT authentication on the side.
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
@@ -12,6 +12,8 @@ Plus with social media and JWT authentication on the side.
 
 ## Demo
 [Click here for a live demo](http://laravel-admin.herokuapp.com)
+
+> admin@example.com / password
 
 ---
 

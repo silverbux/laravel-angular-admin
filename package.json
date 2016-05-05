@@ -3,7 +3,6 @@
   "devDependencies": {
     "angular-mocks": "^1.5.2",
     "bower": "^1.7.9",
-    "gulp-phpcs": "^1.0.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "~4.0.0",
@@ -41,6 +40,7 @@
     "gulp-ng-annotate": "^1",
     "gulp-ng-html2js": "^0.2.0",
     "gulp-notify": "^2.0.0",
+    "gulp-phpcs": "^1.0.0",
     "gulp-sourcemaps": "^1",
     "gulp-uglify": "^1",
     "gulp-util": "^3.0.3",
