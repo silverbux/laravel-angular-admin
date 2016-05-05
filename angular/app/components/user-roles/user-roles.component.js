@@ -41,7 +41,7 @@ class UserRolesController {
                 &nbsp;
                 <button class="btn btn-xs btn-danger" ng-click="vm.delete(${data.id})">
                     <i class="fa fa-trash-o"></i>
-                </button>`;
+                </button>`
         }
     }
 
@@ -75,12 +75,12 @@ class UserRolesController {
         });
     }
 
-    $onInit() {}
+    $onInit () {}
 }
 
 export const UserRolesComponent = {
-    templateUrl: './views/app/components/user-roles/user-roles.component.html',
-    controller: UserRolesController,
-    controllerAs: 'vm',
-    bindings: {}
+  templateUrl: './views/app/components/user-roles/user-roles.component.html',
+  controller: UserRolesController,
+  controllerAs: 'vm',
+  bindings: {}
 }

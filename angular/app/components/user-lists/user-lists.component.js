@@ -1,19 +1,16 @@
-class UserListsController{
-    constructor(){
-        'ngInject';
+class UserListsController {
+  constructor () {
+    'ngInject'
 
-        //
-    }
+  //
+  }
 
-    $onInit(){
-    }
+  $onInit () {}
 }
 
 export const UserListsComponent = {
-    templateUrl: './views/app/components/user-lists/user-lists.component.html',
-    controller: UserListsController,
-    controllerAs: 'vm',
-    bindings: {}
+  templateUrl: './views/app/components/user-lists/user-lists.component.html',
+  controller: UserListsController,
+  controllerAs: 'vm',
+  bindings: {}
 }
-
-

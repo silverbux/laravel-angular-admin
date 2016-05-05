@@ -1,36 +1,36 @@
-export function RoutesConfig($stateProvider, $urlRouterProvider) {
-	'ngInject';
+export function RoutesConfig ($stateProvider, $urlRouterProvider) {
+  'ngInject'
 
-	var getView = (viewName) => {
-		return `./views/app/pages/${viewName}/${viewName}.page.html`;
-	};
+    var getView = (viewName) => {
+        return `./views/app/pages/${viewName}/${viewName}.page.html`
+    }
 
     var getLayout = (layout) => {
-        return `./views/app/pages/layout/${layout}.page.html`;
-    };
+        return `./views/app/pages/layout/${layout}.page.html`
+    }
 
-	$urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/')
 
-	$stateProvider
-		.state('app', {
-			abstract: true,
-			views: {
+    $stateProvider
+    	.state('app', {
+    		abstract: true,
+    		views: {
                 'layout': {
                     templateUrl: getLayout('layout')
                 },
-				'header@app': {
-					templateUrl: getView('header')
-				},
-				'footer@app': {
-					templateUrl: getView('footer')
-				},
-				main: {}
-			},
+    			'header@app': {
+    				templateUrl: getView('header')
+    			},
+    			'footer@app': {
+    				templateUrl: getView('footer')
+    			},
+    			main: {}
+    		},
             data : {
                 bodyClass : 'hold-transition skin-blue sidebar-mini'
             }
-		})
-		.state('app.landing', {
+    	})
+    	.state('app.landing', {
             url: '/',
             data: {
                 auth: true
@@ -133,21 +133,21 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
             }
         })
         .state('login', {
-			url: '/login',
-			views: {
-				'layout': {
-					templateUrl: getView('login')
-				},
+    		url: '/login',
+    		views: {
+    			'layout': {
+    				templateUrl: getView('login')
+    			},
                 'header@app': {},
                 'footer@app': {},
-			},
+    		},
             data : {
                 bodyClass : 'hold-transition login-page'
             },
             params:{
                 registerSuccess:null
             }
-		})
+    	})
         .state('loginloader', {
             url: '/login-loader',
             views: {

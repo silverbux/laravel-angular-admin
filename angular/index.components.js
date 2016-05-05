@@ -25,6 +25,6 @@ angular.module('app.components')
 	.component('navSidebar', NavSidebarComponent)
 	.component('navHeader', NavHeaderComponent)
 	.component('loginLoader', LoginLoaderComponent)
-    .component('loginForm', LoginFormComponent)
-    .component('registerForm', RegisterFormComponent)
-    .component('createPostForm', CreatePostFormComponent);
+  .component('loginForm', LoginFormComponent)
+  .component('registerForm', RegisterFormComponent)
+  .component('createPostForm', CreatePostFormComponent);
