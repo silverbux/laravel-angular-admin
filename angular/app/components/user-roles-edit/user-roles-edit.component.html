@@ -13,7 +13,7 @@
         <div class="box-header with-border">
           <h3 class="box-title">Add New User Role</h3>
         </div>
-        <form class="form-horizontal" name="roleForm" ng-submit="vm.save(roleForm.$valid, roleForm)" novalidate>
+        <form class="form-horizontal" name="roleForm" ng-submit="vm.save(roleForm.$valid)" novalidate>
           <div class="box-body">
             <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
               <h4>{{alert.title}}</h4>

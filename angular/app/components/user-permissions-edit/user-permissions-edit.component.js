@@ -1,4 +1,4 @@
-class UserRolesEditController{
+class UserPermissionsEditController{
     constructor($stateParams, $state, API){
         'ngInject';
 
@@ -10,14 +10,11 @@ class UserRolesEditController{
             this.alerts.push($stateParams.alerts);
         }
 
-        let roleId = $stateParams.roleId;
-        let Role = API.service('roles-show', API.all('users'));
-        Role.one(roleId).get()
+        let permissionId = $stateParams.permissionId;
+        let Permission = API.service('permissions-show', API.all('users'));
+        Permission.one(permissionId).get()
             .then((response) => {
-                let res = response.plain()
-                let data = res.data.role
-
-                this.role = API.copy(response)
+                this.permission = API.copy(response)
             }, (response) => {
                 console.log(response);
             });
@@ -26,9 +23,9 @@ class UserRolesEditController{
     save(isValid) {
         if (isValid) {
             let $state = this.$state;
-            this.role.put()
+            this.permission.put()
             .then((response) => {
-                let alert = { type: 'success', 'title': 'Success!', msg: 'Role has been updated.' };
+                let alert = { type: 'success', 'title': 'Success!', msg: 'Permission has been updated.' };
                 $state.go($state.current, { alerts: alert});
             }, (response) => {
                 let alert = { type: 'error', 'title': 'Error!', msg: response.data.message };
@@ -44,9 +41,9 @@ class UserRolesEditController{
     }
 }
 
-export const UserRolesEditComponent = {
-    templateUrl: './views/app/components/user-roles-edit/user-roles-edit.component.html',
-    controller: UserRolesEditController,
+export const UserPermissionsEditComponent = {
+    templateUrl: './views/app/components/user-permissions-edit/user-permissions-edit.component.html',
+    controller: UserPermissionsEditController,
     controllerAs: 'vm',
     bindings: {}
 }

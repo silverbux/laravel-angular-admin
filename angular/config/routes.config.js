@@ -63,6 +63,46 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.userpermissions', {
+            url: '/user-permissions',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userPermissions></userPermissions>'
+                }
+            }
+        })
+        .state('app.userpermissionsadd', {
+            url: '/user-permissions-add',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userPermissionsAdd></userPermissionsAdd>'
+                }
+            },
+            params: {
+                alerts:null
+            }
+        })
+        .state('app.userpermissionsedit', {
+            url: '/user-permissions-edit/:permissionId',
+            data: {
+                auth: true
+            },
+            views: {
+                'main@app': {
+                    template: '<userPermissionsEdit></userPermissionsEdit>'
+                }
+            },
+            params: {
+                alerts:null,
+                permissionId:null
+            }
+        })
         .state('app.userrolesadd', {
             url: '/user-roles-add',
             data: {

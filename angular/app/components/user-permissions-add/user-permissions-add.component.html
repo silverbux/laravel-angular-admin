@@ -1,0 +1,52 @@
+<section class="content-header">
+    <h1>Blank page <small>it all starts here</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12 col-md-7">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Add New User Permission</h3>
+        </div>
+        <form class="form-horizontal" name="permissionForm" ng-submit="vm.save(permissionForm.$valid, permissionForm)" novalidate>
+          <div class="box-body">
+            <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+              <h4>{{alert.title}}</h4>
+              <p ng-bind-html="alert.msg | trustHtml"></p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': permissionForm.name.$invalid && ( vm.formSubmitted || permissionForm.name.$touched) }">
+              <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.name" name="name" placeholder="Name" required>
+                <p ng-show="permissionForm.name.$error.required && ( vm.formSubmitted || permissionForm.name.$touched)" class="help-block">Name is required.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': permissionForm.slug.$invalid && ( vm.formSubmitted || permissionForm.slug.$touched) }">
+              <label for="inputPassword3" class="col-sm-2 control-label">Slug</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.slug" name="slug" placeholder="Slug" required>
+                <p ng-show="permissionForm.slug.$error.required && ( vm.formSubmitted || permissionForm.slug.$touched)" class="help-block">Slug is required.</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" ng-model="vm.description" name="description" placeholder="Description"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <a ui-sref="app.userpermissions" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary pull-right">Add New</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
