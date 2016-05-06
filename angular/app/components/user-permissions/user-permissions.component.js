@@ -62,15 +62,16 @@ class UserPermissionsController{
         }, function() {
             API.one("users").one("permissions", permissionId).remove()
             .then((response) => {
-                swal({
-                    title: "Deleted!",
-                    text: "User Permission has been deleted.",
-                    type: "success",
-                    confirmButtonText: "OK",
-                    closeOnConfirm: true
-                }, function() {
-                    $state.reload();
-                });
+                console.log(response);
+                // swal({
+                //     title: "Deleted!",
+                //     text: "User Permission has been deleted.",
+                //     type: "success",
+                //     confirmButtonText: "OK",
+                //     closeOnConfirm: true
+                // }, function() {
+                //     $state.reload();
+                // });
             });
         });
     }

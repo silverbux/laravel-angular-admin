@@ -21,7 +21,8 @@ class UserController extends Controller
      */
     public function getIndex()
     {
-        //
+        $users = User::all();
+        return response()->success(compact('users'));
     }
 
     /**
@@ -46,6 +47,10 @@ class UserController extends Controller
     public function postProfile()
     {
         //
+    }
+
+    public function deleteUser($id) {
+        return response()->success(compact('id'));
     }
 
     public function getRoles()
