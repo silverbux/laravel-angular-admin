@@ -1,0 +1,57 @@
+<section class="content-header">
+    <h1>Blank page <small>it all starts here</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12 col-md-7">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Update User Permission</h3>
+        </div>
+        <form class="form-horizontal" name="userForm" ng-submit="vm.save(userForm.$valid)" novalidate>
+          <div class="box-body">
+            <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+              <h4>{{alert.title}}</h4>
+              <p ng-bind-html="alert.msg | trustHtml"></p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.name.$invalid && ( vm.formSubmitted || userForm.name.$touched) }">
+              <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="vm.usereditdata.data.name" name="name" placeholder="Name" required>
+                <p ng-show="userForm.name.$error.required && ( vm.formSubmitted || userForm.name.$touched)" class="help-block">Name is required.</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && ( vm.formSubmitted || userForm.email.$touched) }">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" ng-model="vm.usereditdata.data.email" name="email" placeholder="Email" required>
+                <p ng-show="userForm.email.$error.required && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">Email is required.</p>
+                <p ng-show="userForm.email.$error.email  && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">This is not a valid email.</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Roles</label>
+              <div class="col-sm-10">
+                <div class="checkbox" ng-repeat="role in vm.systemRoles">
+                  <label>
+                    <input type="checkbox" checklist-model="vm.usereditdata.data.role" checklist-value="role.id"> {{role.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <a ui-sref="app.userlist" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary pull-right">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

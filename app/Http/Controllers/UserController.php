@@ -30,7 +30,34 @@ class UserController extends Controller
      */
     public function getShow($id)
     {
-        //
+        $user = User::find($id);
+        $user['role'] = $user
+                        ->roles()
+                        ->select(array('slug','roles.id','roles.name'))
+                        ->get();
+        return response()->success($user);
+    }
+
+    public function putShow()
+    {
+        $userForm = Input::get('data');
+        $userId = intval($userForm['id']);
+
+        $userData = array(
+            'name' => $userForm['name'],
+            'email' => $userForm['email']
+        );
+
+        $affectedRows = User::where('id', '=', $userId)->update($userData);
+
+        $user = User::find($userId);
+        $user->detachAllRoles();
+
+        foreach (Input::get('data.role') as $setRole) {
+            $user->attachRole($setRole);
+        }
+
+        return response()->success('success');
     }
 
     /**
