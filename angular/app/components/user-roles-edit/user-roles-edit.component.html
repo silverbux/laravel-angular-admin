@@ -39,6 +39,16 @@
                 <textarea class="form-control" rows="3" ng-model="vm.role.data.description" name="description" placeholder="Description"></textarea>
               </div>
             </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Permission</label>
+              <div class="col-sm-10">
+                <div class="checkbox" ng-repeat="permission in vm.systemPermissions">
+                  <label>
+                    <input type="checkbox" checklist-model="vm.role.data.permissions" checklist-value="permission.id"> {{permission.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <a ui-sref="app.userroles" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>

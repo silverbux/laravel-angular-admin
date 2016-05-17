@@ -90,16 +90,34 @@ class UserController extends Controller
     {
         $role = Role::find($id);
 
+        $role['permissions'] = $role
+                        ->permissions()
+                        ->select(array('permissions.name','permissions.id'))
+                        ->get();
+
         return response()->success($role);
     }
 
     public function putRolesShow()
     {
         $roleForm = Input::get('data');
-        $roleForm['slug'] = str_slug($roleForm['slug'], ".");
-        $affectedRows = Role::where('id', '=', intval($roleForm['id']))->update($roleForm);
+        $roleData = array(
+            'name' => $roleForm['name'],
+            'slug' => $roleForm['slug'],
+            'description' => $roleForm['description']
+        );
 
-        return response()->success($roleForm);
+        $roleForm['slug'] = str_slug($roleForm['slug'], ".");
+        $affectedRows = Role::where('id', '=', intval($roleForm['id']))->update($roleData);
+
+        $role = Role::find($roleForm['id']);
+        $role->detachAllPermissions();
+
+        foreach (Input::get('data.permissions') as $setPermission) {
+            $role->attachPermission($setPermission);
+        }
+
+        return response()->success('success');
     }
 
     public function postRoles() {

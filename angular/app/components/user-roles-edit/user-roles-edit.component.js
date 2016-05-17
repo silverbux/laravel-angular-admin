@@ -10,12 +10,33 @@ class UserRolesEditController{
             this.alerts.push($stateParams.alerts);
         }
 
+        let Permissions = API.service('permissions', API.all('users'));
+
+        Permissions.getList()
+            .then((response) => {
+                let permissionList = []
+                let permissionResponse = response.plain()
+
+                angular.forEach(permissionResponse, function(value, key) {
+                    permissionList.push({id: value.id, name: value.name})
+                })
+
+                this.systemPermissions = permissionList
+            }, (response) => {
+                console.log(response);
+            });
+
         let roleId = $stateParams.roleId;
         let Role = API.service('roles-show', API.all('users'));
         Role.one(roleId).get()
             .then((response) => {
-                let res = response.plain()
-                let data = res.data.role
+                let rolePermissions = []
+
+                angular.forEach(response.data.permissions, function(value, key) {
+                    rolePermissions.push(value.id)
+                })
+
+                response.data.permissions = rolePermissions;
 
                 this.role = API.copy(response)
             }, (response) => {
