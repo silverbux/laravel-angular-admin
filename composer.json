@@ -1,7 +1,7 @@
 {
-    "name": "jadjoubran/laravel5-angular-material-starter",
-    "description": "Laravel angular material starter",
-    "keywords": ["laravel", "angular", "material", "starter", "ui-router", "api", "angular-material"],
+    "name": "Laravel Angular Admin",
+    "description": "Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate",
+    "keywords": ["laravel", "angular", "bootstrap", "admin", "admin template", "ui-router", "api", "angular-bootstrap"],
     "license": "MIT",
     "type": "project",
     "require": {

@@ -13,6 +13,8 @@ Plus Oauth and JWT authentication on the side.
 ## Demo
 [Click here for a live demo](http://laravel-admin.herokuapp.com)
 
+***Note: If you register or use Oauth to sign-in your info will be available on user lists, you can use credentials below.***
+
 > admin@example.com / password
 
 ---
