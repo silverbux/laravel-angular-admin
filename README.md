@@ -37,12 +37,7 @@ $ php artisan migrate
 ```
 $ gulp && gulp watch
 $ php artisan serve
-```
-
-**Watching assets**
-
-```
-$ gulp && gulp watch
+$ open http://localhost:8000/
 ```
 
 **Angular Generators**
