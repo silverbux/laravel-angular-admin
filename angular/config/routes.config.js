@@ -166,7 +166,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
     .state('loginloader', {
       url: '/login-loader',
       views: {
-        'main@app': {
+        'layout': {
           templateUrl: getView('login-loader')
         },
         'header@app': {},
@@ -207,6 +207,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
           controller: function ($scope, $auth, $state, AclService) {
             $auth.logout().then(function (oldUser) {
               AclService.flushRoles()
+              AclService.setAbilities({})
               $state.go('login')
             })
           }

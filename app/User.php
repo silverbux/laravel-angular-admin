@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar','oauth_provider_id', 'oauth_provider'
+        'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -31,6 +31,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token'
+        'password', 'remember_token','oauth_provider_id', 'oauth_provider'
     ];
 }

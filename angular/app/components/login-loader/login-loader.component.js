@@ -1,10 +1,17 @@
 class LoginLoaderController {
-  constructor ($state, $auth, API) {
+  constructor ($state, $auth, API, AclService) {
     'ngInject'
 
     API.oneUrl('authenticate').one('user').get().then((response) => {
       if (!response.error) {
-        $auth.setToken(response.data)
+        let data = response.data
+
+        angular.forEach(data.userRole, function (value, key) {
+          AclService.attachRole(value)
+        })
+
+        AclService.setAbilities(data.abilities)
+        $auth.setToken(data.token)
         $state.go('app.landing')
       }
     })

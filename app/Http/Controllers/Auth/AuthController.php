@@ -17,7 +17,15 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = JWTAuth::fromUser($user);
 
-            return response()->success($token);
+            $abilities = array(
+                'guest' => array('login'),
+                'user' => array('logout', 'view_content'),
+                'admin' => array('logout', 'manage_content', 'view_content'),
+            );
+
+            $userRole = array('admin', 'user');
+
+            return response()->success(compact('user', 'token', 'abilities', 'userRole'));
         } else {
             return response()->error('unauthorized', 401);
         }

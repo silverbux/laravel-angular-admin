@@ -29,6 +29,15 @@ $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
 });
 
 // ADMIN ROUTES
+
+$api->group(['middleware' => ['api', 'api.auth']], function ($api) {
+    $api->controller('users', 'UserController');
+});
+
+/* EXAMPLE PROTECTED ROUTE
+
 $api->group(['middleware' => ['api', 'api.auth', 'role:admin']], function ($api) {
     $api->controller('users', 'UserController');
 });
+
+*/
