@@ -1,0 +1,25 @@
+box: nodesource/trusty
+build:
+  steps:
+    - npm-install
+    - script:
+        name: install test utilities
+        code: sudo npm install -g standard
+    - npm-test
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+    - script:
+        name: 'npm: install gulp-cli'
+        code: 'npm install -g gulp-cli'
+    - script:
+        name: 'npm: install bower'
+        code: 'npm install -g bower'
+    - script:
+        name: 'bower: install dependencies'
+        code: 'bower install --allow-root --config.interactive=false'
+    - script:
+        name: 'App Build'
+        code: 'gulp --production'
