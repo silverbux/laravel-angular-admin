@@ -17,13 +17,11 @@ class UserRolesEditController {
         let permissionList = []
         let permissionResponse = response.plain()
 
-        angular.forEach(permissionResponse, function (value, key) {
+        angular.forEach(permissionResponse, function (value) {
           permissionList.push({id: value.id, name: value.name})
         })
 
         this.systemPermissions = permissionList
-      }, (response) => {
-        console.log(response)
       })
 
     let roleId = $stateParams.roleId
@@ -32,15 +30,13 @@ class UserRolesEditController {
       .then((response) => {
         let rolePermissions = []
 
-        angular.forEach(response.data.permissions, function (value, key) {
+        angular.forEach(response.data.permissions, function (value) {
           rolePermissions.push(value.id)
         })
 
         response.data.permissions = rolePermissions
 
         this.role = API.copy(response)
-      }, (response) => {
-        console.log(response)
       })
   }
 
@@ -48,7 +44,7 @@ class UserRolesEditController {
     if (isValid) {
       let $state = this.$state
       this.role.put()
-        .then((response) => {
+        .then(() => {
           let alert = { type: 'success', 'title': 'Success!', msg: 'Role has been updated.' }
           $state.go($state.current, { alerts: alert})
         }, (response) => {

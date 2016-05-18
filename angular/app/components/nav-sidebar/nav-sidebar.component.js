@@ -1,6 +1,7 @@
 class NavSidebarController {
   constructor (AclService) {
     'ngInject'
+
     this.can = AclService.can
   }
 

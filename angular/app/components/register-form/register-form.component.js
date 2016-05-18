@@ -22,7 +22,7 @@ class RegisterFormController {
       }
 
       this.$auth.signup(user)
-        .then((response) => {
+        .then(() => {
           this.$state.go('login', { registerSuccess: true })
         })
         .catch(this.failedRegistration.bind(this))

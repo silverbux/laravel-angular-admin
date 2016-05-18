@@ -8,22 +8,43 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
+use Bican\Roles\Models\Role;
+use Bican\Roles\Models\Permission;
 
 class AuthController extends Controller
 {
+    private function getRolesAbilities()
+    {
+        $abilities = array();
+        $roles = Role::all();
+
+        foreach ($roles as $role) {
+            if (!empty($role->slug)) {
+                $abilities[$role->slug] = array();
+                $rolePermission = $role->permissions()->get();
+
+                foreach ($rolePermission as $permission) {
+                    if (!empty($permission->slug)) {
+                        array_push($abilities[$role->slug], $permission->slug);
+                    }
+                }
+            }
+        }
+
+        return $abilities;
+    }
+
     public function getAuthenticatedUser()
     {
         if (Auth::check()) {
             $user = Auth::user();
             $token = JWTAuth::fromUser($user);
+            $abilities = $this->getRolesAbilities();
+            $userRole = array();
 
-            $abilities = array(
-                'guest' => array('login'),
-                'user' => array('logout', 'view_content'),
-                'admin' => array('logout', 'manage_content', 'view_content'),
-            );
-
-            $userRole = array('admin', 'user');
+            foreach ($user->Roles as $role) {
+                $userRole [] = $role->slug;
+            }
 
             return response()->success(compact('user', 'token', 'abilities', 'userRole'));
         } else {
@@ -94,14 +115,13 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+        $token = JWTAuth::fromUser($user);
+        $abilities = $this->getRolesAbilities();
+        $userRole = array();
 
-        $abilities = array(
-            'guest' => array('login'),
-            'user' => array('logout', 'view_content'),
-            'admin' => array('logout', 'manage_content', 'view_content'),
-        );
-
-        $userRole = 'admin';
+        foreach ($user->Roles as $role) {
+            $userRole [] = $role->slug;
+        }
 
         return response()->success(compact('user', 'token', 'abilities', 'userRole'));
     }

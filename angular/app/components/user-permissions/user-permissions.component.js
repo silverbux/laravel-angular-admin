@@ -25,15 +25,13 @@ class UserPermissionsController {
         ]
 
         this.displayTable = true
-      }, (response) => {
-        console.log(response)
       })
 
-    let createdRow = (row, data, dataIndex) => {
+    let createdRow = (row) => {
       $compile(angular.element(row).contents())($scope)
     }
 
-    let actionsHtml = (data, type, full, meta) => {
+    let actionsHtml = (data) => {
       return `
                 <a class="btn btn-xs btn-warning" ui-sref="app.userpermissionsedit({permissionId: ${data.id}})">
                     <i class="fa fa-edit"></i>
@@ -61,17 +59,16 @@ class UserPermissionsController {
       html: false
     }, function () {
       API.one('users').one('permissions', permissionId).remove()
-        .then((response) => {
-          console.log(response)
-        // swal({
-        //     title: "Deleted!",
-        //     text: "User Permission has been deleted.",
-        //     type: "success",
-        //     confirmButtonText: "OK",
-        //     closeOnConfirm: true
-        // }, function() {
-        //     $state.reload()
-        // })
+        .then(() => {
+          swal({
+              title: "Deleted!",
+              text: "User Permission has been deleted.",
+              type: "success",
+              confirmButtonText: "OK",
+              closeOnConfirm: true
+          }, function() {
+              $state.reload()
+          })
         })
     })
   }

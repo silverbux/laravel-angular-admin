@@ -1,3 +1,4 @@
+import { ComingSoonComponent } from './app/components/coming-soon/coming-soon.component';
 import { UserEditComponent } from './app/components/user-edit/user-edit.component'
 import { UserPermissionsEditComponent } from './app/components/user-permissions-edit/user-permissions-edit.component'
 import { UserPermissionsAddComponent } from './app/components/user-permissions-add/user-permissions-add.component'
@@ -15,6 +16,7 @@ import { RegisterFormComponent } from './app/components/register-form/register-f
 import { CreatePostFormComponent } from './app/components/create_post_form/create_post_form.component'
 
 angular.module('app.components')
+	.component('comingsoon', ComingSoonComponent)
   .component('useredit', UserEditComponent)
   .component('userpermissionsedit', UserPermissionsEditComponent)
   .component('userpermissionsadd', UserPermissionsAddComponent)

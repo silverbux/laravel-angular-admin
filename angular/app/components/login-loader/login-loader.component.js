@@ -6,7 +6,7 @@ class LoginLoaderController {
       if (!response.error) {
         let data = response.data
 
-        angular.forEach(data.userRole, function (value, key) {
+        angular.forEach(data.userRole, function (value) {
           AclService.attachRole(value)
         })
 

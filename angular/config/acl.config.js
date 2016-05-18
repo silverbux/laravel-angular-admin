@@ -6,5 +6,7 @@ export function AclConfig (AclServiceProvider) {
     storageKey: 'AppAcl'
   }
 
+  /*eslint-disable */
   AclServiceProvider.config(myConfig)
+  /*eslint-enable */
 }

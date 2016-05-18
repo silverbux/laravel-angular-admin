@@ -22,15 +22,20 @@ class LoginFormController {
     this.$auth.login(user)
       .then((response) => {
         let data = response.data.data
-        this.AclService.attachRole(data.userRole)
-        this.AclService.setAbilities(data.abilities)
+        let AclService = this.AclService
+
+        angular.forEach(data.userRole, function (value) {
+          AclService.attachRole(value)
+        })
+
+        AclService.setAbilities(data.abilities)
         this.$auth.setToken(response.data)
         this.$state.go('app.landing')
       })
       .catch(this.failedLogin.bind(this))
   }
 
-  failedLogin (response) {
+  failedLogin () {
     this.loginfailed = true
   }
 }

@@ -76,7 +76,8 @@ class UserController extends Controller
         //
     }
 
-    public function deleteUser($id) {
+    public function deleteUser($id)
+    {
         return response()->success(compact('id'));
     }
 
@@ -120,7 +121,8 @@ class UserController extends Controller
         return response()->success('success');
     }
 
-    public function postRoles() {
+    public function postRoles()
+    {
         $role = Role::create([
             'name' => Input::get('role'),
             'slug' => str_slug(Input::get('slug'), "."),
@@ -130,7 +132,8 @@ class UserController extends Controller
         return response()->success(compact('role'));
     }
 
-    public function deleteRoles($id) {
+    public function deleteRoles($id)
+    {
         Role::destroy($id);
         return response()->success('success');
     }
@@ -141,7 +144,8 @@ class UserController extends Controller
         return response()->success(compact('permissions'));
     }
 
-    public function postPermissions() {
+    public function postPermissions()
+    {
         $permission = Permission::create([
             'name' => Input::get('name'),
             'slug' => str_slug(Input::get('slug'), "."),
@@ -167,7 +171,8 @@ class UserController extends Controller
         return response()->success($permissionForm);
     }
 
-    public function deletePermissions($id) {
+    public function deletePermissions($id)
+    {
         Permission::destroy($id);
         return response()->success('success');
     }

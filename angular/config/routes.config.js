@@ -41,6 +41,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.comingsoon', {
+      url: '/comingsoon',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<comingSoon></comingSoon>'
+        }
+      }
+    })
     .state('app.userlist', {
       url: '/user-lists',
       data: {
@@ -154,7 +165,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
           templateUrl: getView('login')
         },
         'header@app': {},
-        'footer@app': {},
+        'footer@app': {}
       },
       data: {
         bodyClass: 'hold-transition login-page'
@@ -170,11 +181,11 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
           templateUrl: getView('login-loader')
         },
         'header@app': {},
-        'footer@app': {},
+        'footer@app': {}
       },
       data: {
         bodyClass: 'hold-transition login-page'
-      },
+      }
     })
     .state('register', {
       url: '/register',
@@ -183,7 +194,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
           templateUrl: getView('register')
         },
         'header@app': {},
-        'footer@app': {},
+        'footer@app': {}
       },
       data: {
         bodyClass: 'hold-transition register-page'
@@ -205,7 +216,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       views: {
         'main@app': {
           controller: function ($scope, $auth, $state, AclService) {
-            $auth.logout().then(function (oldUser) {
+            $auth.logout().then(function () {
               AclService.flushRoles()
               AclService.setAbilities({})
               $state.go('login')

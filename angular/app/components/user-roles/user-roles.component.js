@@ -25,15 +25,13 @@ class UserRolesController {
         ]
 
         this.displayTable = true
-      }, (response) => {
-        console.log(response)
       })
 
-    let createdRow = (row, data, dataIndex) => {
+    let createdRow = (row) => {
       $compile(angular.element(row).contents())($scope)
     }
 
-    let actionsHtml = (data, type, full, meta) => {
+    let actionsHtml = (data) => {
       return `
                 <a class="btn btn-xs btn-warning" ui-sref="app.userrolesedit({roleId: ${data.id}})">
                     <i class="fa fa-edit"></i>
@@ -61,7 +59,7 @@ class UserRolesController {
       html: false
     }, function () {
       API.one('users').one('roles', roleId).remove()
-        .then((response) => {
+        .then(() => {
           swal({
             title: 'Deleted!',
             text: 'User Role has been deleted.',

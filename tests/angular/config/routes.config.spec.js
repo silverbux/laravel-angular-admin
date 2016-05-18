@@ -11,14 +11,14 @@ ngDescribe({
       describe('when empty', function () {
         it('should go to the app.landing state', function () {
           goTo('')
-          expect(deps.$state.$current.name).toEqual('app.landing')
+          expect(deps.$state.$current.name).toEqual('login')
         })
       })
 
       describe('when /landing', function () {
         it('should go to the app.landing state', function () {
           goTo('/landing')
-          expect(deps.$state.$current.name).toEqual('app.landing')
+          expect(deps.$state.$current.name).toEqual('login')
         })
       })
 
@@ -32,7 +32,7 @@ ngDescribe({
       describe('when /register', function () {
         it('should go to the app.landing state', function () {
           goTo('/register')
-          expect(deps.$state.$current.name).toEqual('app.register')
+          expect(deps.$state.$current.name).toEqual('register')
         })
       })
     })

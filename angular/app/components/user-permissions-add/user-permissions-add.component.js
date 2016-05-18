@@ -12,7 +12,7 @@ class UserPermissionsAddController {
     }
   }
 
-  save (isValid, roleForm) {
+  save (isValid) {
     this.$state.go(this.$state.current, {}, { alerts: 'test' })
     if (isValid) {
       let Permissions = this.API.service('permissions', this.API.all('users'))
@@ -22,8 +22,7 @@ class UserPermissionsAddController {
         'name': this.name,
         'slug': this.slug,
         'description': this.description
-      }).then(function (response) {
-        console.log('yeye')
+      }).then(function () {
         let alert = { type: 'success', 'title': 'Success!', msg: 'Permission has been added.' }
         $state.go($state.current, { alerts: alert})
       }, function (response) {

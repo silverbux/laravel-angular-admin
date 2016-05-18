@@ -15,8 +15,6 @@ class UserPermissionsEditController {
     Permission.one(permissionId).get()
       .then((response) => {
         this.permission = API.copy(response)
-      }, (response) => {
-        console.log(response)
       })
   }
 
@@ -24,7 +22,7 @@ class UserPermissionsEditController {
     if (isValid) {
       let $state = this.$state
       this.permission.put()
-        .then((response) => {
+        .then(() => {
           let alert = { type: 'success', 'title': 'Success!', msg: 'Permission has been updated.' }
           $state.go($state.current, { alerts: alert})
         }, (response) => {

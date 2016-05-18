@@ -19,7 +19,7 @@ class UserEditController {
         let systemRoles = []
         let roleResponse = response.plain()
 
-        angular.forEach(roleResponse, function (value, key) {
+        angular.forEach(roleResponse, function (value) {
           systemRoles.push({id: value.id, name: value.name})
         })
 
@@ -32,14 +32,12 @@ class UserEditController {
         let userRole = []
         let userResponse = response.plain()
 
-        angular.forEach(userResponse.data.role, function (value, key) {
+        angular.forEach(userResponse.data.role, function (value) {
           userRole.push(value.id)
         })
 
         response.data.role = userRole
         this.usereditdata = API.copy(response)
-      }, (response) => {
-        console.log(response)
       })
   }
 
@@ -47,7 +45,7 @@ class UserEditController {
     if (isValid) {
       let $state = this.$state
       this.usereditdata.put()
-        .then((response) => {
+        .then(() => {
           let alert = { type: 'success', 'title': 'Success!', msg: 'User has been updated.' }
           $state.go($state.current, { alerts: alert})
         }, (response) => {

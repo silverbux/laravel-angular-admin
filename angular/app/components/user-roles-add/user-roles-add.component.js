@@ -12,7 +12,7 @@ class UserRolesAddController {
     }
   }
 
-  save (isValid, roleForm) {
+  save (isValid) {
     this.$state.go(this.$state.current, {}, { alerts: 'test' })
     if (isValid) {
       let Roles = this.API.service('roles', this.API.all('users'))
@@ -22,7 +22,7 @@ class UserRolesAddController {
         'role': this.role,
         'slug': this.slug,
         'description': this.description
-      }).then(function (response) {
+      }).then(function () {
         let alert = { type: 'success', 'title': 'Success!', msg: 'Role has been added.' }
         $state.go($state.current, { alerts: alert})
       }, function (response) {

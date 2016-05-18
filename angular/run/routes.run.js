@@ -1,10 +1,10 @@
 export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
   'ngInject'
 
-  if (!AclService.resume()) {
-  }
+  AclService.resume()
 
-  var deregisterationCallback = $rootScope.$on('$stateChangeStart', function (event, toState) {
+  /*eslint-disable */
+  let deregisterationCallback = $rootScope.$on('$stateChangeStart', function (event, toState) {
     if (toState.data && toState.data.auth) {
       /*Cancel going to the authenticated state and go back to the login page*/
       if (!$auth.isAuthenticated()) {
@@ -16,7 +16,7 @@ export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
     $rootScope.bodyClass = 'hold-transition login-page'
   })
 
-  function fixSideBar (event, toState, toParams, fromState, fromParams) {
+  function fixSideBar () {
     $timeout(function () {
       var neg = $('.main-header').outerHeight() + $('.main-footer').outerHeight()
       var window_height = $(window).height()
@@ -36,4 +36,5 @@ export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
 
   $rootScope.$on('$destroy', deregisterationCallback)
   $rootScope.$on('$stateChangeSuccess', fixSideBar)
+  /*eslint-enable */
 }

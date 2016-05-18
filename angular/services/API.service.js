@@ -13,9 +13,9 @@ export class APIService {
         .setDefaultHeaders(headers)
         .setErrorInterceptor(function (response) {
           if (response.status === 422) {
-            for (var error in response.data.errors) {
+            // for (var error in response.data.errors) {
               // return ToastService.error(response.data.errors[error][0])
-            }
+            // }
           }
         })
         .addFullRequestInterceptor(function (element, operation, what, url, headers) {

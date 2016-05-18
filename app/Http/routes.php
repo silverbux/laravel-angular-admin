@@ -23,21 +23,6 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->controller('auth', 'Auth\AuthController');
 });
 
-//protected routes with JWT (must be logged in)
-$api->group(['middleware' => ['api', 'api.auth']], function ($api) {
-    $api->post('posts', 'PostsController@create');
-});
-
-// ADMIN ROUTES
-
-$api->group(['middleware' => ['api', 'api.auth']], function ($api) {
+$api->group(['middleware' => ['api', 'api.auth', 'role:admin.super|admin.user']], function ($api) {
     $api->controller('users', 'UserController');
 });
-
-/* EXAMPLE PROTECTED ROUTE
-
-$api->group(['middleware' => ['api', 'api.auth', 'role:admin']], function ($api) {
-    $api->controller('users', 'UserController');
-});
-
-*/
