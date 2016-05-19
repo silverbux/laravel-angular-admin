@@ -1,3 +1,4 @@
+import {UserVerificationComponent} from './app/components/user-verification/user-verification.component';
 import { ComingSoonComponent } from './app/components/coming-soon/coming-soon.component';
 import { UserEditComponent } from './app/components/user-edit/user-edit.component'
 import { UserPermissionsEditComponent } from './app/components/user-permissions-edit/user-permissions-edit.component'
@@ -16,6 +17,7 @@ import { RegisterFormComponent } from './app/components/register-form/register-f
 import { CreatePostFormComponent } from './app/components/create_post_form/create_post_form.component'
 
 angular.module('app.components')
+	.component('userVerification', UserVerificationComponent)
 	.component('comingsoon', ComingSoonComponent)
   .component('useredit', UserEditComponent)
   .component('userpermissionsedit', UserPermissionsEditComponent)

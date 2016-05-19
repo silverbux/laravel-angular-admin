@@ -200,15 +200,18 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         bodyClass: 'hold-transition register-page'
       }
     })
-    .state('app.create_post', {
-      url: '/create-post',
+    .state('userverification', {
+      url: '/userverification/:status',
       views: {
-        'main@': {
-          templateUrl: getView('create_post')
+        'layout': {
+          templateUrl: getView('user-verification')
         }
       },
       data: {
-        auth: true
+        bodyClass: 'hold-transition login-page'
+      },
+      params: {
+        status: null
       }
     })
     .state('app.logout', {

@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Bican\Roles\Models\Role;
-use Bican\Roles\Models\Permission;
-
 class AngularController extends Controller
 {
+    /**
+     * Serve the angular application
+     *
+     * @return JSON
+     */
     public function serveApp()
     {
         return view('index');
     }
 
+    /**
+     * Page for unsupported browsers
+     *
+     * @return JSON
+     */
     public function unsupported()
     {
         return view('unsupported_browser');

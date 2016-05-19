@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\User;
-
 use Bican\Roles\Models\Role;
-
 use Bican\Roles\Models\Permission;
-
 use Input;
 
 class UserController extends Controller
 {
     /**
-     * Responds to requests to GET /users
+     * Get all users
+     *
+     * @return JSON
      */
     public function getIndex()
     {
@@ -26,7 +23,11 @@ class UserController extends Controller
     }
 
     /**
-     * Responds to requests to GET /users/show/1
+     * Get user details referenced by id
+     *
+     * @param Integer User ID
+     *
+     * @return JSON
      */
     public function getShow($id)
     {
@@ -38,6 +39,11 @@ class UserController extends Controller
         return response()->success($user);
     }
 
+    /**
+     * Update user data
+     *
+     * @return JSON success message
+     */
     public function putShow()
     {
         $userForm = Input::get('data');
@@ -81,12 +87,24 @@ class UserController extends Controller
         return response()->success(compact('id'));
     }
 
+    /**
+     * Get all user roles
+     *
+     * @return JSON
+     */
     public function getRoles()
     {
         $roles = Role::all();
         return response()->success(compact('roles'));
     }
 
+    /**
+     * Get role details referenced by id
+     *
+     * @param Integer Role ID
+     *
+     * @return JSON
+     */
     public function getRolesShow($id)
     {
         $role = Role::find($id);
@@ -99,6 +117,11 @@ class UserController extends Controller
         return response()->success($role);
     }
 
+    /**
+     * Update role data and assign permission
+     *
+     * @return JSON success message
+     */
     public function putRolesShow()
     {
         $roleForm = Input::get('data');
@@ -110,8 +133,8 @@ class UserController extends Controller
 
         $roleForm['slug'] = str_slug($roleForm['slug'], ".");
         $affectedRows = Role::where('id', '=', intval($roleForm['id']))->update($roleData);
-
         $role = Role::find($roleForm['id']);
+
         $role->detachAllPermissions();
 
         foreach (Input::get('data.permissions') as $setPermission) {
@@ -121,6 +144,11 @@ class UserController extends Controller
         return response()->success('success');
     }
 
+    /**
+     * Create new user role
+     *
+     * @return JSON
+     */
     public function postRoles()
     {
         $role = Role::create([
@@ -132,18 +160,35 @@ class UserController extends Controller
         return response()->success(compact('role'));
     }
 
+    /**
+     * Delete user role referenced by id
+     *
+     * @param Integer Role ID
+     *
+     * @return JSON
+     */
     public function deleteRoles($id)
     {
         Role::destroy($id);
         return response()->success('success');
     }
 
+    /**
+     * Get all system permissions
+     *
+     * @return JSON
+     */
     public function getPermissions()
     {
         $permissions = Permission::all();
         return response()->success(compact('permissions'));
     }
 
+    /**
+     * Create new system permission
+     *
+     * @return JSON
+     */
     public function postPermissions()
     {
         $permission = Permission::create([
@@ -155,6 +200,13 @@ class UserController extends Controller
         return response()->success(compact('permission'));
     }
 
+    /**
+     * Get system permission referenced by id
+     *
+     * @param Integer Permission ID
+     *
+     * @return JSON
+     */
     public function getPermissionsShow($id)
     {
         $permission = Permission::find($id);
@@ -162,6 +214,11 @@ class UserController extends Controller
         return response()->success($permission);
     }
 
+    /**
+     * Update system permission
+     *
+     * @return JSON
+     */
     public function putPermissionsShow()
     {
         $permissionForm = Input::get('data');
@@ -171,6 +228,13 @@ class UserController extends Controller
         return response()->success($permissionForm);
     }
 
+    /**
+     * Delete system permission referenced by id
+     *
+     * @param Integer Permission ID
+     *
+     * @return JSON
+     */
     public function deletePermissions($id)
     {
         Permission::destroy($id);

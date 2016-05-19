@@ -10,9 +10,15 @@ use App\Http\Controllers\Controller;
 use Socialite;
 use Bican\Roles\Models\Role;
 use Bican\Roles\Models\Permission;
+use Mail;
 
 class AuthController extends Controller
 {
+    /**
+     * Get all roles and their corresponding permissions
+     *
+     * @return Array
+     */
     private function getRolesAbilities()
     {
         $abilities = array();
@@ -34,6 +40,11 @@ class AuthController extends Controller
         return $abilities;
     }
 
+    /**
+     * Get authenticated user details and auth credentials
+     *
+     * @return JSON
+     */
     public function getAuthenticatedUser()
     {
         if (Auth::check()) {
@@ -55,6 +66,8 @@ class AuthController extends Controller
     /**
      * Redirect the user to the Oauth Provider authentication page.
      *
+     * @param string oauth provider
+     *
      * @return Response
      */
     public function redirectToProvider($provider)
@@ -64,6 +77,8 @@ class AuthController extends Controller
 
     /**
      * Obtain the user information from Oauth Provider.
+     *
+     * @param string oauth provider
      *
      * @return Response
      */
@@ -82,21 +97,36 @@ class AuthController extends Controller
         return \Redirect::to('/#/login-loader');
     }
 
-    private function findOrCreateUser($githubUser, $provider)
+    /**
+     * Create user based from details provided by oauth providers.
+     *
+     * @param object user data provided by provider
+     * @param object oauth provider instance
+     *
+     * @return Response
+     */
+    private function findOrCreateUser($oauthUser, $provider)
     {
-        if ($authUser = User::where('oauth_provider_id', $githubUser->getId())->where('oauth_provider', '=', $provider)->first()) {
+        if ($authUser = User::where('oauth_provider_id', $oauthUser->getId())->where('oauth_provider', '=', $provider)->first()) {
             return $authUser;
         }
 
         return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
+            'name' => $oauthUser->name,
+            'email' => $oauthUser->email,
             'oauth_provider' => $provider,
-            'oauth_provider_id' => $githubUser->getId(),
-            'avatar' => $githubUser->avatar
+            'oauth_provider_id' => $oauthUser->getId(),
+            'avatar' => $oauthUser->avatar
         ]);
     }
 
+    /**
+     * Authenticate user.
+     *
+     * @param Instance Request instance
+     *
+     * @return JSON user details and auth credentials
+     */
     public function postLogin(Request $request)
     {
         $this->validate($request, [
@@ -105,6 +135,12 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+
+        $user = User::whereEmail($credentials['email'])->first();
+
+        if (isset($user->email_verified) && $user->email_verified == 0) {
+            return response()->error('Email Unverified');
+        }
 
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
@@ -126,8 +162,35 @@ class AuthController extends Controller
         return response()->success(compact('user', 'token', 'abilities', 'userRole'));
     }
 
+    public function verifyUserEmail($verificationCode)
+    {
+        $user = User::whereEmailVerificationCode($verificationCode)->first();
+
+        if (!$user) {
+            return redirect('/#/userverification/failed');
+        }
+
+        $user->email_verified = 1;
+        $user->save();
+
+        return redirect('/#/userverification/success');
+    }
+
+    /**
+     * Create new user.
+     *
+     * @param Instance Request instance
+     *
+     * @return JSON user details and auth credentials
+     */
     public function postRegister(Request $request)
     {
+        $verificationCode = str_random(40);
+
+        Mail::send('emails.userverification', ['verificationCode' => $verificationCode], function ($m) use ($request) {
+            $m->to($request->email, 'test')->subject('Email Confirmation');
+        });
+
         $this->validate($request, [
             'name'       => 'required|min:3',
             'email'      => 'required|email|unique:users',
@@ -138,6 +201,7 @@ class AuthController extends Controller
         $user->name = trim($request->name);
         $user->email = trim(strtolower($request->email));
         $user->password = bcrypt($request->password);
+        $user->email_verification_code = $verificationCode;
         $user->save();
 
         $token = JWTAuth::fromUser($user);
