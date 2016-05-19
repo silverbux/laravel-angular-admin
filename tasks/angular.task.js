@@ -17,9 +17,9 @@ Elixir.extend('angular', function (src, output, outputFilename) {
     return gulp.src([baseDir + 'index.main.js', baseDir + '**/*.*.js'])
       .pipe(eslint({
         globals: {
-            'jQuery':false,
-            '$':true,
-            'swal': true
+          'jQuery': false,
+          '$': true,
+          'swal': true
         }
       }))
       .pipe(eslint.format())

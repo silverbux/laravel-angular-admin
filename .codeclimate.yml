@@ -11,4 +11,8 @@ languages:
   PHP: true
   Python: false
 exclude_paths:
+- "gulpfile.js"
 - "public/js/vendor.js"
+- "public/dist/js/app.js"
+- "tasks/**"
+- "tests/**"

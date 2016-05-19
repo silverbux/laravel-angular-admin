@@ -14,7 +14,7 @@ export class APIService {
         .setErrorInterceptor(function (response) {
           if (response.status === 422) {
             // for (var error in response.data.errors) {
-              // return ToastService.error(response.data.errors[error][0])
+            // return ToastService.error(response.data.errors[error][0])
             // }
           }
         })

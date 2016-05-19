@@ -8,5 +8,5 @@ export function AclConfig (AclServiceProvider) {
 
   /*eslint-disable */
   AclServiceProvider.config(myConfig)
-  /*eslint-enable */
+/*eslint-enable */
 }

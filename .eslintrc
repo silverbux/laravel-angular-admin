@@ -15,6 +15,10 @@
   "globals": {
     "angular": true,
     "module": true,
-    "inject": true
+    "inject": true,
+    "jQuery": true,
+    "$": true,
+    "swal": true,
+    "ngDescribe": true
   }
 }

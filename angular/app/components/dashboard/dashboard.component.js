@@ -9,9 +9,7 @@ class DashboardController {
       [28, 48, 40, 19, 86, 27, 90]
     ]
 
-    $scope.onClick = function () {
-
-    }
+    $scope.onClick = function () {}
 
     $scope.pieLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales']
     $scope.pieData = [300, 500, 100]

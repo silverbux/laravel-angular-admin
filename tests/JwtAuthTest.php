@@ -13,6 +13,7 @@ class JwtAuthTest extends TestCase
     {
         $user = factory(App\User::class)->create([
             'password' => bcrypt('test12345'),
+            'email_verified' => '1'
         ]);
 
         $this->post('/api/auth/login', [
@@ -30,7 +31,9 @@ class JwtAuthTest extends TestCase
      */
     public function testFailedLogin()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(App\User::class)->create([
+            'email_verified' => '1'
+        ]);
 
         $this->post('/api/auth/login', [
             'email'    => $user->email,
@@ -49,9 +52,10 @@ class JwtAuthTest extends TestCase
         $user = factory(App\User::class)->make();
 
         $this->post('/api/auth/register', [
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'password' => 'test15125',
+            'name'           => $user->name,
+            'email'          => $user->email,
+            'password'       => 'test15125',
+            'email_verified' => '1'
         ])
         ->seeApiSuccess()
         ->seeJsonKeyValueString('email', $user->email)

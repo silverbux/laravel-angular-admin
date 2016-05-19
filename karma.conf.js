@@ -26,7 +26,7 @@ module.exports = function (config) {
     plugins: [
       'karma-jasmine',
       'karma-phantomjs-launcher',
-      'karma-browserify',
+      'karma-browserify'
     ]
 
   // define reporters, port, logLevel, browsers etc.

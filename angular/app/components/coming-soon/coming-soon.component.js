@@ -1,19 +1,16 @@
-class ComingSoonController{
-    constructor(){
-        'ngInject';
+class ComingSoonController {
+  constructor () {
+    'ngInject'
 
-        //
-    }
+  //
+  }
 
-    $onInit(){
-    }
+  $onInit () {}
 }
 
 export const ComingSoonComponent = {
-    templateUrl: './views/app/components/coming-soon/coming-soon.component.html',
-    controller: ComingSoonController,
-    controllerAs: 'vm',
-    bindings: {}
+  templateUrl: './views/app/components/coming-soon/coming-soon.component.html',
+  controller: ComingSoonController,
+  controllerAs: 'vm',
+  bindings: {}
 }
-
-

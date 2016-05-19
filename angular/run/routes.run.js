@@ -35,5 +35,5 @@ export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
 
   $rootScope.$on('$destroy', deregisterationCallback)
   $rootScope.$on('$stateChangeSuccess', fixSideBar)
-  /*eslint-enable */
+/*eslint-enable */
 }

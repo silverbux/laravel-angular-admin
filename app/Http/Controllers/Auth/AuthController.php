@@ -185,18 +185,13 @@ class AuthController extends Controller
      */
     public function postRegister(Request $request)
     {
-        $verificationCode = str_random(40);
-
-        Mail::send('emails.userverification', ['verificationCode' => $verificationCode], function ($m) use ($request) {
-            $m->to($request->email, 'test')->subject('Email Confirmation');
-        });
-
         $this->validate($request, [
             'name'       => 'required|min:3',
             'email'      => 'required|email|unique:users',
             'password'   => 'required|min:8',
         ]);
 
+        $verificationCode = str_random(40);
         $user = new User;
         $user->name = trim($request->name);
         $user->email = trim(strtolower($request->email));
@@ -205,6 +200,10 @@ class AuthController extends Controller
         $user->save();
 
         $token = JWTAuth::fromUser($user);
+
+        Mail::send('emails.userverification', ['verificationCode' => $verificationCode], function ($m) use ($request) {
+            $m->to($request->email, 'test')->subject('Email Confirmation');
+        });
 
         return response()->success(compact('user', 'token'));
     }
