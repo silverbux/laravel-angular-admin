@@ -3,6 +3,10 @@
         <h4>Login Failed</h4>
         <p>Incorrect Email/Username or Password.</p>
     </div>
+    <div class="callout callout-danger" ng-if="vm.unverified">
+        <h4>Email Unverified</h4>
+        <p>Please check your email and click the verification link.</p>
+    </div>
     <div class="callout callout-success" ng-if="vm.registerSuccess">
         <h4>Registration Success!</h4>
         <p>A verification link has been sent to your Email Account. Thank You!</p>

@@ -9,11 +9,15 @@ class LoginFormController {
 
     this.registerSuccess = $stateParams.registerSuccess
     this.loginfailed = false
+    this.unverified = false
     this.email = ''
     this.password = ''
   }
 
   login () {
+    this.loginfailed = false
+    this.unverified = false
+
     let user = {
       email: this.email,
       password: this.password
@@ -35,8 +39,14 @@ class LoginFormController {
       .catch(this.failedLogin.bind(this))
   }
 
-  failedLogin () {
-    this.loginfailed = true
+  failedLogin (res) {
+    if (res.status == 401) {
+      this.loginfailed = true
+    } else {
+      if (res.data.errors.message[0] == 'Email Unverified') {
+        this.unverified = true
+      }
+    }
   }
 }
 

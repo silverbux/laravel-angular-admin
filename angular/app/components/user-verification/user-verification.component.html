@@ -1,0 +1,5 @@
+<div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+  <h4>{{alert.title}}</h4>
+  <p ng-bind-html="alert.msg | trustHtml"></p>
+</div>
+<a ui-sref="login" class="btn btn-default">Login Page</a>
