@@ -8,9 +8,72 @@ use App\User;
 use Bican\Roles\Models\Role;
 use Bican\Roles\Models\Permission;
 use Input;
+use Auth;
+use Hash;
+use Validator;
 
 class UserController extends Controller
 {
+    public function getMe()
+    {
+        $user = Auth::user();
+
+        return response()->success($user);
+    }
+
+    public function putMe(Request $request)
+    {
+        $user = Auth::user();
+
+        $this->validate($request, [
+            'data.name' => 'required|min:3',
+            'data.email' => 'required|email|unique:users,email,'.$user->id
+        ]);
+
+        $userForm = app('request')
+                    ->only(
+                        'data.current_password',
+                        'data.new_password',
+                        'data.new_password_confirmation',
+                        'data.name',
+                        'data.email'
+                    );
+
+        $userForm = $userForm['data'];
+        $user->name = $userForm['name'];
+        $user->email = $userForm['email'];
+
+        if ($request->has('data.current_password')) {
+            Validator::extend('hashmatch', function ($attribute, $value, $parameters) {
+                return Hash::check($value, Auth::user()->password);
+            });
+
+            $rules = [
+                'data.current_password' => 'required|hashmatch:data.current_password',
+                'data.new_password' => 'required|min:8|confirmed',
+                'data.new_password_confirmation' => 'required|min:8',
+            ];
+
+            $payload = app('request')->only('data.current_password', 'data.new_password', 'data.new_password_confirmation');
+
+            $messages = array(
+                'hashmatch' => 'Invalid Password',
+            );
+
+            $validator = app('validator')->make($payload, $rules, $messages);
+
+            if ($validator->fails()) {
+                return response()->error($validator->errors());
+            } else {
+                $user->password = Hash::make($userForm['new_password']);
+            }
+        }
+
+        $user->save();
+
+        return response()->success('success');
+    }
+
     /**
      * Get all users
      *
