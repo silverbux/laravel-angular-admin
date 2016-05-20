@@ -36,6 +36,7 @@ Copy ```.env.example``` to ```.env``` and enter necessary config for DB and Oaut
 
 ```
 $ php artisan migrate
+$ php artisan key:generate
 ```
 
 ## Work Flow
@@ -44,9 +45,12 @@ $ php artisan migrate
 
 ```
 $ gulp && gulp watch
-$ php artisan serve
-$ open http://localhost:8000/
 ```
+Open new terminal
+```
+$ php artisan serve
+```
+Open http://localhost:8000/
 
 **Angular Generators**
 
@@ -60,7 +64,7 @@ $ artisan ng:config name     #New config inside angular/config/
 ```
 [Laravel Angular Generator] (https://github.com/jadjoubran/laravel-ng-artisan-generators)
 
-#### More docs to come...
+#### [Read Full Documentation] (silverbux.github.io/laravel-angular-admin)
 
 ## Features
 * [JWT-Auth] (https://github.com/tymondesigns/jwt-auth)
