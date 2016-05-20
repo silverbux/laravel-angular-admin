@@ -19,11 +19,9 @@ Plus Oauth and JWT authentication on the side.
 ## Demo
 [Click here for a live demo](http://laravel-admin.herokuapp.com)
 
-***Note: If you register or use Oauth to sign-in your info will be available on user lists, you can use credentials below.***
+*Note: If you register or use Oauth to sign-in your info will be available on public under user lists component, you can use credentials below.*
 
 > admin@example.com / password
-
----
 
 ![laradmin](https://cloud.githubusercontent.com/assets/1888261/14665607/dbadf93c-0706-11e6-8223-5ea3f88aa44b.png)
 
@@ -51,7 +49,10 @@ Open new terminal
 ```
 $ php artisan serve
 ```
+
 Open http://localhost:8000/
+
+> Default Username/Password: admin@example.com / password
 
 **Angular Generators**
 
@@ -65,7 +66,7 @@ $ artisan ng:config name     #New config inside angular/config/
 ```
 [Laravel Angular Generator] (https://github.com/jadjoubran/laravel-ng-artisan-generators)
 
-#### [Read Full Documentation] (silverbux.github.io/laravel-angular-admin)
+#### [Read Full Documentation] (http://silverbux.github.io/laravel-angular-admin)
 
 ## Features
 * [JWT-Auth] (https://github.com/tymondesigns/jwt-auth)
