@@ -1,36 +1,47 @@
 ---
 layout: default
 title: Home
-description: Simple documentation template for Github pages
+description: Laravel + Angularjs + Bootstrap + AdminLTE Dashboard Boilerplate
 isHome: true
 ---
 
 <section class="bs-docs-section">
   <h1 id="overview" class="page-header">Overview</h1>
-  
+
   <blockquote>
-    This is a Jekyll template I use for my GitHub projects documentations. It is heavily based on official Bootstrap documentation and is designed to be quickly deployed.
+    Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate. Plus Oauth and JWT authentication on the side.
   </blockquote>
+
+  <h3 id="screenshot">Screenshot</h3>
+  <p><a href="http://laravel-admin.herokuapp.com"><img class="img-responsive" src="https://cloud.githubusercontent.com/assets/1888261/14597104/53b404b6-057d-11e6-876d-c83630686590.png"></a></p>
+
+  <h3 id="buildwith">Built With</h3>
+
+  <ul>
+    <li><a href="http://laravel.com" target="_blank">Laravel</a></li>
+    <li><a href="https://angularjs.org" target="_blank">Angularjs</a></li>
+    <li><a href="https://getbootstrap.com" target="_blank">Twitter Bootstrap</a></li>
+    <li><a href="https://getcomposer.org" target="_blank">Composer</a></li>
+    <li><a href="http://gulpjs.com" target="_blank">Gulp.JS</a></li>
+    <li><a href="http://bower.io" target="_blank">BOWER]</a></li>
+    <li><a href="https://www.npmjs.com" target="_blank">NPM</a></li>
+  </ul>
 
   <h3 id="features">Features</h3>
 
   <ul>
-    <li>Responsive Bootstrap theme</li>
-    <li>Automatic syntax highlight</li>
-    <li>Multi-page</li>
-    <li>Automatic menu</li>
-    <li>Configurable additional links</li>
-    <li>Github counters</li>
-    <li>Twitter &amp; Facebook buttons</li>
-  </ul>
-  
-  <h3 id="examples">Examples</h3>
-  
-  <ul>
-    <li><a href="http://mistic100.github.io/jQuery-highlightTextarea/">jQuery highlightTextarea</a></li>
-    <li><a href="http://mistic100.github.io/angular-smilies">AngularJS Smilies</a></li>
-    <li><a href="http://mistic100.github.io/jQuery-QueryBuilder">jQuery QueryBuilder</a></li>
-    <li><a href="http://mistic100.github.io/Bootstrap-Confirmation/">Bootstrap Confirmation</a></li>
+    <li><a href="https://github.com/tymondesigns/jwt-auth" target="_blank">JWT-Auth</a></li>
+    <li><a href="https://github.com/laravel/socialite" target="_blank">OAuth authentication</a></li>
+    <li><a href="https://github.com/dingo/api" target="_blank">RESTful API ( Dingo/API )</a></li>
+    <li><a href="https://github.com/mgonto/restangular" target="_blank">Restangular</a></li>
+    <li><a href="https://github.com/angular-ui/ui-router" target="_blank">UI-Router</a></li>
+    <li>
+      Access Control List
+        <ul>
+          <li><a href="https://github.com/romanbican/roles" target="_blank">Romanbican/Roles</a></li>
+          <li><a href="https://github.com/mikemclin/angular-acl" target="_blank">Angular ACL</a></li>
+        </ul>
+    </li>
   </ul>
 </section>
 
@@ -38,19 +49,19 @@ isHome: true
 <section class="bs-docs-section">
   <h1 id="installation" class="page-header">Installation</h1>
 
-  <h2 id="install-jekyll">Install Jekyll</h2>
-  <p>Follow the <a href="https://help.github.com/articles/using-jekyll-with-pages">GitHub guide</a> to install Jekyll on your computer. The big steps are:</p>
-
+  <h3 id="commands">Commands</h3>
 {% highlight text %}
-apt-get install ruby ruby-dev
-gem install bundler
-git clone git://github.com/mistic100/jekyll-bootstrap-doc
-bundle install
-bundle exec jekyll serve
+$ composer install && npm install
 {% endhighlight %}
-
-  <h2 id="configuration">Configuration</h2>
-  <p>Adapt the <code>_config.yml</code> file to your project.</p>
+<p>Copy <code>.env.example</code> to <code>.env</code> and enter necessary config for DB and Oauth Providers Settings.</p>
+{% highlight text %}
+$ php artisan migrate
+$ php artisan key:generate
+{% endhighlight %}
+  <h3 id="configuration">Configuration</h3>
+  <p>Open <code>.env</code> file, if it does not exists copy <code>.env.example</code> file .</p>
+  <p>Since Most of the configuration are laravel defaults, we will only cover additional env configurations.
+  <a href="https://scotch.io/tutorials/understanding-laravel-environment-variables">Click here</a> for laravel configuration details<p>
 
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -62,175 +73,120 @@ bundle exec jekyll serve
       </thead>
       <tbody>
         <tr>
-          <td>name</td>
-          <td>Name of the project.</td>
+          <td>MAIL_FROM</td>
+          <td>System Email From Address</td>
         </tr>
         <tr>
-          <td>version</td>
-          <td>Current version of the project</td>
+          <td>MAIL_FROM_NAME</td>
+          <td>System Email From Name</td>
         </tr>
         <tr>
-          <td>downloadUrl</td>
-          <td>URL of the download button</td>
+          <td>GITHUB_CLIENT_ID</td>
+          <td>Github Oauth client id. <a href="https://github.com/settings/applications/new">click here</a> to create one.</td>
         </tr>
         <tr>
-          <td>license</td>
-          <td>License of the project</td>
+          <td>GITHUB_CLIENT_SECRET</td>
+          <td>Github Oauth client secret</td>
         </tr>
         <tr>
-          <td>licenseUrl</td>
-          <td>URL of the license text</td>
+          <td>GITHUB_REDIRECT</td>
+          <td>Where to redirect after Github authentication. Example: <code>http://yourdomain.com/auth/github/callback</code></td>
         </tr>
         <tr>
-          <td>headerLinks</td>
-          <td>List of links to display on the right of the top menu. Each item must contain <code>title</code> and <code>url</code> keys</td>
+          <td>GOOGLE_CLIENT_ID</td>
+          <td>Google Oauth client id. <a href="https://developers.google.com/identity/protocols/OAuth2">click here</a> for instructions on how to  create one.</td>
         </tr>
         <tr>
-          <td>footerLinks</td>
-          <td>List of links to display on the bottom of the page. Each item must contain <code>title</code> and <code>url</code> keys</td>
+          <td>GOOGLE_CLIENT_SECRET</td>
+          <td>Google Oauth client secret</td>
         </tr>
         <tr>
-          <td>header</td>
-          <td>Configuration of the header, two colors gradient and boolean to activate or deactivate <a href="http://qrohlf.com/trianglify/">Trianglify</a> generator</td>
+          <td>GOOGLE_REDIRECT</td>
+          <td>Where to redirect after Google authentication. Example: <code>http://yourdomain.com/auth/google/callback</code></td>
         </tr>
         <tr>
-          <td>analytics</td>
-          <td>Google analytics identifiers. Provide <code>account</code> and <code>domain</code> or leave empty to deactivate</td>
+          <td>FACEBOOK_CLIENT_ID</td>
+          <td>Facebook Oauth client id. <a href="https://spring.io/guides/gs/register-facebook-app">click here</a> for instructions on how to  create one.</td>
+        </tr>
+        <tr>
+          <td>FACEBOOK_CLIENT_SECRET</td>
+          <td>Facebook Oauth client secret</td>
+        </tr>
+        <tr>
+          <td>FACEBOOK_REDIRECT</td>
+          <td>Where to redirect after Facebook authentication. Example: <code>http://yourdomain.com/auth/facebook/callback</code></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h3>Social buttons</h3>
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th style="width: 130px;">Name</th>
-          <th>description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>githubButton</td>
-          <td>Data used to generate <a href="http://ghbtns.com/">GitHub Buttons</a>. Provide <code>user</code> and <code>repo</code></td>
-        </tr>
-        <tr>
-          <td>twitter.enabled</td>
-          <td>Enable or disable Twitter "Tweet" button</td>
-        </tr>
-        <tr>
-          <td>twitter.via</td>
-          <td>Account linked to "Tweet" button</td>
-        </tr>
-        <tr>
-          <td>twitter.hash</td>
-          <td>Default hashtags for the "Tweet" button</td>
-        </tr>
-        <tr>
-          <td>twitter.account</td>
-          <td>Account for Twitter "Follow" button. Leave empty to deactivate</td>
-        </tr>
-        <tr>
-          <td>facebook.enabled</td>
-          <td>Enable or disable Facebook "Like" &amp; "Share" buttons</td>
-        </tr>
-        <tr>
-          <td>facebook.profileUrl</td>
-          <td>Profile for Facebook "Follow" button. Leave empty to deactivate</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </section>
 
 
 <section class="bs-docs-section">
   <h1 id="usage" class="page-header">Usage</h1>
 
-  <h2 id="pages">Pages</h2>
-  <p>The main page is the <code>index.html</code> file. You can also add additional pages by creating <code>.html</code> files in the root folder or in any sub-folder. Each page file must begins with a template declaration:</p>
-
+  <h3 id="general_workflow">General Workflow</h3>
 {% highlight html %}
----
-layout: default
-title: Home
-description: Simple documentation template for Github pages
----
-
-<!-- content -->
+$ gulp && gulp watch
+{% endhighlight %}
+<p>Open new terminal</p>
+{% highlight html %}
+$ php artisan serve
 {% endhighlight %}
 
-  <p>Set <code>isHome</code> to <code>true</code> on the main page file, the homepage will have a bigger header with a central download button.</p>
-  
-{% highlight html %}
----
-..........
-isHome: true
----
-{% endhighlight %}
+  <p>Open <code>http://localhost:8000/</code></p>
 
-  <p>Set <code>hide</code> to <code>true</code> to hide a page from the main menu, the page will still be accessible with direct link. <a href="hidden.html">Example</a>.</p>
-  
-{% highlight html %}
----
-..........
-hide: true
----
-{% endhighlight %}
-
-  <h2 id="titles">Titles</h2>
+  <h3 id="angular_generators">Angular Generators</h3>
   <p>In order to get the right menu automatically generated you must respect some conventions.</p>
 
 {% highlight html %}
-<!-- wrap each main section with "bs-docs-section" class -->
-<section class="bs-docs-section">
-  <!-- each section must contain ONE h1 with an id and optionally a "page-header" class -->
-  <h1 id="first-level" class="page-header">First level</h1>
-
-  <!-- you can optionally declare sub-sections with h2/h3 with an id -->
-  <h2 id="sub-section">Second level</h2>
-
-  <h3 id="another-sub-section">Still second level</h3>
-</section>
+$ artisan ng:page name       #New page inside angular/app/pages/
+$ artisan ng:dialog name     #New custom dialog inside angular/dialogs/
+$ artisan ng:component name  #New component inside angular/app/components/
+$ artisan ng:service name    #New service inside angular/services/
+$ artisan ng:filter name     #New filter inside angular/filters/
+$ artisan ng:config name     #New config inside angular/config/
 {% endhighlight %}
 
-  <h2 id="highlight">Syntax highlight</h2>
-  <p>The powerful Pygments highlighter is activated on the template, just wrap your unescaped source code with the <code>{{ "{% highlight ... " }}%}</code> directive.</p>
-
+  <p><a href="https://github.com/jadjoubran/laravel-ng-artisan-generators">Click Here</a> to learn more about artisan generators.</p>
+  <h3 id="karma_testing">Karma Testing</h3>
 {% highlight text %}
-{{ "{% highlight html " }}%}
-<div>Some <b>HTML</b></div>
-{{ "{% endhighlight " }}%}
-
-{{ "{% highlight javascript " }}%}
-alert('Some javascript');
-{{ "{% endhighlight " }}%}
+$ karma start
 {% endhighlight %}
-
-  <h2 id="resources">Resources &amp; links</h2>
-  <p>If you need to create internal links between your pages, or include resources (JS &amp; CSS), always start your URLs with <code>{{ "{{site.github.url" }}}}</code>.</p>
-
-{% highlight html %}
-<script src="{{ "{{site.github.url" }}}}/dist/my-script.js"></script>
-
-<a href="{{ "{{site.github.url" }}}}/about/index.html">About</a>
+  <h3 id="php_unit">PHP Unit</h3>
+{% highlight text %}
+$ phpunit
 {% endhighlight %}
+</section>
+<section class="bs-docs-section">
+  <h1 id="faq" class="page-header">FAQ / Issues</h1>
+  <ol>
+    <li>
+      <h4 id="general_workflow">New Component not showing up</h4>
+      <p>There's a current bug where it requires you to restart <code>gulp && gulp watch</code> everytime a new file is created.</p>
+      <p>Just press control + c and enter <code>gulp && gulp watch</code> again.</p>
+    </li>
+    <li>
+      <h4 id="general_workflow">Curl error 60</h4>
+      <p>This is a laravel issue.</p>
+      <p><a href="http://stackoverflow.com/questions/30402280/how-solve-curl-error-60-ssl-certificate-in-laravel-5">Click Here</a> to see solution</p>
+    </li>
+  </ol>
+</section>
 
-  <h2 id="bootbox">Bootbox</h2>
-  <p><a href="http://bootboxjs.com/">Bootbox</a> is installed with a syntax sugar to easily create pop-in content. To use this sugar you must create a clickable element with a <code>data-bootbox</code> attribute and an hidden content holder with a corresponding <code>id</code> attribute.</p>
+<section class="bs-docs-section">
+  <h1 id="credits" class="page-header">Credits</h1>
+  <p>
+    This project wont be possible without the following, We acknowledge and are grateful to these developers for their contributions to open source. <strong>All necessary credits are given</strong>.
+  </p>
+  <ul>
+    <li>
+      <a href="https://laravel-angular.readme.io">Laravel-Angular (Material)</a>
+    </li>
+    <li>
+      <a href="https://github.com/almasaeed2010/AdminLTE">AdminLTE</a>
+    </li>
+  </ul>
 
-{% highlight html %}
-<button class="btn btn-primary btn-xs" data-bootbox="my-content">Button title</button>
-
-<div id="my-content" class="hidden" title="Pop-in title">
-  Pop-in content
-</div>
-{% endhighlight %}
-
-  <h2 id="gems">Plugins</h2>
-  <p>All available Jekyll plugins are installed by default, you can remove them by modifying the <code>gems</code> parameter in <code>_config.yml</code>. See the documentation on <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">GitHub Help</a> pages.</p>
-
-  <h2 id="bower">Bower</h2>
-  <p>Fell free to use the <code>bower.json</code> to manage your front dependencies. Bower packages are added the <code>dist</code> directory and <b>MUST</b> be pushed to the repository. jQuery and Bootstrap are ignored by <code>.gitignore</code> as already loaded from a CDN.</p>
 </section>
