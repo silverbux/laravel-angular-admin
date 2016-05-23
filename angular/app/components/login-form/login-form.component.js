@@ -8,6 +8,7 @@ class LoginFormController {
     this.AclService = AclService
 
     this.registerSuccess = $stateParams.registerSuccess
+    this.successMsg = $stateParams.successMsg
     this.loginfailed = false
     this.unverified = false
     this.email = ''

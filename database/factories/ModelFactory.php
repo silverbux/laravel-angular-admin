@@ -15,14 +15,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'email_verified' => 1,
+        'email_verification_code' => str_random(10),
+        'avatar' => 'test',
         //use bcrypt('password') if you want to assert for a specific password, but it might slow down your tests
         'password' => str_random(10),
     ];
 });
 
-$factory->define(App\Post::class, function (Faker\Generator $faker){
+$factory->define(App\PasswordReset::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'topic' => $faker->word,
+        'email'  => $faker->safeEmail,
+        'token' => str_random(10),
     ];
 });
