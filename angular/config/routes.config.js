@@ -52,6 +52,20 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.profile', {
+      url: '/profile',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<userProfile></userProfile>'
+        }
+      },
+      params: {
+        alerts: null
+      }
+    })
     .state('app.userlist', {
       url: '/user-lists',
       data: {

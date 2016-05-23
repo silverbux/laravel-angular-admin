@@ -1,0 +1,110 @@
+<section class="content-header">
+    <h1>Users <small>Module description here</small></h1>
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.landing"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a ui-sref="app.userlist">User Lists</a></li>
+        <li class="active">Edit User</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12 col-md-7">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Profile</h3>
+        </div>
+        <form class="form-horizontal" name="userForm" ng-submit="vm.save(userForm.$valid, userForm)" novalidate>
+          <div class="box-body">
+            <div ng-if="vm.alerts" class="alert alert-{{alert.type}}" ng-repeat="alert in vm.alerts">
+              <h4>{{alert.title}}</h4>
+              <p ng-bind-html="alert.msg | trustHtml"></p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.name.$invalid && ( vm.formSubmitted || userForm.name.$touched) }">
+              <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="vm.userdata.data.name" name="name" placeholder="Name" required>
+                <p ng-show="userForm.name.$error.required && ( vm.formSubmitted || userForm.name.$touched)" class="help-block">Name is required.</p>
+                <p ng-show="userForm.name.customError"  class="help-block">{{userForm.name.customError}}</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && ( vm.formSubmitted || userForm.email.$touched) }">
+              <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" ng-model="vm.userdata.data.email" name="email" placeholder="Email" required>
+                <p ng-show="userForm.email.$error.required && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">Email is required.</p>
+                <p ng-show="userForm.email.$error.email  && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">This is not a valid email.</p>
+                <p ng-show="userForm.email.customError"  class="help-block">{{userForm.email.customError}}</p>
+              </div>
+            </div>
+            <div class="page-header">
+              <h4>Update Password <small>( Optional )</small></h4>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.current_password.$invalid && ( vm.formSubmitted || userForm.current_password.$touched) }">
+              <label for="inputEmail3" class="col-sm-3 control-label">Current Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="Password" name="current_password"
+                  ng-model="vm.userdata.data.current_password"
+                  ng-minlength="8"
+                  ng-maxlength="50"
+                  ng-required="vm.userdata.data.new_password">
+                <p ng-show="userForm.current_password.$error.required && ( vm.formSubmitted || userForm.current_password.$touched)" class="help-block">Password is required.</p>
+                <p ng-show="userForm.current_password.$error.maxlength" class="help-block">Password is too long.</p>
+                <p ng-show="userForm.current_password.$invalid &&
+                            userForm.current_password.$error.minlength &&
+                            userForm.current_password.$touched"
+                            class="help-block">Password is too short, Please enter more than 8 characters.</p>
+
+                <p ng-show="userForm.current_password.$invalid && (vm.formSubmitted || vm.errors.current_password)" class="help-block">{{vm.errors.current_password}}</p>
+                <p ng-show="userForm.current_password.customError"  class="help-block">{{userForm.current_password.customError}}</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.new_password.$invalid && ( vm.formSubmitted || userForm.new_password.$touched) }">
+              <label for="inputEmail3" class="col-sm-3 control-label">New Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="Password"  name="new_password"
+                  ng-model="vm.userdata.data.new_password"
+                  ng-minlength="8"
+                  ng-maxlength="50"
+                  ng-required="vm.userdata.data.current_password">
+                <p ng-show="userForm.new_password.$error.required && ( vm.formSubmitted || userForm.new_password.$touched)" class="help-block">New Password is required.</p>
+                <p ng-show="userForm.new_password.$error.maxlength" class="help-block">Password is too long.</p>
+                <p ng-show="userForm.new_password.$invalid &&
+                            userForm.new_password.$error.minlength &&
+                            userForm.new_password.$touched"
+                            class="help-block">Password is too short, Please enter more than 8 characters.</p>
+                <p ng-show="userForm.new_password.$invalid && (vm.formSubmitted || vm.errors.new_password)" class="help-block">{{vm.errors.new_password}}</p>
+                <p ng-show="userForm.new_password.customError"  class="help-block">{{userForm.new_password.customError}}</p>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': userForm.new_password_confirmation.$invalid && ( vm.formSubmitted || userForm.new_password_confirmation.$touched) }">
+              <label for="inputEmail3" class="col-sm-3 control-label">Confirm Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="Password" name="new_password_confirmation"
+                  ng-model="vm.userdata.data.new_password_confirmation"
+                  ng-minlength="8"
+                  ng-maxlength="50"
+                  ng-required="vm.userdata.data.current_password"
+                  password-verify="vm.userdata.data.new_password">
+                <p ng-show="userForm.new_password_confirmation.$error.required &&
+                            ( vm.formSubmitted || userForm.new_password_confirmation.$touched)" class="help-block">Confirm Password is required.</p>
+                <p ng-show="userForm.new_password_confirmation.$error.maxlength" class="help-block">Password is too long.</p>
+                <p ng-show="userForm.new_password_confirmation.$invalid &&
+                            userForm.new_password_confirmation.$error.minlength &&
+                            userForm.new_password_confirmation.$touched"
+                            class="help-block">Password is too short, Please enter more than 8 characters.</p>
+                <p ng-show="userForm.new_password_confirmation.$invalid && (vm.formSubmitted || vm.errors.new_password_confirmation)" class="help-block">{{vm.errors.new_password_confirmation}}</p>
+                <p ng-show="userForm.new_password_confirmation.$error.passwordVerify && (vm.formSubmitted || userForm.new_password_confirmation.$touched)"  class="help-block">Password Mismatch</p>
+                <p ng-show="userForm.new_password_confirmation.customError"  class="help-block">{{userForm.new_password.customError}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <a ui-sref="app.userlist" class="btn btn-default"><i class="fa fa-angle-double-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary pull-right">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
