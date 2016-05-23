@@ -1,9 +1,9 @@
 # name of the software
 name: Laravel Angular Admin
 # current version of the software
-version: 0.0.1
+version: 0.1.0
 # url of the download button
-downloadUrl: https://github.com/silverbux/laravel-angular-admin
+downloadUrl: https://github.com/silverbux/laravel-angular-admin/releases
 # licence of the software
 license: MIT License
 licenseUrl: http://opensource.org/licenses/MIT
