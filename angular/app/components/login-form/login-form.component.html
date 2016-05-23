@@ -11,6 +11,10 @@
         <h4>Registration Success!</h4>
         <p>A verification link has been sent to your Email Account. Thank You!</p>
     </div>
+    <div class="callout callout-success" ng-if="vm.successMsg">
+        <h4>Success!</h4>
+        <p>{{ vm.successMsg }}</p>
+    </div>
     <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email" ng-model="vm.email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -34,6 +38,6 @@
     <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google"></i> Sign in using Google</a>
     <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
 </div>
-<a href="#">I forgot my password</a>
+<a ui-sref="forgot_password">I forgot my password</a>
 <br>
 <a ui-sref="register" class="text-center">Register a new membership</a>

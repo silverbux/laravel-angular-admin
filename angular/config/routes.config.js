@@ -185,7 +185,8 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         bodyClass: 'hold-transition login-page'
       },
       params: {
-        registerSuccess: null
+        registerSuccess: null,
+        successMsg: null
       }
     })
     .state('loginloader', {
@@ -226,6 +227,32 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       params: {
         status: null
+      }
+    })
+    .state('forgot_password', {
+      url: '/forgot-password',
+      views: {
+        'layout': {
+          templateUrl: getView('forgot-password')
+        },
+        'header@app': {},
+        'footer@app': {}
+      },
+      data: {
+        bodyClass: 'hold-transition login-page'
+      }
+    })
+    .state('reset_password', {
+      url: '/reset-password/:email/:token',
+      views: {
+        'layout': {
+          templateUrl: getView('reset-password')
+        },
+        'header@app': {},
+        'footer@app': {}
+      },
+      data: {
+        bodyClass: 'hold-transition login-page'
       }
     })
     .state('app.logout', {

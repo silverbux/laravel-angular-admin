@@ -1,65 +1,62 @@
-class UserProfileController{
-    constructor($stateParams, $state, API){
-        'ngInject';
+class UserProfileController {
+  constructor ($stateParams, $state, API) {
+    'ngInject'
 
-      this.$state = $state
-      this.formSubmitted = false
-      this.alerts = []
-      this.userRolesSelected = []
+    this.$state = $state
+    this.formSubmitted = false
+    this.alerts = []
+    this.userRolesSelected = []
 
-      if ($stateParams.alerts) {
-        this.alerts.push($stateParams.alerts)
-      }
-
-      let UserData = API.service('me', API.all('users'))
-      UserData.one().get()
-        .then((response) => {
-          this.userdata = API.copy(response)
-          this.userdata.data.current_password = ''
-          this.userdata.data.new_password = ''
-          this.userdata.data.new_password_confirmation = ''
-        })
+    if ($stateParams.alerts) {
+      this.alerts.push($stateParams.alerts)
     }
 
-    save (isValid, userForm) {
-      if (isValid) {
-        let $state = this.$state
+    let UserData = API.service('me', API.all('users'))
+    UserData.one().get()
+      .then((response) => {
+        this.userdata = API.copy(response)
+        this.userdata.data.current_password = ''
+        this.userdata.data.new_password = ''
+        this.userdata.data.new_password_confirmation = ''
+      })
+  }
 
-        this.userdata.put()
-          .then(() => {
-            let alert = { type: 'success', 'title': 'Success!', msg: 'Profile has been updated.' }
-            $state.go($state.current, { alerts: alert})
-          }, (response) => {
-            let formErrors = []
+  save (isValid, userForm) {
+    if (isValid) {
+      let $state = this.$state
 
-            if(angular.isDefined(response.data.errors.message)) {
-              formErrors = response.data.errors.message[0];
-            } else {
-              formErrors = response.data.errors;
-            }
+      this.userdata.put()
+        .then(() => {
+          let alert = { type: 'success', 'title': 'Success!', msg: 'Profile has been updated.' }
+          $state.go($state.current, { alerts: alert})
+        }, (response) => {
+          let formErrors = []
 
-            angular.forEach(formErrors, function(value, key) {
-              let varkey = key.replace("data.", "")
-              userForm[varkey].$invalid = true;
-              userForm[varkey].customError = value[0];
-            });
+          if (angular.isDefined(response.data.errors.message)) {
+            formErrors = response.data.errors.message[0]
+          } else {
+            formErrors = response.data.errors
+          }
 
-            this.formSubmitted = true;
+          angular.forEach(formErrors, function (value, key) {
+            let varkey = key.replace('data.', '')
+            userForm[varkey].$invalid = true
+            userForm[varkey].customError = value[0]
           })
-      } else {
-        this.formSubmitted = true;
-      }
-    }
 
-    $onInit(){
+          this.formSubmitted = true
+        })
+    } else {
+      this.formSubmitted = true
     }
+  }
+
+  $onInit () {}
 }
 
 export const UserProfileComponent = {
-    templateUrl: './views/app/components/user-profile/user-profile.component.html',
-    controller: UserProfileController,
-    controllerAs: 'vm',
-    bindings: {}
+  templateUrl: './views/app/components/user-profile/user-profile.component.html',
+  controller: UserProfileController,
+  controllerAs: 'vm',
+  bindings: {}
 }
-
-
