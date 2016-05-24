@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class AngularController extends Controller
 {
     /**
-     * Serve the angular application
+     * Serve the angular application.
      *
      * @return JSON
      */
@@ -15,7 +15,7 @@ class AngularController extends Controller
     }
 
     /**
-     * Page for unsupported browsers
+     * Page for unsupported browsers.
      *
      * @return JSON
      */
