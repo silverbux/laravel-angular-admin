@@ -1,0 +1,9 @@
+disabled:
+  - align_double_arrow
+
+finder:
+  exclude:
+    - "app/Console"
+    - "app/Exceptions"
+    - "app/Http/Kernel.php"
+    - "app/Providers"
