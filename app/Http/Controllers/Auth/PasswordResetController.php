@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Mail;
-use App\User;
-use App\PasswordReset;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\PasswordReset;
+use App\User;
+use Illuminate\Http\Request;
+use Mail;
 
 class PasswordResetController extends Controller
 {
@@ -47,7 +47,7 @@ class PasswordResetController extends Controller
         ->whereToken($request->token)
         ->first();
 
-        if (! $check) {
+        if (!$check) {
             return response()->error('Email does not exist', 422);
         }
 

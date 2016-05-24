@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'email_verified' => '1',
-            'created_at' => \Carbon\Carbon::now()->toDateTimeString()
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
     }
 }

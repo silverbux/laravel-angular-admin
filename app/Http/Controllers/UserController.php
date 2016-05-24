@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
-use Bican\Roles\Models\Role;
-use Bican\Roles\Models\Permission;
-use Input;
 use Auth;
+use Bican\Roles\Models\Permission;
+use Bican\Roles\Models\Role;
 use Hash;
+use Illuminate\Http\Request;
+use Input;
 use Validator;
 
 class UserController extends Controller
@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'data.name' => 'required|min:3',
-            'data.email' => 'required|email|unique:users,email,'.$user->id
+            'data.email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
         $userForm = app('request')
@@ -56,9 +56,9 @@ class UserController extends Controller
 
             $payload = app('request')->only('data.current_password', 'data.new_password', 'data.new_password_confirmation');
 
-            $messages = array(
+            $messages = [
                 'hashmatch' => 'Invalid Password',
-            );
+            ];
 
             $validator = app('validator')->make($payload, $rules, $messages);
 
@@ -75,20 +75,21 @@ class UserController extends Controller
     }
 
     /**
-     * Get all users
+     * Get all users.
      *
      * @return JSON
      */
     public function getIndex()
     {
         $users = User::all();
+
         return response()->success(compact('users'));
     }
 
     /**
-     * Get user details referenced by id
+     * Get user details referenced by id.
      *
-     * @param Integer User ID
+     * @param int User ID
      *
      * @return JSON
      */
@@ -97,13 +98,14 @@ class UserController extends Controller
         $user = User::find($id);
         $user['role'] = $user
                         ->roles()
-                        ->select(array('slug','roles.id','roles.name'))
+                        ->select(['slug', 'roles.id', 'roles.name'])
                         ->get();
+
         return response()->success($user);
     }
 
     /**
-     * Update user data
+     * Update user data.
      *
      * @return JSON success message
      */
@@ -112,10 +114,10 @@ class UserController extends Controller
         $userForm = Input::get('data');
         $userId = intval($userForm['id']);
 
-        $userData = array(
+        $userData = [
             'name' => $userForm['name'],
-            'email' => $userForm['email']
-        );
+            'email' => $userForm['email'],
+        ];
 
         $affectedRows = User::where('id', '=', $userId)->update($userData);
 
@@ -130,7 +132,7 @@ class UserController extends Controller
     }
 
     /**
-     * Responds to requests to GET /users/admin-profile
+     * Responds to requests to GET /users/admin-profile.
      */
     public function getAdminProfile()
     {
@@ -138,7 +140,7 @@ class UserController extends Controller
     }
 
     /**
-     * Responds to requests to POST /users/profile
+     * Responds to requests to POST /users/profile.
      */
     public function postProfile()
     {
@@ -151,20 +153,21 @@ class UserController extends Controller
     }
 
     /**
-     * Get all user roles
+     * Get all user roles.
      *
      * @return JSON
      */
     public function getRoles()
     {
         $roles = Role::all();
+
         return response()->success(compact('roles'));
     }
 
     /**
-     * Get role details referenced by id
+     * Get role details referenced by id.
      *
-     * @param Integer Role ID
+     * @param int Role ID
      *
      * @return JSON
      */
@@ -174,27 +177,27 @@ class UserController extends Controller
 
         $role['permissions'] = $role
                         ->permissions()
-                        ->select(array('permissions.name','permissions.id'))
+                        ->select(['permissions.name', 'permissions.id'])
                         ->get();
 
         return response()->success($role);
     }
 
     /**
-     * Update role data and assign permission
+     * Update role data and assign permission.
      *
      * @return JSON success message
      */
     public function putRolesShow()
     {
         $roleForm = Input::get('data');
-        $roleData = array(
+        $roleData = [
             'name' => $roleForm['name'],
             'slug' => $roleForm['slug'],
-            'description' => $roleForm['description']
-        );
+            'description' => $roleForm['description'],
+        ];
 
-        $roleForm['slug'] = str_slug($roleForm['slug'], ".");
+        $roleForm['slug'] = str_slug($roleForm['slug'], '.');
         $affectedRows = Role::where('id', '=', intval($roleForm['id']))->update($roleData);
         $role = Role::find($roleForm['id']);
 
@@ -208,7 +211,7 @@ class UserController extends Controller
     }
 
     /**
-     * Create new user role
+     * Create new user role.
      *
      * @return JSON
      */
@@ -216,39 +219,41 @@ class UserController extends Controller
     {
         $role = Role::create([
             'name' => Input::get('role'),
-            'slug' => str_slug(Input::get('slug'), "."),
-            'description' => Input::get('description')
+            'slug' => str_slug(Input::get('slug'), '.'),
+            'description' => Input::get('description'),
         ]);
 
         return response()->success(compact('role'));
     }
 
     /**
-     * Delete user role referenced by id
+     * Delete user role referenced by id.
      *
-     * @param Integer Role ID
+     * @param int Role ID
      *
      * @return JSON
      */
     public function deleteRoles($id)
     {
         Role::destroy($id);
+
         return response()->success('success');
     }
 
     /**
-     * Get all system permissions
+     * Get all system permissions.
      *
      * @return JSON
      */
     public function getPermissions()
     {
         $permissions = Permission::all();
+
         return response()->success(compact('permissions'));
     }
 
     /**
-     * Create new system permission
+     * Create new system permission.
      *
      * @return JSON
      */
@@ -256,17 +261,17 @@ class UserController extends Controller
     {
         $permission = Permission::create([
             'name' => Input::get('name'),
-            'slug' => str_slug(Input::get('slug'), "."),
-            'description' => Input::get('description')
+            'slug' => str_slug(Input::get('slug'), '.'),
+            'description' => Input::get('description'),
         ]);
 
         return response()->success(compact('permission'));
     }
 
     /**
-     * Get system permission referenced by id
+     * Get system permission referenced by id.
      *
-     * @param Integer Permission ID
+     * @param int Permission ID
      *
      * @return JSON
      */
@@ -278,29 +283,30 @@ class UserController extends Controller
     }
 
     /**
-     * Update system permission
+     * Update system permission.
      *
      * @return JSON
      */
     public function putPermissionsShow()
     {
         $permissionForm = Input::get('data');
-        $permissionForm['slug'] = str_slug($permissionForm['slug'], ".");
+        $permissionForm['slug'] = str_slug($permissionForm['slug'], '.');
         $affectedRows = Permission::where('id', '=', intval($permissionForm['id']))->update($permissionForm);
 
         return response()->success($permissionForm);
     }
 
     /**
-     * Delete system permission referenced by id
+     * Delete system permission referenced by id.
      *
-     * @param Integer Permission ID
+     * @param int Permission ID
      *
      * @return JSON
      */
     public function deletePermissions($id)
     {
         Permission::destroy($id);
+
         return response()->success('success');
     }
 }

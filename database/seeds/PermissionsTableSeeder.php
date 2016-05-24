@@ -17,20 +17,20 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'Manage Users',
                 'slug' => 'manage.users',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-            ],[
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ], [
                 'id' => 2,
                 'name' => 'Manage Roles',
                 'slug' => 'manage.roles',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-            ],[
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ], [
                 'id' => 3,
                 'name' => 'Manage Permissions',
                 'slug' => 'manage.permissions',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-            ]
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            ],
         ]);
     }
 }

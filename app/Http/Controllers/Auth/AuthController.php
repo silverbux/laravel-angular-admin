@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
-use JWTAuth;
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Socialite;
+use App\User;
+use Auth;
 use Bican\Roles\Models\Role;
-use Bican\Roles\Models\Permission;
+use Illuminate\Http\Request;
+use JWTAuth;
 use Mail;
+use Socialite;
 
 class AuthController extends Controller
 {
     /**
-     * Get all roles and their corresponding permissions
+     * Get all roles and their corresponding permissions.
      *
-     * @return Array
+     * @return array
      */
     private function getRolesAbilities()
     {
-        $abilities = array();
+        $abilities = [];
         $roles = Role::all();
 
         foreach ($roles as $role) {
             if (!empty($role->slug)) {
-                $abilities[$role->slug] = array();
+                $abilities[$role->slug] = [];
                 $rolePermission = $role->permissions()->get();
 
                 foreach ($rolePermission as $permission) {
@@ -41,7 +40,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get authenticated user details and auth credentials
+     * Get authenticated user details and auth credentials.
      *
      * @return JSON
      */
@@ -51,7 +50,7 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = JWTAuth::fromUser($user);
             $abilities = $this->getRolesAbilities();
-            $userRole = array();
+            $userRole = [];
 
             foreach ($user->Roles as $role) {
                 $userRole [] = $role->slug;
@@ -116,7 +115,7 @@ class AuthController extends Controller
             'email' => $oauthUser->email,
             'oauth_provider' => $provider,
             'oauth_provider_id' => $oauthUser->getId(),
-            'avatar' => $oauthUser->avatar
+            'avatar' => $oauthUser->avatar,
         ]);
     }
 
@@ -143,7 +142,7 @@ class AuthController extends Controller
         }
 
         try {
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->error('Invalid credentials', 401);
             }
         } catch (\JWTException $e) {
@@ -153,7 +152,7 @@ class AuthController extends Controller
         $user = Auth::user();
         $token = JWTAuth::fromUser($user);
         $abilities = $this->getRolesAbilities();
-        $userRole = array();
+        $userRole = [];
 
         foreach ($user->Roles as $role) {
             $userRole [] = $role->slug;
@@ -192,7 +191,7 @@ class AuthController extends Controller
         ]);
 
         $verificationCode = str_random(40);
-        $user = new User;
+        $user = new User();
         $user->name = trim($request->name);
         $user->email = trim(strtolower($request->email));
         $user->password = bcrypt($request->password);
