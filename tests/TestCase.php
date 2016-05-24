@@ -29,7 +29,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function getAuthUser()
     {
-        if (! $this->authUser) {
+        if (!$this->authUser) {
             $this->setAuthUserToken();
         }
 
@@ -38,7 +38,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function getAuthUserToken()
     {
-        if (! $this->authUserToken) {
+        if (!$this->authUserToken) {
             $this->setAuthUserToken();
         }
 
