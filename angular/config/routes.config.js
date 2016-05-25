@@ -172,6 +172,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         roleId: null
       }
     })
+    .state('app.widgets', {
+      url: '/widgets',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<widgets></widgets>'
+        }
+      }
+    })
     .state('login', {
       url: '/login',
       views: {

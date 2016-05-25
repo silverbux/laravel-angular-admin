@@ -1,3 +1,4 @@
+import { WidgetsComponent } from './app/components/widgets/widgets.component'
 import { UserProfileComponent } from './app/components/user-profile/user-profile.component'
 import { UserVerificationComponent } from './app/components/user-verification/user-verification.component'
 import { ComingSoonComponent } from './app/components/coming-soon/coming-soon.component'
@@ -19,6 +20,7 @@ import { LoginFormComponent } from './app/components/login-form/login-form.compo
 import { RegisterFormComponent } from './app/components/register-form/register-form.component'
 
 angular.module('app.components')
+  .component('widgets', WidgetsComponent)
   .component('userprofile', UserProfileComponent)
   .component('userVerification', UserVerificationComponent)
   .component('comingsoon', ComingSoonComponent)
