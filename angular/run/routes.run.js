@@ -1,7 +1,15 @@
-export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
+export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout, API) {
   'ngInject'
 
   AclService.resume()
+
+  if ($auth.isAuthenticated()) {
+    let UserData = API.service('me', API.all('users'))
+    UserData.one().get()
+      .then((response) => {
+        $rootScope.me = API.copy(response)
+      })
+  }
 
   /*eslint-disable */
   let deregisterationCallback = $rootScope.$on('$stateChangeStart', function (event, toState) {

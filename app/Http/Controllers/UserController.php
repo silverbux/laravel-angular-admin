@@ -14,6 +14,11 @@ use Validator;
 
 class UserController extends Controller
 {
+    /**
+     * Get user current context
+     *
+     * @return JSON
+     */
     public function getMe()
     {
         $user = Auth::user();
@@ -21,6 +26,11 @@ class UserController extends Controller
         return response()->success($user);
     }
 
+    /**
+     * Update user current context
+     *
+     * @return JSON success message
+     */
     public function putMe(Request $request)
     {
         $user = Auth::user();
