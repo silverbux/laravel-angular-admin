@@ -1,58 +1,62 @@
 export class DialogService {
-  constructor ($mdDialog) {
-    'ngInject'
+    constructor($mdDialog) {
+        'ngInject';
 
-    this.$mdDialog = $mdDialog
-  }
-
-  fromTemplate (template, options) {
-    if (!template) {
-      return false
+        this.$mdDialog = $mdDialog
     }
 
-    if (!options) {
-      options = {}
+    fromTemplate(template, options) {
+        if (!template) {
+            return false;
+        }
+
+        if (!options) {
+            options = {};
+        }
+
+        options.templateUrl = './views/dialogs/' + template + '/' + template + '.dialog.html'
+
+        return this.$mdDialog.show(options);
     }
 
-    options.templateUrl = './views/dialogs/' + template + '/' + template + 'dialog.html'
+    hide(params) {
+        return this.$mdDialog.hide(params);
+    }
 
-    return this.$mdDialog.show(options)
-  }
+    cancel(){
+        return this.$mdDialog.cancel();
+    }
 
-  hide () {
-    return this.$mdDialog.hide()
-  }
+    alert(title, content, params) {
+        let alert = this.$mdDialog.alert(params)
+            .title(title)
+            .content(content)
+            .ariaLabel(content)
+            .ok('Ok');
 
-  alert (title, content) {
-    var alert = this.$mdDialog.alert()
-      .title(title)
-      .content(content)
-      .ariaLabel(content)
-      .ok('Ok')
+        this.$mdDialog.show(alert);
+    }
 
-    this.$mdDialog.show(alert)
-  }
+    confirm(title, content, params) {
+        let confirm = this.$mdDialog.confirm(params)
+            .title(title)
+            .content(content)
+            .ariaLabel(content)
+            .ok('Ok')
+            .cancel('Cancel');
 
-  confirm (title, content) {
-    var confirm = this.$mdDialog.confirm()
-      .title(title)
-      .content(content)
-      .ariaLabel(content)
-      .ok('Ok')
-      .cancel('Cancel')
+        return this.$mdDialog.show(confirm);
+    }
 
-    return this.$mdDialog.show(confirm)
-  }
+    prompt(title, content, placeholder, params) {
+        let prompt = this.$mdDialog.prompt(params)
+            .title(title)
+            .textContent(content)
+            .placeholder(placeholder)
+            .ariaLabel(placeholder)
+            .ok('Ok')
+            .cancel('Cancel');
 
-  prompt (title, content, placeholder) {
-    var prompt = this.$mdDialog.prompt()
-      .title(title)
-      .textContent(content)
-      .placeholder(placeholder)
-      .ariaLabel(placeholder)
-      .ok('Ok')
-      .cancel('Cancel')
-
-    return this.$mdDialog.show(prompt)
-  }
+        return this.$mdDialog.show(prompt);
+    }
 }

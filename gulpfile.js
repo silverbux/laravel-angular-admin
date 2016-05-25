@@ -1,6 +1,4 @@
 var elixir = require('laravel-elixir')
-
-require('laravel-elixir-livereload')
 require('laravel-elixir-karma')
 require('./tasks/angular.task.js')
 require('./tasks/bower.task.js')
@@ -49,9 +47,9 @@ elixir(function (mix) {
     .ngHtml2Js('./angular/**/*.html')
     .sass('./angular/**/*.scss', 'public/css')
     .version(assets)
-    .livereload(buildPath + '/rev-manifest.json', {
-      liveCSS: true
-    })
+    .browserSync({
+            proxy: 'localhost:8000'
+        })
     .karma({
       jsDir: karmaJsDir
     })

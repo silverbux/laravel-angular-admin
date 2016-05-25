@@ -46,7 +46,6 @@
     "gulp-util": "^3.0.3",
     "laravel-elixir": "^4.2.1",
     "laravel-elixir-karma": "^0.2.2",
-    "laravel-elixir-livereload": "^1.1.1",
     "main-bower-files": "^2.1.0",
     "underscore": "^1.8.3",
     "webpack": "^1.12.11",

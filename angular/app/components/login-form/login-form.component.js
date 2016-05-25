@@ -11,9 +11,12 @@ class LoginFormController {
     this.successMsg = $stateParams.successMsg
     this.loginfailed = false
     this.unverified = false
-    this.email = ''
-    this.password = ''
   }
+
+  $onInit(){
+        this.email = '';
+        this.password = '';
+    }
 
   login () {
     this.loginfailed = false
