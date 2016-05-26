@@ -24,7 +24,7 @@ Plus Oauth and JWT authentication on the side.
 
 > admin@example.com / password
 
-![laradmin](https://cloud.githubusercontent.com/assets/1888261/14665607/dbadf93c-0706-11e6-8223-5ea3f88aa44b.png)
+![laradmin](https://cloud.githubusercontent.com/assets/1888261/15561320/1899b4b2-2327-11e6-8a3a-7e3d7ce31621.png)
 
 ## Installation
 ```
@@ -44,14 +44,12 @@ $ php artisan key:generate
 **General Workflow**
 
 ```
-$ gulp && gulp watch
+$ php artisan serve --host=0
 ```
 Open new terminal
 ```
-$ php artisan serve
+$ gulp && gulp watch
 ```
-
-Open http://localhost:8000/
 
 > Default Username/Password: admin@example.com / password
 
