@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.2.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.2.0) (2016-05-26)
+[Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.1.1...v0.2.0)
+
+**Merged pull requests:**
+
+- User current context [\#24](https://github.com/silverbux/laravel-angular-admin/pull/24) ([silverbux](https://github.com/silverbux))
+- Small updates [\#23](https://github.com/silverbux/laravel-angular-admin/pull/23) ([wouterNL](https://github.com/wouterNL))
+- Added Widgets Component [\#22](https://github.com/silverbux/laravel-angular-admin/pull/22) ([silverbux](https://github.com/silverbux))
+- Convert .less to .scss [\#21](https://github.com/silverbux/laravel-angular-admin/pull/21) ([wouterNL](https://github.com/wouterNL))
+- Applied fixes from StyleCI [\#19](https://github.com/silverbux/laravel-angular-admin/pull/19) ([silverbux](https://github.com/silverbux))
+
 ## [v0.1.1](https://github.com/silverbux/laravel-angular-admin/tree/v0.1.1) (2016-05-23)
 [Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.1.0...v0.1.1)
 
