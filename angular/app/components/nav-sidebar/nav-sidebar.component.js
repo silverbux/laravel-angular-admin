@@ -1,8 +1,13 @@
 class NavSidebarController {
-  constructor (AclService) {
+  constructor (AclService, ContextService) {
     'ngInject'
 
+    let navSideBar = this
     this.can = AclService.can
+
+    ContextService.me(function (data) {
+      navSideBar.userData = data
+    })
   }
 
   $onInit () {}

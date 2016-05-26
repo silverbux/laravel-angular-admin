@@ -1,4 +1,4 @@
-export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
+export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout, API, ContextService) {
   'ngInject'
 
   AclService.resume()
@@ -15,8 +15,9 @@ export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
     $rootScope.bodyClass = 'hold-transition login-page'
   })
 
-  function fixSideBar () {
+  function stateChange () {
     $timeout(function () {
+      // fix sidebar
       var neg = $('.main-header').outerHeight() + $('.main-footer').outerHeight()
       var window_height = $(window).height()
       var sidebar_height = $('.sidebar').height()
@@ -30,10 +31,19 @@ export function RoutesRun ($rootScope, $state, $auth, AclService, $timeout) {
           $('.content-wrapper, .right-side').css('min-height', sidebar_height)
         }
       }
+
+      // get user current context
+      if ($auth.isAuthenticated() && !$rootScope.me) {
+        ContextService.getContext()
+          .then((response) => {
+            response = response.plain()
+            $rootScope.me = response.data
+          })
+      }
     })
   }
 
   $rootScope.$on('$destroy', deregisterationCallback)
-  $rootScope.$on('$stateChangeSuccess', fixSideBar)
+  $rootScope.$on('$stateChangeSuccess', stateChange)
 /*eslint-enable */
 }
