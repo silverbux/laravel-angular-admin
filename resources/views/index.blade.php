@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <title>Laravel Angular Material Starter</title>
+    <title>Laravel Angular Admin-LTE</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,12 +25,6 @@
         <script src="{!! elixir('js/vendor.js') !!}"></script>
         <script src="{!! elixir('js/partials.js') !!}"></script>
         <script src="{!! elixir('js/app.js') !!}"></script>
-        {{--livereload--}}
-        @if ( env('APP_ENV') === 'local' )
-        <script type="text/javascript">
-            document.write('<script src="'+ location.protocol + '//' + (location.host.split(':')[0] || 'localhost') +':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
-        </script>
-        @endif
         <div class="control-sidebar-bg"></div>
     </div>
     <script src="dist/js/app.js"></script>

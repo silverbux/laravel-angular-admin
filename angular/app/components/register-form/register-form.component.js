@@ -6,12 +6,17 @@ class RegisterFormController {
     this.$state = $state
     this.$scope = $scope
 
-    this.name = ''
-    this.email = ''
     this.password = ''
     this.formSubmitted = false
     this.errors = []
   }
+
+
+  $onInit(){
+    this.name = '';
+    this.email = '';
+    this.password = '';
+    }
 
   register (isValid) {
     if (isValid) {
