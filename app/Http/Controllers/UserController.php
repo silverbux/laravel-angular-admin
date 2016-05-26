@@ -15,7 +15,7 @@ use Validator;
 class UserController extends Controller
 {
     /**
-     * Get user current context
+     * Get user current context.
      *
      * @return JSON
      */
@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update user current context
+     * Update user current context.
      *
      * @return JSON success message
      */

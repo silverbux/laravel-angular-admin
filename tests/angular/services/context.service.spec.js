@@ -1,11 +1,10 @@
 ngDescribe({
-    name: 'Test ContextService',
-    modules: 'app',
-    inject: 'ContextService',
-    tests: function (deps) {
-
-        it('basic test', () => {
-            //
-        });
-    }
-});
+  name: 'Test ContextService',
+  modules: 'app',
+  inject: 'ContextService',
+  tests: function (deps) {
+    it('basic test', () => {
+      //
+    })
+  }
+})

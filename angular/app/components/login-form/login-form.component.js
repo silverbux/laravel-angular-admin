@@ -1,6 +1,8 @@
 class LoginFormController {
-  constructor ($auth, $state, $stateParams, API, AclService) {
+  constructor ($rootScope, $auth, $state, $stateParams, API, AclService) {
     'ngInject'
+
+    delete $rootScope.me
 
     this.$auth = $auth
     this.$state = $state

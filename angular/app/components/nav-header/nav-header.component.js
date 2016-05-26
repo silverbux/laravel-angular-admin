@@ -1,14 +1,15 @@
 class NavHeaderController {
-  constructor (ContextService) {
+  constructor ($rootScope, ContextService) {
     'ngInject'
 
-    ContextService.me()
-      .then((response) => {
-        response = response.plain()
-        this.userData = response.data
-      })
-  //
+    let navHeader = this
+
+    ContextService.me(function (data) {
+      navHeader.userData = data
+    })
   }
+
+  $onInit () {}
 }
 
 export const NavHeaderComponent = {

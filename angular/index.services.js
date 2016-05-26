@@ -1,4 +1,4 @@
-import { ContextService } from './services/context.service';
+import { ContextService } from './services/context.service'
 import { APIService } from './services/API.service'
 import { DialogService } from './services/dialog.service'
 import { ToastService } from './services/toast.service'
