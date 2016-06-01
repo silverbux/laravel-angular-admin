@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\User;
 use Auth;
 use Bican\Roles\Models\Permission;
@@ -119,19 +118,33 @@ class UserController extends Controller
      *
      * @return JSON success message
      */
-    public function putShow()
+    public function putShow(Request $request)
     {
-        $userForm = Input::get('data');
-        $userId = intval($userForm['id']);
+        $userForm = array_dot(
+            app('request')->only(
+                'data.name',
+                'data.email',
+                'data.id'
+            )
+        );
+
+        $userId = intval($userForm['data.id']);
+
+        $user = User::find($userId);
+
+        $this->validate($request, [
+            'data.id' => 'required|integer',
+            'data.name' => 'required|min:3',
+            'data.email' => 'required|email|unique:users,email,'.$user->id,
+        ]);
 
         $userData = [
-            'name' => $userForm['name'],
-            'email' => $userForm['email'],
+            'name' => $userForm['data.name'],
+            'email' => $userForm['data.email'],
         ];
 
         $affectedRows = User::where('id', '=', $userId)->update($userData);
 
-        $user = User::find($userId);
         $user->detachAllRoles();
 
         foreach (Input::get('data.role') as $setRole) {
@@ -142,24 +155,15 @@ class UserController extends Controller
     }
 
     /**
-     * Responds to requests to GET /users/admin-profile.
+     * Delete User Data.
+     *
+     * @return JSON success message
      */
-    public function getAdminProfile()
-    {
-        //
-    }
-
-    /**
-     * Responds to requests to POST /users/profile.
-     */
-    public function postProfile()
-    {
-        //
-    }
-
     public function deleteUser($id)
     {
-        return response()->success(compact('id'));
+        // $user = User::find($id);
+        // $user->delete();
+        return response()->success('success');
     }
 
     /**
