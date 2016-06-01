@@ -16,8 +16,15 @@ ngDescribe({
     }
   },
   tests: function (deps) {
-    it('should expect verification on init', () => {
-      //
+    it('Should have password and password confirmation', () => {
+      var inputs = deps.element.find('input')
+      expect(inputs.length).toBe(2)
+
+      var password = deps.element.find('input')[0]
+      expect(password.attributes['type'].value).toBe('password')
+
+      var password_confirmation = deps.element.find('input')[1]
+      expect(password_confirmation.attributes['type'].value).toBe('password')
     })
 
     it('should submit password reset successfully', () => {

@@ -1,7 +1,7 @@
 ngDescribe({
   name: 'Test routeCssClassnames component',
   modules: 'app',
-  element: '<routeCssClassnames></routeCssClassnames>',
+  element: '<route-bodyclass></route-bodyclass>',
   tests: function (deps) {
     it('basic test', () => {
       //
