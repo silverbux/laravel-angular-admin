@@ -48,7 +48,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<comingSoon></comingSoon>'
+          template: '<coming-soon></coming-soon>'
         }
       }
     })
@@ -59,7 +59,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userProfile></userProfile>'
+          template: '<user-profile></user-profile>'
         }
       },
       params: {
@@ -73,7 +73,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userLists></userLists>'
+          template: '<user-lists></user-lists>'
         }
       }
     })
@@ -84,7 +84,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userEdit></userEdit>'
+          template: '<user-edit></user-edit>'
         }
       },
       params: {
@@ -99,7 +99,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userRoles></userRoles>'
+          template: '<user-roles></user-roles>'
         }
       }
     })
@@ -110,7 +110,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userPermissions></userPermissions>'
+          template: '<user-permissions></user-permissions>'
         }
       }
     })
@@ -121,7 +121,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userPermissionsAdd></userPermissionsAdd>'
+          template: '<user-permissions-add></user-permissions-add>'
         }
       },
       params: {
@@ -135,7 +135,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userPermissionsEdit></userPermissionsEdit>'
+          template: '<user-permissions-edit></user-permissions-edit>'
         }
       },
       params: {
@@ -150,7 +150,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userRolesAdd></userRolesAdd>'
+          template: '<user-roles-add></user-roles-add>'
         }
       },
       params: {
@@ -164,7 +164,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
       },
       views: {
         'main@app': {
-          template: '<userRolesEdit></userRolesEdit>'
+          template: '<user-roles-edit></user-roles-edit>'
         }
       },
       params: {
