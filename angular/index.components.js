@@ -1,3 +1,4 @@
+import { ChartsChartjsComponent } from './app/components/charts-chartjs/charts-chartjs.component'
 import { WidgetsComponent } from './app/components/widgets/widgets.component'
 import { UserProfileComponent } from './app/components/user-profile/user-profile.component'
 import { UserVerificationComponent } from './app/components/user-verification/user-verification.component'
@@ -20,6 +21,7 @@ import { LoginFormComponent } from './app/components/login-form/login-form.compo
 import { RegisterFormComponent } from './app/components/register-form/register-form.component'
 
 angular.module('app.components')
+  .component('chartsChartjs', ChartsChartjsComponent)
   .component('widgets', WidgetsComponent)
   .component('userProfile', UserProfileComponent)
   .component('userVerification', UserVerificationComponent)

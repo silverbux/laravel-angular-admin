@@ -11,12 +11,11 @@ class RegisterFormController {
     this.errors = []
   }
 
-
-  $onInit(){
-    this.name = '';
-    this.email = '';
-    this.password = '';
-    }
+  $onInit () {
+    this.name = ''
+    this.email = ''
+    this.password = ''
+  }
 
   register (isValid) {
     if (isValid) {
