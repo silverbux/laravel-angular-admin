@@ -41,6 +41,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.chartjs', {
+      url: '/charts-chartjs',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<charts-chartjs></charts-chartjs>'
+        }
+      }
+    })
     .state('app.comingsoon', {
       url: '/comingsoon',
       data: {

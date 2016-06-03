@@ -1,0 +1,184 @@
+<section class="content-header">
+    <h1>ChartJS<small>Preview sample</small></h1>
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.landing"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">User Lists</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Area Chart</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-center">
+                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+              </p>
+
+              <div class="chart">
+                <!-- Sales Chart Canvas -->
+                <canvas id="area"
+                  class="chart chart-line"
+                  chart-data="vm.areaChartData"
+                  chart-labels="vm.areaChartLabels"
+                  chart-legend="false"
+                  chart-series="vm.areaChartSeries"
+                  chart-click="vm.onClick"
+                  chart-colours="vm.areaChartColours"
+                  style="height: 180px;">
+                </canvas>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <div class="col-md-6">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Line Chart</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-center">
+                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+              </p>
+
+              <div class="chart">
+                <!-- Sales Chart Canvas -->
+                <canvas id="line"
+                  class="chart chart-line"
+                  chart-data="vm.lineChartData"
+                  chart-labels="vm.lineChartLabels"
+                  chart-legend="false"
+                  chart-series="vm.lineChartSeries"
+                  chart-click="vm.onClick"
+                  style="height: 180px;">
+                </canvas>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+    <!-- /.row -->
+
+    <!-- Main row -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h3 class="box-title">Donut Chart</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="chart-responsive">
+                <canvas id="doughnut"  height="200" class="chart chart-doughnut"
+                  chart-data="vm.pieData" chart-labels="vm.pieLabels">
+                </canvas>
+                <!-- <canvas id="pieChart" height="150"></canvas> -->
+              </div>
+              <!-- ./chart-responsive -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+              <ul class="chart-legend clearfix">
+                <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
+                <li><i class="fa fa-circle-o text-green"></i> IE</li>
+                <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
+                <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
+                <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
+                <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+              </ul>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a>United States of America <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+            <li><a>India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
+            <li><a>China<span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
+          </ul>
+        </div>
+        <!-- /.footer -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <div class="col-md-6">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Bar Chart</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-center">
+                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+              </p>
+
+              <div class="chart">
+                <!-- Sales Chart Canvas -->
+                <canvas id="area"
+                  class="chart chart-bar"
+                  chart-data="vm.barChartData"
+                  chart-labels="vm.barChartLabels"
+                  chart-legend="false"
+                  chart-series="vm.barChartSeries"
+                  chart-click="vm.onClick"
+                  chart-colours="vm.barChartColours"
+                  style="height: 250px;">
+                </canvas>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+    <!-- /.row -->
+</section>

@@ -48,8 +48,8 @@ elixir(function (mix) {
     .sass('./angular/**/*.scss', 'public/css')
     .version(assets)
     .browserSync({
-            proxy: 'localhost:8000'
-        })
+      proxy: 'localhost:8000'
+    })
     .karma({
       jsDir: karmaJsDir
     })

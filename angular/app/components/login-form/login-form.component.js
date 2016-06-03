@@ -15,10 +15,10 @@ class LoginFormController {
     this.unverified = false
   }
 
-  $onInit(){
-        this.email = '';
-        this.password = '';
-    }
+  $onInit () {
+    this.email = ''
+    this.password = ''
+  }
 
   login () {
     this.loginfailed = false
