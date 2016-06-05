@@ -1,5 +1,5 @@
 class ChartsChartjsController {
-  constructor ($scope) {
+  constructor () {
     'ngInject'
   }
 
