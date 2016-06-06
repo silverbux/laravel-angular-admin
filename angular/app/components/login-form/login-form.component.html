@@ -1,4 +1,4 @@
-<form ng-submit="vm.login()" method="post">
+<form ng-submit="vm.login()" method="post" name="vm.loginForm">
     <div class="callout callout-danger" ng-if="vm.loginfailed">
         <h4>Login Failed</h4>
         <p>Incorrect Email/Username or Password.</p>
@@ -16,28 +16,47 @@
         <p>{{ vm.successMsg }}</p>
     </div>
     <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" ng-model="vm.email">
+        <input type="email" class="form-control" placeholder="Email" name="email"
+               ng-model="vm.email"
+               ng-required="true"
+               ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" ng-model="vm.password">
+        <input type="password" class="form-control" placeholder="Password" name="password"
+               ng-model="vm.password"
+               ng-required="true">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
     <div class="row">
-        <div class="col-xs-8">
-
-        </div>
-        <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat" ng-disabled="vm.loginForm.$invalid">
+                Sign In
+            </button>
         </div>
     </div>
 </form>
 <div class="social-auth-links text-center">
     <p>- OR -</p>
-    <a href="/auth/github" class="btn btn-block btn-social btn-github btn-flat"><i class="fa fa-github"></i> Sign in using Github+</a>
-    <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google"></i> Sign in using Google</a>
-    <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+    <a href="/auth/github" class="btn btn-block btn-social btn-github btn-flat">
+        <i class="fa fa-github"></i> Sign in using Github
+    </a>
+    <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat">
+        <i class="fa fa-google"></i> Sign in using Google+
+    </a>
+    <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook btn-flat">
+        <i class="fa fa-facebook"></i> Sign in using Facebook
+    </a>
 </div>
-<a ui-sref="forgot_password">I forgot my password</a>
-<br>
-<a ui-sref="register" class="text-center">Register a new membership</a>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="pull-left">
+            <a ui-sref="forgot_password">Forgot your password?</a>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a ui-sref="register" class="text-center">Create an account</a>
+        </div>
+    </div>
+</div>
