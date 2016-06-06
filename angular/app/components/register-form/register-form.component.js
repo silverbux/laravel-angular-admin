@@ -7,6 +7,7 @@ class RegisterFormController {
     this.$scope = $scope
 
     this.password = ''
+    this.password_confirmation = ''
     this.formSubmitted = false
     this.errors = []
   }
@@ -15,6 +16,7 @@ class RegisterFormController {
     this.name = ''
     this.email = ''
     this.password = ''
+    this.password_confirmation = ''
   }
 
   register (isValid) {
