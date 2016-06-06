@@ -31,12 +31,11 @@ Plus Oauth and JWT authentication on the side.
 $ composer install && npm install
 ```
 
-Copy ```.env.example``` to ```.env``` and enter necessary config for DB and Oauth Providers Settings.
+Open ```.env``` and enter necessary config for DB and Oauth Providers Settings.
 
 ```
 $ php artisan migrate
 $ php artisan db:seed
-$ php artisan key:generate
 ```
 
 ## Work Flow
