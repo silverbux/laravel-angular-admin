@@ -53,10 +53,10 @@ isHome: true
 {% highlight text %}
 $ composer install && npm install
 {% endhighlight %}
-<p>Copy <code>.env.example</code> to <code>.env</code> and enter necessary config for DB and Oauth Providers Settings.</p>
+<p>Open <code>.env</code> and enter necessary config for DB and Oauth Providers Settings.</p>
 {% highlight text %}
 $ php artisan migrate
-$ php artisan key:generate
+$ php artisan db:seed
 {% endhighlight %}
   <h3 id="configuration">Configuration</h3>
   <p>Open <code>.env</code> file, if it does not exists copy <code>.env.example</code> file .</p>
