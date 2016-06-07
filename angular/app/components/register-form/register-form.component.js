@@ -24,7 +24,8 @@ class RegisterFormController {
       var user = {
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
+        password_confirmation: this.password_confirmation
       }
 
       this.$auth.signup(user)
