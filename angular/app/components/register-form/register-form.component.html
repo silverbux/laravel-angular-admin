@@ -1,6 +1,6 @@
 <form name="userForm" ng-submit="vm.register(userForm.$valid)" novalidate>
     <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.name.$invalid && ( vm.formSubmitted || userForm.name.$touched) }">
-        <input type="text" class="form-control" placeholder="Full name" ng-model="vm.name" name="name" ng-maxlength="30">
+        <input type="text" class="form-control" placeholder="Full name" ng-model="vm.name" name="name" ng-maxlength="30" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
         <p ng-show="userForm.name.$error.required && ( vm.formSubmitted || userForm.name.$touched)" class="help-block">Full Name is required.</p>

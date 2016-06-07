@@ -87,7 +87,7 @@ $ artisan ng:config name     #New config inside angular/config/
 
 ## Contributing
 
-Please read [code_of_conduct.md](code_of_conduct.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Thank you for contributing to this repository.
 
 ## Acknowledgments / Credits
 This project wont be possible without the following, We acknowledge and are grateful to these developers for their contributions to open source. **All necessary credits are given**.
