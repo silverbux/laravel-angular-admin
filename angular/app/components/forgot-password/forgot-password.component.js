@@ -4,7 +4,7 @@ class ForgotPasswordController {
 
     this.API = API
     this.$state = $state
-    this.errorTrigger = false
+    this.formSubmitted = false
   }
 
   $onInit () {
@@ -17,7 +17,7 @@ class ForgotPasswordController {
     }).then(() => {
       this.$state.go('login', { successMsg: `Please check your email for instructions on how to reset your password.` })
     }, () => {
-      this.errorTrigger = true
+      this.formSubmitted = true
     })
   }
 }
