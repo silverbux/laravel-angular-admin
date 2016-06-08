@@ -1,5 +1,23 @@
 # Change Log
 
+## [v0.3.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.3.0) (2016-06-08)
+[Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.2.0...v0.3.0)
+
+**Closed issues:**
+
+- Whoops, looks like something went wrong. [\#26](https://github.com/silverbux/laravel-angular-admin/issues/26)
+
+**Merged pull requests:**
+
+- Reset password form improvements [\#35](https://github.com/silverbux/laravel-angular-admin/pull/35) ([ionut-tanasa](https://github.com/ionut-tanasa))
+- Added validation to forgot password form [\#34](https://github.com/silverbux/laravel-angular-admin/pull/34) ([ionut-tanasa](https://github.com/ionut-tanasa))
+- Login form validation [\#32](https://github.com/silverbux/laravel-angular-admin/pull/32) ([ionut-tanasa](https://github.com/ionut-tanasa))
+- Automated .env config setup [\#30](https://github.com/silverbux/laravel-angular-admin/pull/30) ([ionut-tanasa](https://github.com/ionut-tanasa))
+- Fixed users table migration allowing email/password registration [\#29](https://github.com/silverbux/laravel-angular-admin/pull/29) ([ionut-tanasa](https://github.com/ionut-tanasa))
+- Fix error on running ngHtml2Js [\#28](https://github.com/silverbux/laravel-angular-admin/pull/28) ([leoruhland](https://github.com/leoruhland))
+- Chartjs component + deleted dialog and toast service [\#27](https://github.com/silverbux/laravel-angular-admin/pull/27) ([silverbux](https://github.com/silverbux))
+- Angular unit testing [\#25](https://github.com/silverbux/laravel-angular-admin/pull/25) ([silverbux](https://github.com/silverbux))
+
 ## [v0.2.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.2.0) (2016-05-26)
 [Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.1.1...v0.2.0)
 
@@ -9,6 +27,7 @@
 - Small updates [\#23](https://github.com/silverbux/laravel-angular-admin/pull/23) ([wouterNL](https://github.com/wouterNL))
 - Added Widgets Component [\#22](https://github.com/silverbux/laravel-angular-admin/pull/22) ([silverbux](https://github.com/silverbux))
 - Convert .less to .scss [\#21](https://github.com/silverbux/laravel-angular-admin/pull/21) ([wouterNL](https://github.com/wouterNL))
+- Applied fixes from StyleCI [\#20](https://github.com/silverbux/laravel-angular-admin/pull/20) ([silverbux](https://github.com/silverbux))
 - Applied fixes from StyleCI [\#19](https://github.com/silverbux/laravel-angular-admin/pull/19) ([silverbux](https://github.com/silverbux))
 
 ## [v0.1.1](https://github.com/silverbux/laravel-angular-admin/tree/v0.1.1) (2016-05-23)
@@ -29,13 +48,13 @@
 - Users List/ Edit and Role Settings [\#12](https://github.com/silverbux/laravel-angular-admin/pull/12) ([silverbux](https://github.com/silverbux))
 - User Permission Module [\#11](https://github.com/silverbux/laravel-angular-admin/pull/11) ([silverbux](https://github.com/silverbux))
 - Going for standardjs [\#9](https://github.com/silverbux/laravel-angular-admin/pull/9) ([silverbux](https://github.com/silverbux))
-- Access control list [\#8](https://github.com/silverbux/laravel-angular-admin/pull/8) ([silverbux](https://github.com/silverbux))
+- Implemented bican/roles and mikemclin/angular-acl for access control [\#8](https://github.com/silverbux/laravel-angular-admin/pull/8) ([silverbux](https://github.com/silverbux))
 - Access control list [\#7](https://github.com/silverbux/laravel-angular-admin/pull/7) ([silverbux](https://github.com/silverbux))
 - Merge pull request \#4 from silverbux/master [\#5](https://github.com/silverbux/laravel-angular-admin/pull/5) ([silverbux](https://github.com/silverbux))
 - production parameter + elixir [\#4](https://github.com/silverbux/laravel-angular-admin/pull/4) ([silverbux](https://github.com/silverbux))
-- Heroku [\#3](https://github.com/silverbux/laravel-angular-admin/pull/3) ([silverbux](https://github.com/silverbux))
-- Heroku Deployment [\#2](https://github.com/silverbux/laravel-angular-admin/pull/2) ([silverbux](https://github.com/silverbux))
-- Heroku [\#1](https://github.com/silverbux/laravel-angular-admin/pull/1) ([silverbux](https://github.com/silverbux))
+- Added heroku-buildpack-nodejs and heroku-buildpack-php on .buildpacks [\#3](https://github.com/silverbux/laravel-angular-admin/pull/3) ([silverbux](https://github.com/silverbux))
+- Heroku deployment and buildpacks [\#2](https://github.com/silverbux/laravel-angular-admin/pull/2) ([silverbux](https://github.com/silverbux))
+- Moving from codeship deployment to heroku buildpack [\#1](https://github.com/silverbux/laravel-angular-admin/pull/1) ([silverbux](https://github.com/silverbux))
 
 
 
