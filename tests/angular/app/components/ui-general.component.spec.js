@@ -1,7 +1,7 @@
 ngDescribe({
-  name: 'Test forms-general component',
+  name: 'Test ui-general component',
   modules: 'app',
-  element: '<forms-general></forms-general>',
+  element: '<ui-general></ui-general>',
   tests: function (deps) {
     it('basic test', () => {
       //

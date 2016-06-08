@@ -29,7 +29,7 @@ class ResetPasswordController {
   }
 
   submit (isValid) {
-    if(isValid) {
+    if (isValid) {
       this.alerts = []
       let data = {
         email: this.$state.params.email,
@@ -44,13 +44,13 @@ class ResetPasswordController {
         let alrtArr = []
 
         angular.forEach(res.data.errors, function (value) {
-            alrtArr = {type: 'error', 'title': 'Error!', msg: value[0]}
+          alrtArr = {type: 'error', 'title': 'Error!', msg: value[0]}
         })
 
         this.alerts.push(alrtArr)
-        })
+      })
     } else {
-        this.formSubmitted = true
+      this.formSubmitted = true
     }
   }
 }

@@ -41,6 +41,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.uigeneral', {
+      url: '/ui-general',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<ui-general></ui-general>'
+        }
+      }
+    })
     .state('app.formsgeneral', {
       url: '/forms-general',
       data: {

@@ -1,19 +1,16 @@
-class FormsGeneralController{
-    constructor(){
-        'ngInject';
+class FormsGeneralController {
+  constructor () {
+    'ngInject'
 
-        //
-    }
+  //
+  }
 
-    $onInit(){
-    }
+  $onInit () {}
 }
 
 export const FormsGeneralComponent = {
-    templateUrl: './views/app/components/forms-general/forms-general.component.html',
-    controller: FormsGeneralController,
-    controllerAs: 'vm',
-    bindings: {}
+  templateUrl: './views/app/components/forms-general/forms-general.component.html',
+  controller: FormsGeneralController,
+  controllerAs: 'vm',
+  bindings: {}
 }
-
-
