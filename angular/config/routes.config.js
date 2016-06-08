@@ -52,6 +52,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.uitimeline', {
+      url: '/ui-timeline',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<ui-timeline></ui-timeline>'
+        }
+      }
+    })
     .state('app.uibuttons', {
       url: '/ui-buttons',
       data: {
