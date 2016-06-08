@@ -1,3 +1,4 @@
+import { UiTimelineComponent } from './app/components/ui-timeline/ui-timeline.component'
 import { UiButtonsComponent } from './app/components/ui-buttons/ui-buttons.component'
 import { UiIconsComponent } from './app/components/ui-icons/ui-icons.component'
 import { UiGeneralComponent } from './app/components/ui-general/ui-general.component'
@@ -25,6 +26,7 @@ import { LoginFormComponent } from './app/components/login-form/login-form.compo
 import { RegisterFormComponent } from './app/components/register-form/register-form.component'
 
 angular.module('app.components')
+  .component('uiTimeline', UiTimelineComponent)
   .component('uiButtons', UiButtonsComponent)
   .component('uiIcons', UiIconsComponent)
   .component('uiGeneral', UiGeneralComponent)
