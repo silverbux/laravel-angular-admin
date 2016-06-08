@@ -52,10 +52,11 @@ class JwtAuthTest extends TestCase
         $user = factory(App\User::class)->make();
 
         $this->post('/api/auth/register', [
-            'name'           => $user->name,
-            'email'          => $user->email,
-            'password'       => 'test15125',
-            'email_verified' => '1',
+            'name'                  => $user->name,
+            'email'                 => $user->email,
+            'password'              => 'test15125',
+            'password_confirmation' => 'test15125',
+            'email_verified'        => '1',
         ])
         ->seeApiSuccess()
         ->seeJsonKeyValueString('email', $user->email)
