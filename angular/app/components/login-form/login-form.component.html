@@ -1,62 +1,57 @@
 <form ng-submit="vm.login()" method="post" name="vm.loginForm">
-    <div class="callout callout-danger" ng-if="vm.loginfailed">
-        <h4>Login Failed</h4>
-        <p>Incorrect Email/Username or Password.</p>
+  <div class="callout callout-danger" ng-if="vm.loginfailed">
+    <h4>Login Failed</h4>
+    <p>Incorrect Email/Username or Password.</p>
+  </div>
+  <div class="callout callout-danger" ng-if="vm.unverified">
+    <h4>Email Unverified</h4>
+    <p>Please check your email and click the verification link.</p>
+  </div>
+  <div class="callout callout-success" ng-if="vm.registerSuccess">
+    <h4>Registration Success!</h4>
+    <p>A verification link has been sent to your Email Account. Thank You!</p>
+  </div>
+  <div class="callout callout-success" ng-if="vm.successMsg">
+    <h4>Success!</h4>
+    <p>{{ vm.successMsg }}</p>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="email" class="form-control" placeholder="Email" name="email" ng-model="vm.email" ng-required="true" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="password" class="form-control" placeholder="Password" name="password" ng-model="vm.password" ng-required="true">
+    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn-primary btn-block btn-flat">
+        Sign In
+      </button>
     </div>
-    <div class="callout callout-danger" ng-if="vm.unverified">
-        <h4>Email Unverified</h4>
-        <p>Please check your email and click the verification link.</p>
-    </div>
-    <div class="callout callout-success" ng-if="vm.registerSuccess">
-        <h4>Registration Success!</h4>
-        <p>A verification link has been sent to your Email Account. Thank You!</p>
-    </div>
-    <div class="callout callout-success" ng-if="vm.successMsg">
-        <h4>Success!</h4>
-        <p>{{ vm.successMsg }}</p>
-    </div>
-    <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" name="email"
-               ng-model="vm.email"
-               ng-required="true"
-               ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-    </div>
-    <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password"
-               ng-model="vm.password"
-               ng-required="true">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">
-                Sign In
-            </button>
-        </div>
-    </div>
+  </div>
 </form>
 <div class="social-auth-links text-center">
-    <p>- OR -</p>
-    <a href="/auth/github" class="btn btn-block btn-social btn-github btn-flat">
-        <i class="fa fa-github"></i> Sign in using Github
-    </a>
-    <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat">
-        <i class="fa fa-google"></i> Sign in using Google+
-    </a>
-    <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook btn-flat">
-        <i class="fa fa-facebook"></i> Sign in using Facebook
-    </a>
+  <p>- OR -</p>
+  <a href="/auth/github" class="btn btn-block btn-social btn-github btn-flat">
+    <i class="fa fa-github"></i> Sign in using Github
+  </a>
+  <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat">
+    <i class="fa fa-google"></i> Sign in using Google+
+  </a>
+  <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook btn-flat">
+    <i class="fa fa-facebook"></i> Sign in using Facebook
+  </a>
 </div>
 <div class="row">
-    <div class="col-xs-6">
-        <div class="pull-left">
-            <a ui-sref="forgot_password">Forgot your password?</a>
-        </div>
+  <div class="col-xs-6">
+    <div class="pull-left">
+      <a ui-sref="forgot_password">Forgot your password?</a>
     </div>
-    <div class="col-xs-6">
-        <div class="pull-right">
-            <a ui-sref="register" class="text-center">Create an account</a>
-        </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="pull-right">
+      <a ui-sref="register" class="text-center">Create an account</a>
     </div>
+  </div>
 </div>
