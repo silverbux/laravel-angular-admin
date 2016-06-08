@@ -41,6 +41,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.uiicons', {
+      url: '/ui-icons',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<ui-icons></ui-icons>'
+        }
+      }
+    })
     .state('app.uigeneral', {
       url: '/ui-general',
       data: {
