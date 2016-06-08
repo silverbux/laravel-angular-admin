@@ -1,28 +1,38 @@
-<form name="userForm" ng-submit="vm.register(userForm.$valid)" novalidate>
-    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.name.$invalid && ( vm.formSubmitted || userForm.name.$touched) }">
+<form name="vm.registerForm" ng-submit="vm.register(vm.registerForm.$valid)" novalidate>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': vm.registerForm.name.$invalid && ( vm.formSubmitted || vm.registerForm.name.$touched) }">
         <input type="text" class="form-control" placeholder="Full name" ng-model="vm.name" name="name" ng-maxlength="30" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
-        <p ng-show="userForm.name.$error.required && ( vm.formSubmitted || userForm.name.$touched)" class="help-block">Full Name is required.</p>
-  		<p ng-show="userForm.name.$error.maxlength" class="help-block">Full Name is too long.</p>
-        <p ng-show="userForm.name.$invalid && (vm.formSubmitted || vm.errors.name)" class="help-block">{{vm.errors.name}}</p>
+        <p ng-show="vm.registerForm.name.$error.required && ( vm.formSubmitted || vm.registerForm.name.$touched)" class="help-block">Full Name is required.</p>
+        <p ng-show="vm.registerForm.name.$error.maxlength" class="help-block">Full Name is too long.</p>
+        <p ng-show="vm.registerForm.name.$invalid && (vm.formSubmitted || vm.errors.name)" class="help-block">{{vm.errors.name}}</p>
     </div>
-    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.email.$invalid && ( vm.formSubmitted || userForm.email.$touched) }">
-        <input type="email" class="form-control" placeholder="Email" ng-model="vm.email" name="email" ng-maxlength="30" required>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': vm.registerForm.email.$invalid && ( vm.formSubmitted || vm.registerForm.email.$touched) }">
+        <input type="email" class="form-control" placeholder="Email" ng-model="vm.email" name="email" ng-maxlength="30" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
-        <p ng-show="userForm.email.$invalid && (vm.formSubmitted || vm.errors.email)" class="help-block">{{vm.errors.email}}</p>
-        <p ng-show="userForm.email.$error.required && ( vm.formSubmitted || userForm.email.$touched)" class="help-block">Email is required.</p>
-        <p ng-show="userForm.email.$error.email && userForm.email.$touched" class="help-block">This is not a valid email.</p>
+        <p ng-show="vm.registerForm.email.$invalid && (vm.formSubmitted || vm.errors.email)" class="help-block">{{vm.errors.email}}</p>
+        <p ng-show="vm.registerForm.email.$error.required && ( vm.formSubmitted || vm.registerForm.email.$touched)" class="help-block">Email is required.</p>
+        <p ng-show="vm.registerForm.email.$error.email && vm.registerForm.email.$touched" class="help-block">This is not a valid email.</p>
     </div>
-    <div class="form-group has-feedback" ng-class="{ 'has-error': userForm.password.$invalid && ( vm.formSubmitted || userForm.password.$touched) }">
+    <div class="form-group has-feedback" ng-class="{ 'has-error': vm.registerForm.password.$invalid && ( vm.formSubmitted || vm.registerForm.password.$touched) }">
         <input type="password" class="form-control" placeholder="Password" ng-model="vm.password" name="password" ng-minlength="8" ng-maxlength="50" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
-        <p ng-show="userForm.password.$error.required && ( vm.formSubmitted || userForm.password.$touched)" class="help-block">Password is required.</p>
-  		<p ng-show="userForm.password.$error.maxlength" class="help-block">Password is too long.</p>
-  		<p ng-show="userForm.password.$invalid && userForm.password.$error.minlength && userForm.password.$touched" class="help-block">Password is too short, Please enter more than 8 characters.</p>
-        <p ng-show="userForm.password.$invalid && (vm.formSubmitted || vm.errors.password)" class="help-block">{{vm.errors.password}}</p>
+        <p ng-show="vm.registerForm.password.$error.required && ( vm.formSubmitted || vm.registerForm.password.$touched)" class="help-block">Password is required.</p>
+    		<p ng-show="vm.registerForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+    		<p ng-show="vm.registerForm.password.$invalid && vm.registerForm.password.$error.minlength && vm.registerForm.password.$touched" class="help-block">Password is too short, Please enter more than 8 characters.</p>
+        <p ng-show="vm.registerForm.password.$invalid && (vm.formSubmitted || vm.errors.password)" class="help-block">{{vm.errors.password}}</p>
+    </div>
+    <div class="form-group has-feedback" ng-class="{ 'has-error': vm.registerForm.password_confirmation.$invalid && ( vm.formSubmitted || vm.registerForm.password_confirmation.$touched || (vm.password !== vm.password_confirmation && vm.registerForm.password.$touched)) }">
+        <input type="password" class="form-control" placeholder="Password confirmation" ng-model="vm.password_confirmation" password-verify="vm.password" name="password_confirmation" ng-minlength="8" ng-maxlength="50" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+        <p ng-show="vm.registerForm.password_confirmation.$error.required && ( vm.formSubmitted || vm.registerForm.password_confirmation.$touched)" class="help-block">Password confirmation is required.</p>
+        <p ng-show="vm.registerForm.password_confirmation.$error.passwordVerify && ( vm.formSubmitted || vm.registerForm.password_confirmation.$touched)" class="help-block">Password confirmation does not match.</p>
+        <p ng-show="vm.registerForm.password_confirmation.$error.maxlength" class="help-block">Password confirmation is too long.</p>
+        <p ng-show="vm.registerForm.password_confirmation.$invalid && vm.registerForm.password_confirmation.$error.minlength && vm.registerForm.password_confirmation.$touched" class="help-block">Password confirmation is too short, Please enter more than 8 characters.</p>
+        <p ng-show="vm.registerForm.password_confirmation.$invalid && (vm.formSubmitted || vm.errors.password_confirmation)" class="help-block">{{vm.errors.password_confirmation}}</p>
     </div>
     <div class="row">
         <div class="col-xs-12">

@@ -187,7 +187,7 @@ class AuthController extends Controller
         $this->validate($request, [
             'name'       => 'required|min:3',
             'email'      => 'required|email|unique:users',
-            'password'   => 'required|min:8',
+            'password'   => 'required|min:8|confirmed',
         ]);
 
         $verificationCode = str_random(40);
