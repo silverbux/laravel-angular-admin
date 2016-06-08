@@ -1,0 +1,43 @@
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li ng-repeat="item in items">
+        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+      </li>
+    </ul>
+    Selected: <b>{{ selected.item }}</b>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+<section class="content-header">
+  <h1>
+    Modals
+    <small>new</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">UI</a></li>
+    <li class="active">Modals</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <i class="fa fa-clone"></i>
+      <h3 class="box-title">Modals</h3>
+    </div>
+    <div class="box-body">
+      <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+      <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
+      <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+      <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
+      <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+    </div>
+  </div>
+</section>
