@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.4.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.4.0) (2016-06-09)
+[Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.3.0...v0.4.0)
+
+**Merged pull requests:**
+
+- Added ui modal and sweet alerts component  [\#41](https://github.com/silverbux/laravel-angular-admin/pull/41) ([silverbux](https://github.com/silverbux))
+- Added ui timeline component [\#40](https://github.com/silverbux/laravel-angular-admin/pull/40) ([silverbux](https://github.com/silverbux))
+- Added ui buttons component [\#39](https://github.com/silverbux/laravel-angular-admin/pull/39) ([silverbux](https://github.com/silverbux))
+- Added ui icons component \( fontawesome and glyphicon\) [\#38](https://github.com/silverbux/laravel-angular-admin/pull/38) ([silverbux](https://github.com/silverbux))
+- Added general ui component [\#37](https://github.com/silverbux/laravel-angular-admin/pull/37) ([silverbux](https://github.com/silverbux))
+- Added general form component and fixed html files indentionn to 2 [\#36](https://github.com/silverbux/laravel-angular-admin/pull/36) ([silverbux](https://github.com/silverbux))
+
 ## [v0.3.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.3.0) (2016-06-08)
 [Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.2.0...v0.3.0)
 
