@@ -52,6 +52,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.uimodal', {
+      url: '/ui-modal',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<ui-modal></ui-modal>'
+        }
+      }
+    })
     .state('app.uitimeline', {
       url: '/ui-timeline',
       data: {

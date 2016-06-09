@@ -1,0 +1,60 @@
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li ng-repeat="item in mvm.items">
+        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+      </li>
+    </ul>
+    <h4>Selected: <small><code>{{ selected.item }}</code></small></h4>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="mvm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="mvm.cancel()">Cancel</button>
+  </div>
+</script>
+<section class="content-header">
+  <h1>
+    Modals
+    <small>new</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">UI</a></li>
+    <li class="active">Modals</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <i class="fa fa-clone"></i>
+      <h3 class="box-title">Modals</h3>
+    </div>
+    <div class="box-body">
+      <button type="button" class="btn btn-default" ng-click="vm.modalOpen()">Open me!</button>
+      <button type="button" class="btn btn-default" ng-click="vm.modalOpen('lg')">Large modal</button>
+      <button type="button" class="btn btn-default" ng-click="vm.modalOpen('sm')">Small modal</button>
+      <button type="button" class="btn btn-default" ng-click="vm.toggleModalAnimation()">Toggle Animation ({{ vm.animationsEnabled }})</button>
+      <div ng-show="selected"><h4>Selection from a modal: <small><code>{{ selected }}</code></small></h4></div>
+    </div>
+  </div>
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <i class="fa fa-info-circle"></i>
+      <h3 class="box-title">Sweet Alerts</h3>
+    </div>
+    <div class="box-body">
+      <button type="button" class="btn btn-default" ng-click="vm.swalBasic()">Basic</button>
+      <button type="button" class="btn btn-success" ng-click="vm.swalSuccess()">Success Message</button>
+      <button type="button" class="btn btn-danger" ng-click="vm.swalConfirm()">Confirm</button>
+      <button type="button" class="btn btn-primary" ng-click="vm.swalAjax()">AJAX</button>
+      <button type="button" class="btn btn-info" ng-click="vm.swalDecide()">Decision</button>
+      <button type="button" class="btn btn-info" ng-click="vm.swalImage()">Custom Image</button>
+      <button type="button" class="btn btn-info" ng-click="vm.swalHtmlMessage()">HTML Message</button>
+      <button type="button" class="btn btn-info" ng-click="vm.swalAutoClose()">Auto Close</button>
+      <button type="button" class="btn btn-info" ng-click="vm.swalPrompt()">Prompt</button>
+    </div>
+  </div>
+</section>
