@@ -23,31 +23,33 @@ class UiModalController {
       controllerAs: 'mvm',
       size: size,
       resolve: {
-        items: function () {
+        items: () => {
           return items
         }
       }
     })
 
-    modalInstance.result.then(function (selectedItem) {
+    modalInstance.result.then((selectedItem) => {
       $scope.selected = selectedItem
-    }, function () {
+    }, () => {
       $log.info('Modal dismissed at: ' + new Date())
     })
   }
 
   modalcontroller ($scope, $uibModalInstance, items) {
+    'ngInject'
+
     this.items = items
 
     $scope.selected = {
       item: items[0]
     }
 
-    this.ok = function () {
+    this.ok = () => {
       $uibModalInstance.close($scope.selected.item)
     }
 
-    this.cancel = function () {
+    this.cancel = () => {
       $uibModalInstance.dismiss('cancel')
     }
   }
@@ -65,7 +67,7 @@ class UiModalController {
       confirmButtonColor: '#DD6B55',
       confirmButtonText: 'Yes, delete it!',
       closeOnConfirm: false
-    }, function () {
+    }, () => {
       swal('Deleted!', 'Your imaginary file has been deleted.', 'success')
     })
   }
@@ -89,7 +91,7 @@ class UiModalController {
       cancelButtonText: 'No, cancel plx!',
       closeOnConfirm: false,
       closeOnCancel: false
-    }, function (isConfirm) {
+    }, (isConfirm) => {
       if (isConfirm) {
         swal('Deleted!', 'Your imaginary file has been deleted.', 'success')
       } else {
@@ -132,7 +134,7 @@ class UiModalController {
       closeOnConfirm: false,
       animation: 'slide-from-top',
       inputPlaceholder: 'Write something'
-    }, function (inputValue) {
+    }, (inputValue) => {
       if (inputValue === false)
         return false
       if (inputValue === '') {
@@ -153,7 +155,7 @@ class UiModalController {
       showCancelButton: true,
       closeOnConfirm: false,
       showLoaderOnConfirm: true
-    }, function () {
+    }, () => {
       let UserData = API.service('me', API.all('users'))
 
       UserData.one().get()
