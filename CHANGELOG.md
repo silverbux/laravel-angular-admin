@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.1](https://github.com/silverbux/laravel-angular-admin/tree/v0.4.1) (2016-06-12)
+[Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.4.0...v0.4.1)
+
+**Merged pull requests:**
+
+- Applied Patch for UI-Modal unknown provider when in production build [\#42](https://github.com/silverbux/laravel-angular-admin/pull/42) ([silverbux](https://github.com/silverbux))
+
 ## [v0.4.0](https://github.com/silverbux/laravel-angular-admin/tree/v0.4.0) (2016-06-09)
 [Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.3.0...v0.4.0)
 
