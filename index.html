@@ -53,10 +53,10 @@ isHome: true
 {% highlight text %}
 $ composer install && npm install
 {% endhighlight %}
-<p>Copy <code>.env.example</code> to <code>.env</code> and enter necessary config for DB and Oauth Providers Settings.</p>
+<p>Open <code>.env</code> and enter necessary config for DB and Oauth Providers Settings.</p>
 {% highlight text %}
 $ php artisan migrate
-$ php artisan key:generate
+$ php artisan db:seed
 {% endhighlight %}
   <h3 id="configuration">Configuration</h3>
   <p>Open <code>.env</code> file, if it does not exists copy <code>.env.example</code> file .</p>
@@ -187,14 +187,31 @@ $ heroku run php artisan migrate --app your_app_name
   <h1 id="faq" class="page-header">FAQ / Issues</h1>
   <ol>
     <li>
-      <h4 id="general_workflow">New Component not showing up</h4>
+      <h4 id="issue_1">New Component not showing up</h4>
       <p>There's a current bug where it requires you to restart <code>gulp && gulp watch</code> everytime a new file is created.</p>
       <p>Just press control + c and enter <code>gulp && gulp watch</code> again.</p>
     </li>
     <li>
-      <h4 id="general_workflow">Curl error 60</h4>
+      <h4 id="issue_2">Curl error 60</h4>
       <p>This is a laravel issue.</p>
       <p><a href="http://stackoverflow.com/questions/30402280/how-solve-curl-error-60-ssl-certificate-in-laravel-5">Click Here</a> to see solution</p>
+    </li>
+    <li>
+      <h4 id="issue_3">file_get_contents(path/to/your/script/public/build/rev-manifest.json): failed to open stream.</h4>
+      <p>Open your terminal and enter the following:</p>
+      <p>
+{% highlight html %}
+$ npm install
+{% endhighlight %}
+      </p>
+      <p>
+        <h4>OR</h4>
+      </p>
+      <p>
+{% highlight html %}
+$ gulp
+{% endhighlight %}
+      </p>
     </li>
   </ol>
 </section>
