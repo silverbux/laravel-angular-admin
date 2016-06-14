@@ -159,6 +159,29 @@ $ karma start
 {% highlight text %}
 $ phpunit
 {% endhighlight %}
+
+  <h3 id="deploy_to_heroku">Deploy to heroku</h3>
+  <p>
+    <a href="https://heroku.com/deploy?template=https://github.com/silverbux/laravel-angular-admin/tree/master" target="_blank">
+      <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+    </a>
+  </p>
+  <p>
+    <p>1. Click deploy button</p>
+    <p>2. After build and "successfully deployed", Click Manage App</p>
+    <p>3. Go to settings and click "Reveal Config Vars"</p>
+    <p>4. Set necessary config for DB based from CLEARDB_DATABASE_URL or from your custom database</p>
+    <p>5. Execute migration and db seed with the following commands</p>
+
+    <p><strong>Database Migration</strong></p>
+{% highlight text %}
+$ heroku run php artisan migrate --app your_app_name
+{% endhighlight %}
+<p><strong>Database Seeds</strong></p>
+{% highlight text %}
+$ heroku run php artisan migrate --app your_app_name
+{% endhighlight %}
+  </p>
 </section>
 <section class="bs-docs-section">
   <h1 id="faq" class="page-header">FAQ / Issues</h1>
