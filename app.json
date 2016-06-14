@@ -1,0 +1,128 @@
+{
+  "name": "Laravel Angular Admin",
+  "description": "Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate / Starter.",
+  "keywords": [
+    "laravel",
+    "angular",
+    "admin",
+    "boilerplate",
+    "starter kit"
+  ],
+  "website": "http://silverbux.github.io/laravel-angular-admin/",
+  "repository": "https://github.com/silverbux/laravel-angular-admin/tree/deploy-to-heroku",
+  "scripts": {
+    "postdeploy": "composer install"
+  },
+  "addons": [
+    "cleardb"
+  ],
+  "env": {
+    "API_PREFIX": {
+      "description": "API prefix.",
+      "value": "api",
+      "required": true
+    },
+    "APP_ENV": {
+      "description": "API prefix.",
+      "value": "production",
+      "required": true
+    },
+    "DB_DATABASE": {
+      "description": "Database Name.",
+      "value": "setup later",
+      "required": false
+    },
+    "DB_HOST": {
+      "description": "Database Host.",
+      "value": "setup later",
+      "required": false
+    },
+    "DB_USERNAME": {
+      "description": "Database Username.",
+      "value": "setup later",
+      "required": false
+    },
+    "DB_PASSWORD": {
+      "description": "Database Password.",
+      "value": "setup later",
+      "required": false
+    },
+    "MAIL_DRIVER": {
+      "description": "Mail driver (optional).",
+      "value": "smtp",
+      "required": false
+    },
+    "MAIL_ENCRYPTION": {
+      "description": "Mail Encryption (optional).",
+      "value": "tls",
+      "required": false
+    },
+    "MAIL_FROM": {
+      "description": "Email addresss to use when sending mail. (optional)",
+      "value": "laravel@admin.com",
+      "required": false
+    },
+    "MAIL_FROM_NAME": {
+      "description": "Name for the email address. (optional)",
+      "value": "laravel admin",
+      "required": false
+    },
+    "MAIL_HOST": {
+      "description": "Host of the mail server.",
+      "required": false
+    },
+    "MAIL_USERNAME": {
+      "description": "Mail server username.",
+      "required": false
+    },
+    "MAIL_PASSWORD": {
+      "description": "Mail server password.",
+      "required": false
+    },
+    "MAIL_PORT": {
+      "description": "Port of mail server.",
+      "required": false
+    },
+    "FACEBOOK_CLIENT_ID": {
+      "description": "facebook client id for oauth login (optional).",
+      "required": false
+    },
+    "FACEBOOK_CLIENT_SECRET": {
+      "description": "facebook client secret for oauth login (optional).",
+      "required": false
+    },
+    "FACEBOOK_REDIRECT": {
+      "description": "facebook redirect url for oauth login (optional).",
+      "required": false
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "github client id for oauth login (optional).",
+      "required": false
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "github client secret for oauth login (optional).",
+      "required": false
+    },
+    "GITHUB_REDIRECT": {
+      "description": "github redirect url for oauth login (optional).",
+      "required": false
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "google client id for oauth login (optional).",
+      "required": false
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "google client secret for oauth login (optional).",
+      "required": false
+    },
+    "GOOGLE_REDIRECT": {
+      "description": "google redirect url for oauth login (optional).",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-multi"
+    }
+  ]
+}
