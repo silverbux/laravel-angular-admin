@@ -66,6 +66,9 @@ $ artisan ng:config name     #New config inside angular/config/
 
 #### [Read Full Documentation] (http://silverbux.github.io/laravel-angular-admin)
 
+## Need Help?
+You need help customizing? You have an awesome project and you need to hire a coder? hit me up with a message my email address is indicated on my [Github Profile] (https://github.com/silverbux) OR send me a message on skype: **silverbux**
+
 ## Features
 * [JWT-Auth] (https://github.com/tymondesigns/jwt-auth)
 * [Socialite] (https://github.com/laravel/socialite)
