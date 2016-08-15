@@ -1,4 +1,8 @@
 <form ng-submit="vm.login()" method="post" name="vm.loginForm">
+  <div class="callout callout-danger" ng-if="vm.loginfailederror">
+    <h4>Login Failed</h4>
+    <p>{{ vm.loginfailederror }}</p>
+  </div>
   <div class="callout callout-danger" ng-if="vm.loginfailed">
     <h4>Login Failed</h4>
     <p>Incorrect Email/Username or Password.</p>
