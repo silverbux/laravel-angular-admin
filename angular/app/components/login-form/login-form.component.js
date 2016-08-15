@@ -11,6 +11,7 @@ class LoginFormController {
 
     this.registerSuccess = $stateParams.registerSuccess
     this.successMsg = $stateParams.successMsg
+    this.loginfailederror = ''
     this.loginfailed = false
     this.unverified = false
   }
@@ -21,6 +22,7 @@ class LoginFormController {
   }
 
   login () {
+    this.loginfailederror = ''
     this.loginfailed = false
     this.unverified = false
 
@@ -51,6 +53,11 @@ class LoginFormController {
     } else {
       if (res.data.errors.message[0] == 'Email Unverified') {
         this.unverified = true
+      } else {
+        // other kinds of error returned from server
+        for (var error in res.data.errors) {
+          this.loginfailederror += res.data.errors[error] + ' '
+        }
       }
     }
   }

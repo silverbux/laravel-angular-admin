@@ -5,6 +5,7 @@ class ForgotPasswordController {
     this.API = API
     this.$state = $state
     this.formSubmitted = false
+    this.serverError = ''
   }
 
   $onInit () {
@@ -12,11 +13,16 @@ class ForgotPasswordController {
   }
 
   submit () {
+    this.serverError = ''
+
     this.API.all('auth/password/email').post({
       email: this.email
     }).then(() => {
       this.$state.go('login', { successMsg: `Please check your email for instructions on how to reset your password.` })
-    }, () => {
+    }, (res) => {
+      for (var error in res.data.errors) {
+        this.serverError += res.data.errors[error] + ' '
+      }
       this.formSubmitted = true
     })
   }
