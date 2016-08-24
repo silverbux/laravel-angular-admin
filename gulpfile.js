@@ -1,4 +1,6 @@
 var elixir = require('laravel-elixir')
+
+require('./tasks/concatScripts.task.js');
 require('laravel-elixir-karma')
 require('./tasks/angular.task.js')
 require('./tasks/bower.task.js')
@@ -25,27 +27,36 @@ elixir(function (mix) {
   var fontsOutputFolder = config.fonts.outputFolder
   var buildPath = config.buildPath
 
-  var assets = [
-      jsOutputFolder + '/vendor.js',
-      jsOutputFolder + '/partials.js',
-      jsOutputFolder + '/app.js',
-      cssOutputFolder + '/vendor.css',
-      cssOutputFolder + '/app.css'
-    ],
-    karmaJsDir = [
-      jsOutputFolder + '/vendor.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/ng-describe/dist/ng-describe.js',
-      jsOutputFolder + '/partials.js',
-      jsOutputFolder + '/app.js',
-      'tests/angular/**/*.spec.js'
-  ]
+   var assets = [
+          'public/js/final.js',
+          'public/css/final.css'
+        ],
+        scripts = [
+          './public/js/vendor.js',
+          './public/js/partials.js',
+          './public/js/app.js',
+          './public/dist/js/app.js'
+        ],
+        styles = [
+          './public/css/vendor.css',
+          './public/css/app.css'
+        ],
+        karmaJsDir = [
+          jsOutputFolder + '/vendor.js',
+          'node_modules/angular-mocks/angular-mocks.js',
+          'node_modules/ng-describe/dist/ng-describe.js',
+          jsOutputFolder + '/partials.js',
+          jsOutputFolder + '/app.js',
+          'tests/angular/**/*.spec.js'
+        ];
 
   mix
     .bower()
     .angular('./angular/')
     .ngHtml2Js('./angular/**/*.html')
+    .concatScripts(scripts, 'final.js')
     .sass('./angular/**/*.scss', 'public/css')
+    .styles(styles, './public/css/final.css')
     .version(assets)
     .browserSync({
       proxy: 'localhost:8000'
