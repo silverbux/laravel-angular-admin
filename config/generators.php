@@ -10,7 +10,7 @@ return [
             'filters'         => 'filters',
             'services'        => 'services',
       ],
-      'prefix' => [
+      'suffix' => [
             'component'       => '.component.js',
             'componentView'   => '.component.html',
             'dialog'          => '.dialog.js',
@@ -19,6 +19,7 @@ return [
             'config'          => '.config.js',
             'filter'          => '.filter.js',
             'pageView'        => '.page.html',
+            'stylesheet'      => 'scss',
       ],
       'tests' => [
             'enable' => [
