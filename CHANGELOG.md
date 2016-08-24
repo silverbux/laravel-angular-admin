@@ -1,5 +1,36 @@
 # Change Log
 
+## [v0.4.2](https://github.com/silverbux/laravel-angular-admin/tree/v0.4.2) (2016-08-24)
+[Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.4.1...v0.4.2)
+
+**Closed issues:**
+
+- Using Gulp watch will result in JWT failure [\#62](https://github.com/silverbux/laravel-angular-admin/issues/62)
+- Error when updating user profile [\#61](https://github.com/silverbux/laravel-angular-admin/issues/61)
+- Bootstrap modals have lost their rounded corners [\#59](https://github.com/silverbux/laravel-angular-admin/issues/59)
+- login error [\#58](https://github.com/silverbux/laravel-angular-admin/issues/58)
+- Error: the fixed layout requires the slimscroll plugin! [\#57](https://github.com/silverbux/laravel-angular-admin/issues/57)
+- \[question\] acl: protect a route [\#56](https://github.com/silverbux/laravel-angular-admin/issues/56)
+- Warnings during installation [\#55](https://github.com/silverbux/laravel-angular-admin/issues/55)
+- can't use new module [\#54](https://github.com/silverbux/laravel-angular-admin/issues/54)
+- Problem running the "Gulp" part of the install [\#53](https://github.com/silverbux/laravel-angular-admin/issues/53)
+- Adding datatables.buttons [\#52](https://github.com/silverbux/laravel-angular-admin/issues/52)
+- How to create a new Angular Component [\#51](https://github.com/silverbux/laravel-angular-admin/issues/51)
+- gulp --production error [\#50](https://github.com/silverbux/laravel-angular-admin/issues/50)
+- How to enable auto/live reload [\#49](https://github.com/silverbux/laravel-angular-admin/issues/49)
+- Role Based Access Control [\#48](https://github.com/silverbux/laravel-angular-admin/issues/48)
+- Does this compatible with laravel5-angular-material-starter? [\#47](https://github.com/silverbux/laravel-angular-admin/issues/47)
+- composer install errors [\#46](https://github.com/silverbux/laravel-angular-admin/issues/46)
+- file\_get\_contents\(C:\xampp\htdocs\AngLara\public\build/rev-manifest.json\): failed to open stream: No such file or directory [\#43](https://github.com/silverbux/laravel-angular-admin/issues/43)
+
+**Merged pull requests:**
+
+- Asset Concatination [\#64](https://github.com/silverbux/laravel-angular-admin/pull/64) ([silverbux](https://github.com/silverbux))
+- Switching from less to sass [\#63](https://github.com/silverbux/laravel-angular-admin/pull/63) ([silverbux](https://github.com/silverbux))
+- Fix server side error display in login & forgot pages [\#60](https://github.com/silverbux/laravel-angular-admin/pull/60) ([thomasmktong](https://github.com/thomasmktong))
+- Added simple tables component [\#45](https://github.com/silverbux/laravel-angular-admin/pull/45) ([silverbux](https://github.com/silverbux))
+- Added deploy to heroku button [\#44](https://github.com/silverbux/laravel-angular-admin/pull/44) ([silverbux](https://github.com/silverbux))
+
 ## [v0.4.1](https://github.com/silverbux/laravel-angular-admin/tree/v0.4.1) (2016-06-12)
 [Full Changelog](https://github.com/silverbux/laravel-angular-admin/compare/v0.4.0...v0.4.1)
 
