@@ -1,4 +1,4 @@
-# Laravel Angular Admin LTE
+# Laravel 5.2 Angular Admin LTE
 Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate.
 Plus Oauth and JWT authentication on the side.
 
