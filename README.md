@@ -3,7 +3,6 @@ Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboa
 Plus Oauth and JWT authentication on the side.
 
 [![Build Status](https://travis-ci.org/yasser20122/laravel5.2-angular-admin-lte.svg?branch=master)](https://travis-ci.org/yasser20122/laravel5.2-angular-admin-lte)
-
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/silverbux/laravel-angular-admin/master/LICENSE)
 [![Code Climate](https://codeclimate.com/github/silverbux/laravel-angular-admin/badges/gpa.svg)](https://codeclimate.com/github/silverbux/laravel-angular-admin)
