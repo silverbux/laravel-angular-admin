@@ -9,7 +9,7 @@ Plus Oauth and JWT authentication on the side.
 [![Issue Count](https://codeclimate.com/github/silverbux/laravel-angular-admin/badges/issue_count.svg)](https://codeclimate.com/github/silverbux/laravel-angular-admin)
 [![StyleCI](https://styleci.io/repos/56498155/shield)](https://styleci.io/repos/56498155)
 
-[![wercker status](https://app.wercker.com/status/92444e926f721c992f7f41c605d5cbc4/m "wercker status")](https://app.wercker.com/project/bykey/92444e926f721c992f7f41c605d5cbc4)
+[![wercker status](https://app.wercker.com/status/f9ae3d5d35b9e56d8181de4279ccc8bd/m/master "wercker status")](https://app.wercker.com/project/byKey/f9ae3d5d35b9e56d8181de4279ccc8bd)
 
 ## Screenshots
 ![Dashboard Screenshot](https://cloud.githubusercontent.com/assets/1888261/14597104/53b404b6-057d-11e6-876d-c83630686590.png)
