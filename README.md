@@ -1,15 +1,19 @@
-# Laravel Angular Admin
+# Laravel 5.2 Angular Admin LTE
 Laravel + Angularjs + Bootstrap + AdminLTE binded by Gulp workflow Admin Dashboard Boilerplate.
 Plus Oauth and JWT authentication on the side.
 
-[![Build Status](https://travis-ci.org/silverbux/laravel-angular-admin.svg?branch=master)](https://travis-ci.org/silverbux/laravel-angular-admin)
+[![wercker status](https://app.wercker.com/status/f9ae3d5d35b9e56d8181de4279ccc8bd/s/master "wercker status")](https://app.wercker.com/project/byKey/f9ae3d5d35b9e56d8181de4279ccc8bd)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/silverbux/laravel-angular-admin/master/LICENSE)
 [![Code Climate](https://codeclimate.com/github/silverbux/laravel-angular-admin/badges/gpa.svg)](https://codeclimate.com/github/silverbux/laravel-angular-admin)
 [![Issue Count](https://codeclimate.com/github/silverbux/laravel-angular-admin/badges/issue_count.svg)](https://codeclimate.com/github/silverbux/laravel-angular-admin)
 [![StyleCI](https://styleci.io/repos/56498155/shield)](https://styleci.io/repos/56498155)
 
-[![wercker status](https://app.wercker.com/status/92444e926f721c992f7f41c605d5cbc4/m "wercker status")](https://app.wercker.com/project/bykey/92444e926f721c992f7f41c605d5cbc4)
+
+
+![laradmin](https://cloud.githubusercontent.com/assets/1888261/15561320/1899b4b2-2327-11e6-8a3a-7e3d7ce31621.png)
+
+
 
 ## Screenshots
 ![Dashboard Screenshot](https://cloud.githubusercontent.com/assets/1888261/14597104/53b404b6-057d-11e6-876d-c83630686590.png)
@@ -17,14 +21,6 @@ Plus Oauth and JWT authentication on the side.
 ![Login Screenshot](https://cloud.githubusercontent.com/assets/13616776/14597970/a366dc7c-0582-11e6-853b-776b1cf17aed.png
 )
 
-## Demo
-[Click here for a live demo](http://laravel-admin.herokuapp.com)
-
-*Note: If you register or use Oauth to sign-in your info will be available on public under user lists component, you can use credentials below.*
-
-> admin@example.com / password
-
-![laradmin](https://cloud.githubusercontent.com/assets/1888261/15561320/1899b4b2-2327-11e6-8a3a-7e3d7ce31621.png)
 
 ## Installation
 ```
