@@ -24,6 +24,7 @@ before_script:
   - php artisan migrate --force
   - php artisan key:generate
   - npm install
+  - npm rebuild node-sass
   - bower install
 
 script:
