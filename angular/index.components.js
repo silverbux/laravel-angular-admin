@@ -6,6 +6,7 @@ import { UiIconsComponent } from './app/components/ui-icons/ui-icons.component'
 import { UiGeneralComponent } from './app/components/ui-general/ui-general.component'
 import { FormsGeneralComponent } from './app/components/forms-general/forms-general.component'
 import { ChartsChartjsComponent } from './app/components/charts-chartjs/charts-chartjs.component'
+import { ChartsFlotComponent } from './app/components/charts-flot/charts-flot.component'
 import { WidgetsComponent } from './app/components/widgets/widgets.component'
 import { UserProfileComponent } from './app/components/user-profile/user-profile.component'
 import { UserVerificationComponent } from './app/components/user-verification/user-verification.component'
@@ -36,6 +37,7 @@ angular.module('app.components')
   .component('uiGeneral', UiGeneralComponent)
   .component('formsGeneral', FormsGeneralComponent)
   .component('chartsChartjs', ChartsChartjsComponent)
+  .component('chartsFlot', ChartsFlotComponent)
   .component('widgets', WidgetsComponent)
   .component('userProfile', UserProfileComponent)
   .component('userVerification', UserVerificationComponent)
