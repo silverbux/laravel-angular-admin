@@ -129,6 +129,17 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.flot', {
+      url: '/charts-flot',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<charts-flot></charts-flot>'
+        }
+      }
+    })
     .state('app.comingsoon', {
       url: '/comingsoon',
       data: {
